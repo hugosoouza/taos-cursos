@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>QG · TAOS Militar</title>
-<meta name="description" content="Área do aluno da TAOS Militar: entre com seu login e escolha a mentoria.">
+<title>Área do aluno · TAOS</title>
+<meta name="description" content="Área do aluno da TAOS: entre com seu login e escolha o seu curso.">
 <meta name="theme-color" content="#040a17">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hub.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Outfit:wght@400;500;600;700;800&family=Nunito:wght@900&family=Space+Grotesk:wght@700&family=Fraunces:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub.css?v=4">
 </head>
 <body>
 <div class="wrap">
@@ -24,9 +24,9 @@
 </div>
 
 <script src="config.js?v=3"></script>
-<script src="cursos.js?v=3"></script>
+<script src="cursos.js?v=4"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
-<script src="common.js?v=3"></script>
+<script src="common.js?v=4"></script>
 <script>
 (function () {
   var T = window.TAOS, esc = T.esc, view = T.$('#view');
@@ -38,11 +38,11 @@
   /* ---------- Telas de acesso ---------- */
   function telaLogin(msg, ok) {
     view.className = 'center';
-    view.innerHTML =
+    view.innerHTML = '<div class="login-wrap">' +
       '<form class="card" id="fLogin" novalidate>' +
         '<span class="badge-top">Área do aluno</span>' +
-        '<h1 class="stencil">Identifique-se</h1>' +
-        '<p class="sub">Acesso restrito à tropa matriculada. Use o login que você recebeu no WhatsApp.</p>' +
+        '<h1 class="stencil">Bem-vindo de volta</h1>' +
+        '<p class="sub">Entre com o e-mail e a senha que você recebeu no WhatsApp.</p>' +
         (msg ? '<div class="msg ' + (ok ? 'ok' : '') + '" role="alert">' + esc(msg) + '</div>' : '') +
         '<div class="fld"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@gmail.com" required></div>' +
         '<div class="fld"><label for="senha">Senha</label><input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required></div>' +
@@ -52,7 +52,7 @@
           '<a class="linkbtn" target="_blank" rel="noopener" href="' + wa('Olá! Preciso de ajuda para entrar na área do aluno da TAOS.') + '">Preciso de ajuda</a>' +
         '</div>' +
         '<p class="legal-note">Ao entrar, você concorda com os <a href="../termos.html">Termos de uso</a> e a <a href="../privacidade.html">Política de privacidade</a>.</p>' +
-      '</form>';
+      '</form>' + pilulas() + '</div>';
     T.$('#fLogin').onsubmit = async function (e) {
       e.preventDefault();
       var em = T.$('#email').value.trim(), se = T.$('#senha').value;
@@ -63,6 +63,12 @@
       else meusCursos();
     };
     T.$('#esqueci').onclick = function () { telaEsqueci(); };
+  }
+  function pilulas() {
+    return '<div class="divpills" aria-label="Divisões da TAOS">' + T.divOrdem.map(function (id, i) {
+      var d = T.divs[id];
+      return '<span class="divpill" style="' + T.divVars(d) + ';--d:' + (0.3 + i * 0.08) + 's">' + T.icone(d.icone) + d.nome + '</span>';
+    }).join('') + '</div>';
   }
 
   function telaEsqueci(msg, ok) {
@@ -111,14 +117,15 @@
   /* ---------- Meus cursos ---------- */
   function card(c, i) {
     var chev = c.carreira === 'Militar' ? '<div class="chev" aria-hidden="true"><i></i><i></i><i></i></div>' : '<div class="chev" aria-hidden="true"><i></i></div>';
-    return '<a class="course" href="curso.html?c=' + c.id + '" style="' + T.vars(c) + ';--d:' + (i * 0.08) + 's">' +
+    var dv = T.divDe(c);
+    return '<a class="course ' + dv.id + '" href="curso.html?c=' + c.id + '" style="' + T.vars(c) + ';--d:' + (i * 0.08) + 's">' +
       '<span class="ring" aria-hidden="true"></span>' +
       (c.pronto ? '' : '<span class="soon">Em preparação</span>') +
       '<span class="stripe"></span>' +
       '<span class="tag">' + (c.carreira === 'Militar' ? 'Polícia Militar' : 'Polícia Civil') + ' · ' + c.uf + '</span>' +
       '<span class="sigla">' + c.sigla + '</span>' +
       '<span class="nome">' + esc(c.nome) + '</span>' + chev +
-      '<span class="go"><span>Entrar no QG</span><span aria-hidden="true">→</span></span>' +
+      '<span class="go"><span>' + dv.cta + '</span><span aria-hidden="true">→</span></span>' +
     '</a>';
   }
 
@@ -145,15 +152,41 @@
     if (pedido && ids.indexOf(pedido) >= 0) { location.replace('curso.html?c=' + pedido); return; }
 
     var primeiro = String(nome).split(' ')[0];
-    var lista = ids.map(function (id, i) { return card(T.cursos[id], i); }).join('');
+    // Divisões com curso cadastrado (ativas) e sem curso (em preparação)
+    var ativas = T.divOrdem.filter(function (d) { return T.ordem.some(function (id) { return T.cursos[id].divisao === d; }); });
+    var prepara = T.divOrdem.filter(function (d) { return ativas.indexOf(d) < 0; });
+    var secoes = ativas.map(function (dId, k) {
+      var d = T.divs[dId];
+      var meus = ids.filter(function (id) { return T.cursos[id].divisao === dId; });
+      return '<section class="divsec ' + dId + '" style="' + T.divVars(d) + ';--d:' + (k * 0.08) + 's">' +
+        '<div class="divhead"><span class="ic">' + T.icone(d.icone) + '</span><div><h2>TAOS <span>' + esc(d.curto) + '</span></h2><p>' + esc(d.desc) + '</p></div>' +
+        '<span class="n">' + meus.length + (meus.length === 1 ? ' curso liberado' : ' cursos liberados') + '</span></div>' +
+        (meus.length ? '<div class="courses">' + meus.map(function (id, i) { return card(T.cursos[id], i); }).join('') + '</div>' :
+          '<div class="divempty">Você ainda não tem curso liberado na ' + esc(d.nome) + '. <a target="_blank" rel="noopener" href="' + wa('Olá! Quero conhecer os cursos da ' + d.nome + '.') + '">Conheça os cursos</a></div>') +
+      '</section>';
+    }).join('');
+    var motivos = {
+      saude: '<svg class="motif ecg" viewBox="0 0 300 70" preserveAspectRatio="none"><path d="M0 40 H70 L82 40 L92 12 L104 62 L114 30 L122 40 H180 L190 40 L198 22 L208 52 L216 40 H300"/></svg>',
+      vestibular: '<span class="sym" style="right:22px;top:58px">π</span><span class="sym" style="right:64px;top:120px;animation-delay:-2s">∑</span><span class="sym" style="right:30px;top:178px;animation-delay:-4s">A+</span><span class="sym" style="right:96px;top:62px;animation-delay:-1s;font-size:16px">✓</span>',
+      educacao: '<svg class="motif giz" viewBox="0 0 190 20" preserveAspectRatio="none"><path d="M4 12 C40 4, 80 18, 120 9 S170 6, 186 12"/></svg>'
+    };
+    var prep = prepara.length ? '<section class="prep"><div class="prep-t"><h2>Em preparação</h2><p>Novas divisões da TAOS chegando.</p></div><div class="dgrid">' +
+      prepara.map(function (dId, i) {
+        var d = T.divs[dId];
+        return '<article class="dcard ' + dId + '" style="--d:' + (0.15 + i * 0.1) + 's">' + (motivos[dId] || '') +
+          '<span class="soon">Em preparação</span>' +
+          '<div class="mark">' + T.icone(d.icone) + '</div>' +
+          '<div class="wm"><small>TAOS</small><b>' + esc(d.curto) + '</b></div>' +
+          '<p>' + esc(d.desc) + '. Estamos montando os cursos desta divisão.</p>' +
+          '<a class="avisar" target="_blank" rel="noopener" href="' + wa('Olá! Quero ser avisado quando a ' + d.nome + ' abrir.') + '">Quero ser avisado →</a>' +
+        '</article>';
+      }).join('') + '</div></section>' : '';
     view.innerHTML =
       '<div class="hub-head">' +
-        '<div><span class="badge-top">QG online</span><h1>Bem-vindo, ' + esc(primeiro) + '</h1>' +
-        '<p>' + (ids.length > 1 ? 'Escolha em qual QG você vai estudar agora.' : ids.length ? 'Sua mentoria está pronta para a missão de hoje.' : '') + '</p></div>' +
+        '<div><span class="badge-top">Área do aluno</span><h1>Olá, ' + esc(primeiro) + '</h1>' +
+        '<p>' + (ids.length > 1 ? 'Escolha o curso que você vai estudar agora.' : ids.length ? 'Seu curso está pronto para os estudos de hoje.' : 'Nenhum curso liberado ainda.') + '</p></div>' +
         '<div class="me"><div class="av">' + esc(T.iniciais(nome)) + '</div><div><b>' + esc(nome) + '</b><small>' + esc(email || 'modo demonstração') + '</small></div></div>' +
-      '</div>' +
-      (ids.length ? '<div class="courses">' + lista + '</div>' :
-        '<div class="empty"><h2>Nenhuma mentoria liberada</h2><p>Se você já comprou, a equipe libera seu acesso em instantes.</p><a class="btn wa" target="_blank" rel="noopener" href="' + wa('Olá! Já tenho login, mas nenhuma mentoria aparece na minha área do aluno.') + '">Falar no WhatsApp</a></div>') +
+      '</div>' + secoes + prep +
       '<div class="toolbar">' +
         (admin ? '<a class="btn gold sm" href="admin.html">Painel do comandante</a>' : '') +
         (T.demo ? '' : '<button class="btn ghost sm" id="sair">Sair da conta</button>') +

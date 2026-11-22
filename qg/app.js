@@ -17,8 +17,8 @@ const INTERVALOS=[1,7,15,30];
 const MIN_REV=10;
 const DIAS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 const DIAS_C=['D','S','T','Q','Q','S','S'];
-const MARCA='TAOS MILITAR';
-const LOGO=`<span class="taos-logo"><svg viewBox="0 0 90 90" fill="currentColor" aria-hidden="true"><rect width="90" height="14"/><rect x="24" y="22" width="10" height="68"/><rect x="40" y="22" width="10" height="68"/><rect x="56" y="22" width="10" height="68"/></svg><span class="sep"></span><span><b>TAOS</b><i>MILITAR · ${CURSO.sigla}</i></span></span>`;
+const MARCA='TAOS '+(CURSO.marca||'MILITAR');
+const LOGO=`<span class="taos-logo"><svg viewBox="0 0 90 90" fill="currentColor" aria-hidden="true"><rect width="90" height="14"/><rect x="24" y="22" width="10" height="68"/><rect x="40" y="22" width="10" height="68"/><rect x="56" y="22" width="10" height="68"/></svg><span class="sep"></span><span><b>TAOS</b><i>${CURSO.marca||'MILITAR'} · ${CURSO.sigla}</i></span></span>`;
 /* Patentes por questões certas: [mínimo, nome, nível da insígnia] */
 const PATENTES=CURSO.patentes||[[0,'Recruta',0],[300,'Soldado',1],[1000,'Cabo',2],[2500,'3º Sargento',3],[5000,'2º Sargento',4],[9000,'1º Sargento',5],[15000,'Subtenente',6],[25000,'Aspirante',7],[40000,'Tenente',8]];
 /* ---------- Arte (desenhos próprios) ---------- */
@@ -553,7 +553,7 @@ function render(){
   const [r0,...args]=rota();const r=ROTAS[r0]?r0:'';
   document.getElementById('main').innerHTML=r==='assunto'?pgAssunto(args[0],args[1]!==undefined?+args[1]:undefined):ROTAS[r]();
   renderSide(r==='assunto'?'conteudos':r);
-  document.title=(r==='assunto'&&UN[args[0]]?nomeCurto(UN[args[0]],40):(NAV.find(n=>n[0]===r)||NAV[0])[1])+' · TAOS Militar '+CURSO.sigla;
+  document.title=(r==='assunto'&&UN[args[0]]?nomeCurto(UN[args[0]],40):(NAV.find(n=>n[0]===r)||NAV[0])[1])+' · TAOS '+CURSO.sigla;
 }
 window.addEventListener('hashchange',()=>{if(!USER&&sb)return;fecharMenu();render();const [r0,,b]=rota();const el=r0==='assunto'&&b!==undefined&&document.getElementById('b'+b);if(el)el.scrollIntoView({block:'center'});else window.scrollTo(0,0)});
 

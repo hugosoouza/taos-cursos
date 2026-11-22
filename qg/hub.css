@@ -156,3 +156,101 @@ h1.stencil { font-family: var(--stencil); font-weight: 400; font-size: 32px; let
 }
 .legal-note { margin: 16px 0 0; font-size: 12.5px; color: var(--muted); text-align: center; }
 .legal-note a { color: #b9cff5; }
+
+/* =====================================================================
+   ÁREA DO ALUNO TAOS (neutra) · divisões Militar, Saúde, ENEM e Vestibular, Educação
+   ===================================================================== */
+:root { --brand: 'Outfit', 'Helvetica Neue', Arial, sans-serif; --military: 'Black Ops One', Impact, sans-serif; }
+body { font-family: var(--brand); }
+.scene .g2 { left: auto; right: -25vmax; top: auto; bottom: -35vmax; width: 60vmax; height: 60vmax; background: radial-gradient(circle, rgba(91,155,255,.28), transparent 60%); animation: float 16s ease-in-out infinite alternate; }
+.scene .glow:not(.g2) { animation: float 20s ease-in-out infinite alternate-reverse; }
+@keyframes float { to { transform: translate(6vmax, 4vmax) scale(1.08); } }
+.logo b { font-family: var(--brand); font-weight: 700; letter-spacing: .06em; font-size: 23px; }
+.logo i { font-family: var(--brand); font-weight: 600; letter-spacing: .32em; font-size: 9.5px; color: #8db6ff; }
+h1.stencil, .hub-head h1, .box h2, .empty h2 { font-family: var(--brand); font-weight: 700; text-transform: none; letter-spacing: -.02em; }
+h1.stencil { font-size: 34px; }
+.hub-head h1 { font-size: clamp(32px, 5vw, 54px); }
+.box h2 { font-size: 24px; }
+.badge-top, .fld label, .btn, .tbl th, .chip, #toast, .course .tag, .course .go, .course .soon { font-family: var(--brand); }
+.btn { font-weight: 600; letter-spacing: .06em; font-size: 15px; }
+.badge-top { color: #8db6ff; font-weight: 600; letter-spacing: .22em; }
+.me .av { font-family: var(--brand); font-weight: 700; }
+
+/* Pílulas das divisões no login */
+.divpills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; max-width: 520px; }
+.divpill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: 999px; border: 1px solid rgba(var(--drgb), .4); background: rgba(var(--drgb), .1); color: #fff; font-size: 13.5px; font-weight: 500; animation: rise .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+.divpill svg { width: 18px; height: 18px; color: var(--dcor); }
+.login-wrap { display: grid; justify-items: center; }
+
+/* Divisões após o login */
+.divsec { margin-top: 34px; animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+.divsec:first-of-type { margin-top: 0; }
+.divhead { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(var(--drgb), .28); }
+.divhead .ic { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(var(--drgb), .14); color: var(--dcor); flex: none; }
+.divhead .ic svg { width: 26px; height: 26px; }
+.divhead h2 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+.divhead h2 span { color: var(--dcor); }
+.divhead p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
+.divhead .n { margin-left: auto; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.divsec.militar .divhead h2 span { font-family: var(--military); font-weight: 400; letter-spacing: 1.5px; }
+.course .sigla { font-family: var(--brand); font-weight: 800; letter-spacing: -.01em; }
+.course.militar .sigla { font-family: var(--military); font-weight: 400; letter-spacing: 2px; }
+.course .go { font-weight: 600; letter-spacing: .08em; font-size: 14px; }
+.divempty { padding: 22px; border: 1px dashed rgba(var(--drgb), .35); border-radius: 16px; color: var(--muted); font-size: 14px; }
+
+/* ---------- Divisões em preparação: identidade de cada uma ---------- */
+.prep { margin-top: 44px; }
+.prep-t { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.prep-t h2 { margin: 0; font-size: 22px; font-weight: 700; }
+.prep-t p { margin: 0; color: var(--muted); font-size: 14px; }
+.dgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.dcard { position: relative; overflow: hidden; isolation: isolate; min-height: 300px; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 10px; color: #fff; border: 1px solid rgba(255,255,255,.08); animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.dcard:hover { transform: translateY(-6px); }
+.dcard .soon { position: absolute; top: 18px; right: 18px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.14); backdrop-filter: blur(6px); }
+.dcard .mark { display: flex; align-items: center; gap: 10px; }
+.dcard .mark svg { width: 30px; height: 30px; }
+.dcard .wm { line-height: .95; }
+.dcard .wm small { display: block; font: 700 11px/1 var(--brand); letter-spacing: .3em; opacity: .85; margin-bottom: 6px; }
+.dcard .wm b { display: block; font-size: 34px; }
+.dcard p { margin: 0; font-size: 14.5px; opacity: .85; max-width: 32ch; }
+.dcard .motif { position: absolute; z-index: -1; pointer-events: none; }
+.dcard .avisar { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 10px 16px; border-radius: 999px; font: 600 14px var(--brand); text-decoration: none; transition: transform .2s; }
+.dcard .avisar:hover { transform: translateX(3px); }
+
+/* SAÚDE: verde-água, arredondada, batimento cardíaco */
+.dcard.saude { background: radial-gradient(circle at 85% 10%, rgba(46,196,166,.35), transparent 55%), linear-gradient(160deg, #0b3b37, #061d1f); }
+.dcard.saude .wm b { font-family: 'Nunito', var(--brand); font-weight: 900; letter-spacing: -.01em; color: #7ff0d6; }
+.dcard.saude .mark svg { color: #7ff0d6; }
+.dcard.saude .avisar { background: #2ec4a6; color: #04211b; }
+.dcard.saude .motif.ecg { left: 0; right: 0; bottom: 64px; height: 70px; width: 100%; }
+.ecg path { fill: none; stroke: #2ec4a6; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 520; stroke-dashoffset: 520; animation: ecg 2.6s linear infinite; opacity: .75; }
+@keyframes ecg { 0% { stroke-dashoffset: 520; } 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -520; } }
+.dcard.saude .motif.crosses { inset: 0; background-image: radial-gradient(circle, transparent 0 0); }
+.dcard.saude::after { content: ""; position: absolute; z-index: -1; width: 120px; height: 120px; right: -20px; bottom: -20px; background: rgba(127,240,214,.08); clip-path: polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%); animation: pulse 2.6s ease-in-out infinite; }
+@keyframes pulse { 50% { transform: scale(1.12); } }
+
+/* ENEM E VESTIBULAR: violeta, geométrica, símbolos flutuando */
+.dcard.vestibular { background: radial-gradient(circle at 15% 0, rgba(143,155,255,.4), transparent 55%), linear-gradient(160deg, #241d5e, #0d0b2b); }
+.dcard.vestibular .wm b { font-family: 'Space Grotesk', var(--brand); font-weight: 700; letter-spacing: -.03em; color: #c3c9ff; }
+.dcard.vestibular .mark svg { color: #c3c9ff; }
+.dcard.vestibular .avisar { background: #8f9bff; color: #0b0f33; }
+.dcard.vestibular { background-image: radial-gradient(circle at 15% 0, rgba(143,155,255,.4), transparent 55%), linear-gradient(rgba(143,155,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(143,155,255,.07) 1px, transparent 1px), linear-gradient(160deg, #241d5e, #0d0b2b); background-size: auto, 22px 22px, 22px 22px, auto; }
+.sym { position: absolute; z-index: -1; font: 700 22px 'Space Grotesk', var(--brand); color: rgba(195,201,255,.35); animation: drift 7s ease-in-out infinite; }
+@keyframes drift { 50% { transform: translateY(-14px) rotate(8deg); } }
+
+/* EDUCAÇÃO: laranja quente, serifada, traço de giz */
+.dcard.educacao { background: radial-gradient(circle at 90% 0, rgba(255,162,76,.32), transparent 55%), linear-gradient(160deg, #3a2210, #170d06); }
+.dcard.educacao .wm b { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-style: italic; letter-spacing: -.01em; color: #ffd2a6; }
+.dcard.educacao .mark svg { color: #ffc78f; }
+.dcard.educacao .avisar { background: #ffa24c; color: #2b1500; }
+.dcard.educacao .motif.giz { left: 24px; top: 128px; width: 190px; height: 20px; }
+.giz path { fill: none; stroke: #ffa24c; stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 260; stroke-dashoffset: 260; animation: giz 3.4s ease-in-out infinite; opacity: .85; }
+@keyframes giz { 0% { stroke-dashoffset: 260; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.dcard.educacao::after { content: ""; position: absolute; z-index: -1; inset: auto -10px 18px -10px; height: 70px; background: repeating-linear-gradient(transparent 0 16px, rgba(255,210,166,.08) 16px 17px); }
+
+@media (max-width: 900px) { .dgrid { grid-template-columns: 1fr; } .dcard { min-height: 250px; } }
+@media (max-width: 600px) {
+  .prep-t { flex-direction: column; gap: 4px; }
+  .divhead { flex-wrap: wrap; }
+  .divhead .n { margin-left: 60px; }
+}

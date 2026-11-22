@@ -10,7 +10,7 @@
 
   window.TAOS_CURSOS = {
     pmdf: {
-      id: 'pmdf', sigla: 'PMDF', nome: 'Polícia Militar do Distrito Federal', uf: 'DF',
+      id: 'pmdf', divisao: 'militar', marca: 'MILITAR', sigla: 'PMDF', nome: 'Polícia Militar do Distrito Federal', uf: 'DF',
       cargo: 'Soldado', carreira: 'Militar', pronto: true, base: 'cursos/pmdf/',
       lema: 'Missão: farda azul do DF',
       patentes: PM,
@@ -21,7 +21,7 @@
       camo: ['#0b1322','#122038','#18294a','#060b16']
     },
     pmgo: {
-      id: 'pmgo', sigla: 'PMGO', nome: 'Polícia Militar de Goiás', uf: 'GO',
+      id: 'pmgo', divisao: 'militar', marca: 'MILITAR', sigla: 'PMGO', nome: 'Polícia Militar de Goiás', uf: 'GO',
       cargo: 'Soldado', carreira: 'Militar', pronto: false, base: 'cursos/pmgo/',
       lema: 'Missão: tropa de Goiás',
       patentes: PM,
@@ -32,7 +32,7 @@
       camo: ['#11141d','#1a1e2b','#232838','#0a0c12']
     },
     pcto: {
-      id: 'pcto', sigla: 'PCTO', nome: 'Polícia Civil do Tocantins', uf: 'TO',
+      id: 'pcto', divisao: 'militar', marca: 'MILITAR', sigla: 'PCTO', nome: 'Polícia Civil do Tocantins', uf: 'TO',
       cargo: 'Agente', carreira: 'Civil', pronto: false, base: 'cursos/pcto/',
       lema: 'Missão: investigação no Tocantins',
       patentes: PC,
@@ -43,7 +43,7 @@
       camo: ['#0b161d','#12222c','#183040','#060d12']
     },
     pcmg: {
-      id: 'pcmg', sigla: 'PCMG', nome: 'Polícia Civil de Minas Gerais', uf: 'MG',
+      id: 'pcmg', divisao: 'militar', marca: 'MILITAR', sigla: 'PCMG', nome: 'Polícia Civil de Minas Gerais', uf: 'MG',
       cargo: 'Investigador', carreira: 'Civil', pronto: false, base: 'cursos/pcmg/',
       lema: 'Missão: investigação em Minas',
       patentes: PC,
@@ -55,6 +55,17 @@
     }
   };
   window.TAOS_ORDEM = ['pmdf', 'pmgo', 'pcto', 'pcmg'];
+
+  /* DIVISÕES DA ÁREA DO ALUNO
+     Cada curso pertence a uma divisão (campo "divisao"). O aluno só vê as divisões
+     em que tem curso liberado. Para criar um curso de Saúde, por exemplo, use divisao: 'saude'. */
+  window.TAOS_DIVISOES = {
+    militar:    { id: 'militar',    nome: 'TAOS Militar',           curto: 'Militar',           desc: 'Carreiras militares e policiais', cor: '#d6a630', corRgb: '214,166,48', tinta: '#1a1405', cta: 'Entrar no QG', icone: 'escudo' },
+    saude:      { id: 'saude',      nome: 'TAOS Saúde',             curto: 'Saúde',             desc: 'Concursos da área da saúde',      cor: '#2ec4a6', corRgb: '46,196,166', tinta: '#04211b', cta: 'Começar a estudar', icone: 'cruz' },
+    vestibular: { id: 'vestibular', nome: 'TAOS ENEM e Vestibular', curto: 'ENEM e Vestibular', desc: 'ENEM e principais vestibulares',  cor: '#8f9bff', corRgb: '143,155,255', tinta: '#0b0f33', cta: 'Começar a estudar', icone: 'capelo' },
+    educacao:   { id: 'educacao',   nome: 'TAOS Educação',          curto: 'Educação',          desc: 'Concursos da educação',           cor: '#ffa24c', corRgb: '255,162,76', tinta: '#2b1500', cta: 'Começar a estudar', icone: 'livro' }
+  };
+  window.TAOS_DIV_ORDEM = ['militar', 'saude', 'vestibular', 'educacao'];
   window.TAOS_WHATSAPP = '5561999096841'; // temporário
   window.TAOS_SITE = 'https://hugosoouza.github.io/taos-cursos/qg/';
 })();
