@@ -8,7 +8,8 @@
     return "https://wa.me/" + cfg.whatsapp + "?text=" + encodeURIComponent(texto);
   }
   function msgMentoria(sigla, nome) {
-    return (nome ? "Olá! Meu nome é " + nome + ". " : "Olá! ") + "Quero comprar a mentoria para a " + sigla + ".";
+    var m = cfg.mentorias.filter(function (x) { return x.sigla === sigla; })[0] || {};
+    return (nome ? "Olá! Meu nome é " + nome + ". " : "Olá! ") + "Quero comprar a mentoria para " + (m.artigo || "a") + " " + sigla + ".";
   }
 
   // Links gerais

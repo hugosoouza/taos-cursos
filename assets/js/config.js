@@ -64,6 +64,16 @@ window.TAOS_CONFIG = {
       grupo: "Polícia Civil",
       resumo: "Acompanhamento para a PCMG, do edital à reta final da prova.",
     },
+    {
+      sigla: "ENEM",
+      artigo: "o",
+      nome: "Exame Nacional do Ensino Médio",
+      uf: "BR",
+      carreira: "Vestibular",
+      area: "vestibular",
+      grupo: "ENEM e Vestibular",
+      resumo: "Plano de estudo para as quatro áreas do ENEM e a redação, organizado pela matriz do INEP.",
+    },
   ],
 
   // Itens que aparecem em todos os cards de mentoria
