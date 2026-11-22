@@ -348,3 +348,27 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .legal .tbl { overflow-x: auto; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: #fff; color: var(--navy); padding: 10px 16px; border-radius: 10px; font-weight: 600; }
 .skip:focus { top: 12px; }
+
+/* ---------- Correção: [hidden] sempre esconde ---------- */
+[hidden] { display: none !important; }
+
+/* ---------- Áreas ---------- */
+.sec-sub { max-width: 40ch; }
+.agrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.acard { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 26px 22px; border-radius: 24px; background: #fff; border: 1.5px solid var(--line); min-width: 0; transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s; }
+.acard:hover { transform: translateY(-6px); box-shadow: 0 26px 50px -30px rgba(11,42,91,.45); border-color: transparent; }
+.acard.on { background: var(--navy); color: #fff; border-color: transparent; }
+.a-ico { width: 44px; height: 44px; color: var(--blue); padding: 8px; border-radius: 14px; background: var(--ice); }
+.acard.on .a-ico { color: #fff; background: rgba(255,255,255,.12); }
+.a-badge { position: absolute; top: 20px; right: 18px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; background: #4ade80; color: #06331a; }
+.acard h3 { font-size: 21px; color: var(--navy); margin-top: 8px; }
+.acard.on h3 { color: #fff; }
+.acard p { font-size: 14.5px; color: var(--muted); }
+.acard.on p { color: rgba(255,255,255,.78); }
+.a-link { margin-top: auto; padding-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14.5px; color: var(--blue); text-decoration: none; }
+.acard.on .a-link { color: #b9d3ff; }
+.a-link .ico { width: 18px; height: 18px; transition: transform .25s var(--ease); }
+.a-link:hover .ico { transform: translateX(3px); }
+@media (max-width: 1100px) { .agrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .agrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .agrid { grid-template-columns: 1fr; } }
