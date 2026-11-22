@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QG · TAOS Militar</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#050913">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="loading" class="loading"><span id="loadArt" style="width:64px;display:block"></span>PREPARANDO O QG…</div>
+<div id="auth" class="hidden"></div>
+<div class="app hidden" id="app">
+  <aside class="side" id="side"></aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="content">
+    <header class="topbar"><button id="menuBtn" aria-label="Abrir menu">☰</button><span id="topLogo"></span></header>
+    <main id="main"></main>
+  </div>
+</div>
+<div id="toast"></div>
+<div id="gate" class="hidden"></div>
+<script src="config.js"></script>
+<script src="cursos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
+<script>
+/* Porteiro do QG: confere o login e a matrícula antes de abrir o curso. */
+(async function () {
+  var id = new URLSearchParams(location.search).get('c');
+  var C = (window.TAOS_CURSOS || {})[id];
+  if (!C) { location.replace('./'); return; }
+  window.CURSO = C;
+  var root = document.documentElement;
+  Object.keys(C.tema).forEach(function (k) { root.style.setProperty('--' + k, C.tema[k]); });
+  document.querySelector('meta[name=theme-color]').content = C.tema.side;
+  document.title = 'QG ' + C.sigla + ' · TAOS Militar';
+
+  function gate(titulo, texto, botoes) {
+    document.getElementById('loading').classList.add('hidden');
+    var g = document.getElementById('gate');
+    g.className = 'gate';
+    g.innerHTML = '<div class="gate-card"><span class="course-tag">' + C.sigla + '</span><h1>' + titulo + '</h1><p>' + texto + '</p>' + botoes + '</div>';
+  }
+  var wa = 'https://wa.me/' + window.TAOS_WHATSAPP + '?text=';
+
+  var cfg = window.QG_CONFIG || {};
+  if (cfg.supabaseUrl && cfg.supabaseKey && window.supabase) {
+    var sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey);
+    window.__SB = sb;
+    var s = await sb.auth.getSession();
+    var session = s.data && s.data.session;
+    if (!session) { location.replace('./?c=' + id); return; }
+    var m = await sb.from('matriculas').select('curso_id').eq('user_id', session.user.id).eq('curso_id', id).eq('ativo', true).maybeSingle();
+    var liberado = !!(m.data);
+    if (!liberado) { var a = await sb.rpc('is_admin'); liberado = !!a.data; }
+    if (!liberado) {
+      gate('Acesso não liberado', 'Sua conta não tem a mentoria ' + C.sigla + '. Se você comprou, fale com a equipe para liberar.',
+        '<a class="btn" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Olá! Quero liberar meu acesso à mentoria ' + C.sigla + '.') + '">Falar no WhatsApp</a><a class="linkbtn" href="./">Voltar aos meus cursos</a>');
+      return;
+    }
+  }
+  if (!C.pronto) {
+    gate('QG em preparação', 'As matérias e o cronograma da ' + C.sigla + ' estão sendo carregados pela equipe. Assim que estiverem prontos, aparecem aqui automaticamente.',
+      '<a class="btn" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Olá! Quando o QG da ' + C.sigla + ' fica pronto?') + '">Falar com a equipe</a><a class="linkbtn" href="./">Voltar aos meus cursos</a>');
+    return;
+  }
+  var arquivos = [C.base + 'dados.js', C.base + 'materiais.js', 'app.js'];
+  (function carregar(i) {
+    if (i >= arquivos.length) return;
+    var sc = document.createElement('script');
+    sc.src = arquivos[i];
+    sc.onload = function () { carregar(i + 1); };
+    sc.onerror = function () { gate('Falha ao carregar', 'Não foi possível abrir o QG agora. Verifique a internet e tente de novo.', '<a class="btn" href="">Tentar de novo</a>'); };
+    document.body.appendChild(sc);
+  })(0);
+})();
+</script>
+</body>
+</html>

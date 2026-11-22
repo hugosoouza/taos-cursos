@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painel do comandante · TAOS Militar</title>
+<meta name="theme-color" content="#040a17">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="topline">
+    <a href="./" id="logoTop" aria-label="Voltar ao QG"></a>
+    <a class="back" href="./">← <span>Voltar ao QG</span></a>
+  </div>
+  <div class="demo" id="demo" hidden>Modo demonstração: conecte o banco de dados para cadastrar alunos de verdade. Nada do que você fizer aqui é salvo.</div>
+  <div class="admin" id="view"><p class="sub" style="text-align:center">Conferindo credenciais…</p></div>
+</div>
+
+<script src="config.js"></script>
+<script src="cursos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
+<script src="common.js"></script>
+<script>
+(function () {
+  var T = window.TAOS, esc = T.esc, view = T.$('#view');
+  T.cena();
+  T.$('#logoTop').innerHTML = T.logo;
+  var ALUNOS = [], MATS = {};
+
+  function senhaNova() {
+    var a = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789', s = '';
+    var r = new Uint32Array(10); (window.crypto || window.msCrypto).getRandomValues(r);
+    for (var i = 0; i < 10; i++) s += a[r[i] % a.length];
+    return s;
+  }
+  function soDigitos(t) { var d = String(t || '').replace(/\D/g, ''); if (d && d.length <= 11) d = '55' + d; return d; }
+  function chipsCursos(nome, marcados) {
+    return T.ordem.map(function (id) {
+      var c = T.cursos[id], on = marcados.indexOf(id) >= 0;
+      return '<label class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '"><input type="checkbox" name="' + nome + '" value="' + id + '" ' + (on ? 'checked' : '') + '><span class="dot"></span>' + c.sigla + '</label>';
+    }).join('');
+  }
+  function ligarChips(root) {
+    root.querySelectorAll('.chip input').forEach(function (inp) {
+      inp.onchange = function () { inp.parentNode.classList.toggle('on', inp.checked); };
+    });
+  }
+  function mensagem(nome, email, senha, ids) {
+    var cursos = ids.map(function (id) { return T.cursos[id].sigla; }).join(', ');
+    return 'Olá, ' + String(nome || '').split(' ')[0] + '! Seu acesso à TAOS Militar foi liberado.\n\n' +
+      'Mentoria: ' + cursos + '\n' +
+      'Acesse: ' + window.TAOS_SITE + '\n' +
+      'E-mail: ' + email + '\n' +
+      (senha ? 'Senha: ' + senha + '\n' : '') +
+      '\nEntre em "Área do aluno", faça login e escolha o seu QG. Bons estudos!';
+  }
+  function blocoResultado(txt, tel) {
+    var link = 'https://wa.me/' + (soDigitos(tel) || '') + '?text=' + encodeURIComponent(txt);
+    return '<div class="result"><pre>' + esc(txt) + '</pre><div class="actions">' +
+      '<a class="btn wa sm" target="_blank" rel="noopener" href="' + link + '">Enviar no WhatsApp</a>' +
+      '<button class="btn ghost sm" type="button" data-copiar>Copiar mensagem</button></div></div>';
+  }
+  function ligarCopiar(root, txt) {
+    var b = root.querySelector('[data-copiar]'); if (b) b.onclick = function () { T.copiar(txt, b); };
+  }
+
+  /* ---------- Tela ---------- */
+  function montar() {
+    view.innerHTML =
+      '<div class="hub-head" style="margin:0"><div><span class="badge-top">Acesso restrito</span><h1>Painel do comandante</h1><p>Cadastre alunos, libere mentorias e envie o login pelo WhatsApp.</p></div></div>' +
+
+      '<section class="box"><h2>Novo aluno</h2><p>A senha é gerada automaticamente. Depois de criar, envie a mensagem pronta no WhatsApp do aluno.</p>' +
+      '<form id="fNovo" novalidate>' +
+        '<div class="row">' +
+          '<div class="fld"><label for="nNome">Nome</label><input id="nNome" autocomplete="off" placeholder="Nome do aluno" required></div>' +
+          '<div class="fld"><label for="nEmail">E-mail (Gmail)</label><input id="nEmail" type="email" autocomplete="off" placeholder="aluno@gmail.com" required></div>' +
+          '<div class="fld"><label for="nTel">WhatsApp</label><input id="nTel" type="tel" inputmode="tel" placeholder="(61) 90000-0000"></div>' +
+          '<div class="fld"><label for="nSenha">Senha</label><input id="nSenha" autocomplete="off" required></div>' +
+        '</div>' +
+        '<div class="fld"><label>Mentorias compradas</label></div><div class="chips" id="nCursos">' + chipsCursos('nc', []) + '</div>' +
+        '<div class="actions"><button class="btn" type="submit">Criar acesso</button><button class="btn ghost" type="button" id="gerar">Gerar outra senha</button></div>' +
+        '<div id="nMsg"></div>' +
+      '</form></section>' +
+
+      '<section class="box"><h2>Alunos</h2><p>Toque na sigla para liberar ou bloquear a mentoria. A mudança vale na hora.</p>' +
+        '<div class="search"><input id="busca" type="search" placeholder="Buscar por nome ou e-mail" aria-label="Buscar aluno"><button class="btn ghost sm" id="recarregar" type="button">Atualizar lista</button></div>' +
+        '<div class="count" id="contagem"></div>' +
+        '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Aluno</th><th>WhatsApp</th><th>Mentorias</th><th>Ações</th></tr></thead><tbody id="lista"></tbody></table></div>' +
+        '<div id="lMsg"></div>' +
+      '</section>';
+
+    T.$('#nSenha').value = senhaNova();
+    T.$('#gerar').onclick = function () { T.$('#nSenha').value = senhaNova(); };
+    ligarChips(T.$('#nCursos'));
+    T.$('#fNovo').onsubmit = criar;
+    T.$('#busca').oninput = desenharLista;
+    T.$('#recarregar').onclick = carregar;
+    carregar();
+  }
+
+  async function criar(e) {
+    e.preventDefault();
+    var out = T.$('#nMsg');
+    var nome = T.$('#nNome').value.trim(), email = T.$('#nEmail').value.trim().toLowerCase(), tel = T.$('#nTel').value.trim(), senha = T.$('#nSenha').value.trim();
+    var ids = Array.prototype.map.call(document.querySelectorAll('input[name=nc]:checked'), function (i) { return i.value; });
+    var falta = [];
+    if (!nome) falta.push('nome'); if (!/^\S+@\S+\.\S+$/.test(email)) falta.push('e-mail válido');
+    if (senha.length < 8) falta.push('senha com 8 ou mais caracteres'); if (!ids.length) falta.push('pelo menos uma mentoria');
+    if (falta.length) { out.innerHTML = '<div class="msg" style="margin-top:14px">Falta: ' + falta.join(', ') + '.</div>'; return; }
+    if (T.demo) { var t0 = mensagem(nome, email, senha, ids); out.innerHTML = '<div class="msg ok" style="margin-top:14px">Demonstração: nada foi salvo.</div>' + blocoResultado(t0, tel); ligarCopiar(out, t0); return; }
+
+    var b = e.target.querySelector('button[type=submit]'); b.disabled = true; b.textContent = 'Criando…';
+    try {
+      // Cliente separado para não deslogar o comandante
+      var cfg = window.QG_CONFIG;
+      var tmp = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: 'taos-cadastro' } });
+      var r = await tmp.auth.signUp({ email: email, password: senha, options: { data: { nome: nome, telefone: tel } } });
+      if (r.error) throw r.error;
+      var u = r.data.user;
+      if (!u || (u.identities && u.identities.length === 0)) throw new Error('Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere a mentoria por lá.');
+      var rows = ids.map(function (id) { return { user_id: u.id, curso_id: id, ativo: true }; });
+      var m = await T.sb.from('matriculas').upsert(rows);
+      if (m.error) throw m.error;
+      await T.sb.from('perfis').update({ nome: nome, telefone: tel }).eq('id', u.id);
+      var txt = mensagem(nome, email, senha, ids);
+      out.innerHTML = '<div class="msg ok" style="margin-top:14px">Acesso criado para ' + esc(nome) + '.</div>' + blocoResultado(txt, tel);
+      ligarCopiar(out, txt);
+      e.target.reset(); T.$('#nSenha').value = senhaNova();
+      document.querySelectorAll('#nCursos .chip').forEach(function (c) { c.classList.remove('on'); });
+      carregar();
+    } catch (err) {
+      console.error(err);
+      var txtErr = /registered|already/i.test(err.message) ? 'Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere a mentoria por lá.' :
+        /rate limit|security purposes/i.test(err.message) ? 'O Supabase limitou cadastros seguidos. Espere um minuto e tente de novo.' : err.message;
+      out.innerHTML = '<div class="msg" style="margin-top:14px">' + esc(txtErr) + '</div>';
+    }
+    b.disabled = false; b.textContent = 'Criar acesso';
+  }
+
+  async function carregar() {
+    if (T.demo) { ALUNOS = [{ id: 'demo', nome: 'Aluno de exemplo', email: 'exemplo@gmail.com', telefone: '(61) 90000-0000' }]; MATS = { demo: ['pmdf'] }; return desenharLista(); }
+    var p = await T.sb.from('perfis').select('id,nome,email,telefone,criado').order('criado', { ascending: false });
+    var m = await T.sb.from('matriculas').select('user_id,curso_id,ativo');
+    if (p.error || m.error) { T.$('#lMsg').innerHTML = '<div class="msg">Não foi possível carregar os alunos: ' + esc((p.error || m.error).message) + '</div>'; return; }
+    ALUNOS = p.data; MATS = {};
+    m.data.forEach(function (x) { if (!x.ativo) return; (MATS[x.user_id] = MATS[x.user_id] || []).push(x.curso_id); });
+    desenharLista();
+  }
+
+  function desenharLista() {
+    var q = (T.$('#busca').value || '').toLowerCase();
+    var l = ALUNOS.filter(function (a) { return !q || (a.nome || '').toLowerCase().indexOf(q) >= 0 || (a.email || '').toLowerCase().indexOf(q) >= 0; });
+    T.$('#contagem').textContent = l.length + (l.length === 1 ? ' aluno' : ' alunos');
+    T.$('#lista').innerHTML = l.length ? l.map(function (a) {
+      var ids = MATS[a.id] || [];
+      return '<tr data-id="' + a.id + '"><td><b>' + esc(a.nome || '—') + '</b><small>' + esc(a.email) + '</small></td>' +
+        '<td>' + esc(a.telefone || '—') + '</td>' +
+        '<td><div class="chips">' + T.ordem.map(function (id) {
+          var c = T.cursos[id], on = ids.indexOf(id) >= 0;
+          return '<button type="button" class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" data-toggle="' + id + '" aria-pressed="' + on + '"><span class="dot"></span>' + c.sigla + '</button>';
+        }).join('') + '</div></td>' +
+        '<td><div class="actions"><button class="btn ghost sm" type="button" data-msg>Mensagem</button><button class="btn ghost sm" type="button" data-reset>Link de senha</button></div></td></tr>' +
+        '<tr class="extra" hidden><td colspan="4"></td></tr>';
+    }).join('') : '<tr><td colspan="4" class="count">Nenhum aluno encontrado.</td></tr>';
+
+    T.$('#lista').querySelectorAll('[data-toggle]').forEach(function (b) { b.onclick = function () { alternar(b); }; });
+    T.$('#lista').querySelectorAll('[data-msg]').forEach(function (b) { b.onclick = function () { mostrarMsg(b); }; });
+    T.$('#lista').querySelectorAll('[data-reset]').forEach(function (b) { b.onclick = function () { resetar(b); }; });
+  }
+
+  function aluno(b) { var id = b.closest('tr').getAttribute('data-id'); return ALUNOS.filter(function (a) { return a.id === id; })[0]; }
+
+  async function alternar(b) {
+    var a = aluno(b), curso = b.getAttribute('data-toggle'), on = b.classList.contains('on');
+    if (T.demo) { b.classList.toggle('on'); return; }
+    b.classList.add('busy');
+    var r = on ? await T.sb.from('matriculas').delete().eq('user_id', a.id).eq('curso_id', curso)
+               : await T.sb.from('matriculas').upsert({ user_id: a.id, curso_id: curso, ativo: true });
+    b.classList.remove('busy');
+    if (r.error) { T.toast('Erro: ' + r.error.message); return; }
+    var l = MATS[a.id] = MATS[a.id] || [];
+    if (on) l.splice(l.indexOf(curso), 1); else l.push(curso);
+    b.classList.toggle('on', !on); b.setAttribute('aria-pressed', String(!on));
+    T.toast((on ? 'Bloqueado: ' : 'Liberado: ') + T.cursos[curso].sigla + ' para ' + String(a.nome || a.email).split(' ')[0]);
+  }
+
+  function mostrarMsg(b) {
+    var a = aluno(b), tr = b.closest('tr').nextElementSibling, td = tr.firstElementChild;
+    if (!tr.hidden) { tr.hidden = true; return; }
+    var ids = T.ordem.filter(function (id) { return (MATS[a.id] || []).indexOf(id) >= 0; });
+    var txt = mensagem(a.nome, a.email, '', ids) + '\nSe esqueceu a senha, use "Esqueci minha senha" na tela de login.';
+    td.innerHTML = blocoResultado(txt, a.telefone); ligarCopiar(td, txt); tr.hidden = false;
+  }
+
+  async function resetar(b) {
+    var a = aluno(b);
+    if (T.demo) { T.toast('Demonstração: nada enviado'); return; }
+    var r = await T.sb.auth.resetPasswordForEmail(a.email, { redirectTo: window.TAOS_SITE });
+    T.toast(r.error ? 'Erro: ' + r.error.message : 'Link de nova senha enviado para ' + a.email);
+  }
+
+  /* ---------- Início ---------- */
+  (async function () {
+    if (T.demo) { T.$('#demo').hidden = false; return montar(); }
+    var s = await T.sb.auth.getSession();
+    if (!s.data.session) { location.replace('./'); return; }
+    if (!(await T.isAdmin())) {
+      view.innerHTML = '<div class="empty"><h2>Acesso negado</h2><p>Esta área é só para a equipe da TAOS.</p><a class="btn" href="./">Voltar ao QG</a></div>';
+      return;
+    }
+    montar();
+  })();
+})();
+</script>
+</body>
+</html>

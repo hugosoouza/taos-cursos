@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QG · TAOS Militar</title>
+<meta name="description" content="Área do aluno da TAOS Militar: entre com seu login e escolha a mentoria.">
+<meta name="theme-color" content="#040a17">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="topline">
+    <a href="../" id="logoTop" aria-label="TAOS, voltar ao site"></a>
+    <a class="back" href="../">← <span>Voltar ao site</span></a>
+  </div>
+  <div class="demo" id="demo" hidden>Modo demonstração: o banco de dados ainda não foi conectado. Todos os cursos estão abertos e o progresso fica salvo só neste navegador.</div>
+  <div class="center" id="view"></div>
+</div>
+
+<script src="config.js"></script>
+<script src="cursos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
+<script src="common.js"></script>
+<script>
+(function () {
+  var T = window.TAOS, esc = T.esc, view = T.$('#view');
+  T.cena();
+  T.$('#logoTop').innerHTML = T.logo;
+  var pedido = new URLSearchParams(location.search).get('c');
+  var wa = function (t) { return 'https://wa.me/' + window.TAOS_WHATSAPP + '?text=' + encodeURIComponent(t); };
+
+  /* ---------- Telas de acesso ---------- */
+  function telaLogin(msg, ok) {
+    view.className = 'center';
+    view.innerHTML =
+      '<form class="card" id="fLogin" novalidate>' +
+        '<span class="badge-top">Área do aluno</span>' +
+        '<h1 class="stencil">Identifique-se</h1>' +
+        '<p class="sub">Acesso restrito à tropa matriculada. Use o login que você recebeu no WhatsApp.</p>' +
+        (msg ? '<div class="msg ' + (ok ? 'ok' : '') + '" role="alert">' + esc(msg) + '</div>' : '') +
+        '<div class="fld"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@gmail.com" required></div>' +
+        '<div class="fld"><label for="senha">Senha</label><input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required></div>' +
+        '<button class="btn block" type="submit">Entrar no QG</button>' +
+        '<div style="display:flex;justify-content:space-between;gap:8px;margin-top:12px;flex-wrap:wrap">' +
+          '<button class="linkbtn" type="button" id="esqueci">Esqueci minha senha</button>' +
+          '<a class="linkbtn" target="_blank" rel="noopener" href="' + wa('Olá! Preciso de ajuda para entrar na área do aluno da TAOS.') + '">Preciso de ajuda</a>' +
+        '</div>' +
+      '</form>';
+    T.$('#fLogin').onsubmit = async function (e) {
+      e.preventDefault();
+      var em = T.$('#email').value.trim(), se = T.$('#senha').value;
+      if (!em || !se) return telaLogin('Preencha e-mail e senha.');
+      var b = e.target.querySelector('button[type=submit]'); b.disabled = true; b.textContent = 'Entrando…';
+      var r = await T.sb.auth.signInWithPassword({ email: em, password: se });
+      if (r.error) telaLogin(/invalid/i.test(r.error.message) ? 'E-mail ou senha incorretos.' : r.error.message);
+      else meusCursos();
+    };
+    T.$('#esqueci').onclick = function () { telaEsqueci(); };
+  }
+
+  function telaEsqueci(msg, ok) {
+    view.innerHTML =
+      '<form class="card" id="fEsq" novalidate>' +
+        '<span class="badge-top">Recuperar acesso</span>' +
+        '<h1 class="stencil">Nova senha</h1>' +
+        '<p class="sub">Enviamos um link para o seu e-mail. Abra o link e crie uma senha nova.</p>' +
+        (msg ? '<div class="msg ' + (ok ? 'ok' : '') + '" role="alert">' + esc(msg) + '</div>' : '') +
+        '<div class="fld"><label for="em2">E-mail</label><input id="em2" type="email" autocomplete="email" required></div>' +
+        '<button class="btn block" type="submit">Enviar link</button>' +
+        '<div style="text-align:center;margin-top:12px"><button class="linkbtn" type="button" id="voltar">Voltar para o login</button></div>' +
+      '</form>';
+    T.$('#fEsq').onsubmit = async function (e) {
+      e.preventDefault();
+      var em = T.$('#em2').value.trim(); if (!em) return telaEsqueci('Digite seu e-mail.');
+      var r = await T.sb.auth.resetPasswordForEmail(em, { redirectTo: location.origin + location.pathname });
+      telaEsqueci(r.error ? r.error.message : 'Se esse e-mail tiver acesso, o link chega em alguns minutos. Confira também o spam.', !r.error);
+    };
+    T.$('#voltar').onclick = function () { telaLogin(); };
+  }
+
+  function telaSenha(msg) {
+    view.innerHTML =
+      '<form class="card" id="fSenha" novalidate>' +
+        '<span class="badge-top">Primeiro acesso</span>' +
+        '<h1 class="stencil">Crie sua senha</h1>' +
+        '<p class="sub">Você vai usar esta senha para entrar no QG.</p>' +
+        (msg ? '<div class="msg" role="alert">' + esc(msg) + '</div>' : '') +
+        '<div class="fld"><label for="s1">Nova senha (mín. 8 caracteres)</label><input id="s1" type="password" minlength="8" autocomplete="new-password" required></div>' +
+        '<div class="fld"><label for="s2">Repita a senha</label><input id="s2" type="password" minlength="8" autocomplete="new-password" required></div>' +
+        '<button class="btn block" type="submit">Salvar e entrar</button>' +
+      '</form>';
+    T.$('#fSenha').onsubmit = async function (e) {
+      e.preventDefault();
+      var a = T.$('#s1').value, b = T.$('#s2').value;
+      if (a.length < 8) return telaSenha('A senha precisa ter pelo menos 8 caracteres.');
+      if (a !== b) return telaSenha('As senhas não conferem.');
+      var r = await T.sb.auth.updateUser({ password: a });
+      if (r.error) return telaSenha(r.error.message);
+      history.replaceState(null, '', location.pathname);
+      meusCursos();
+    };
+  }
+
+  /* ---------- Meus cursos ---------- */
+  function card(c, i) {
+    var chev = c.carreira === 'Militar' ? '<div class="chev" aria-hidden="true"><i></i><i></i><i></i></div>' : '<div class="chev" aria-hidden="true"><i></i></div>';
+    return '<a class="course" href="curso.html?c=' + c.id + '" style="' + T.vars(c) + ';--d:' + (i * 0.08) + 's">' +
+      '<span class="ring" aria-hidden="true"></span>' +
+      (c.pronto ? '' : '<span class="soon">Em preparação</span>') +
+      '<span class="stripe"></span>' +
+      '<span class="tag">' + (c.carreira === 'Militar' ? 'Polícia Militar' : 'Polícia Civil') + ' · ' + c.uf + '</span>' +
+      '<span class="sigla">' + c.sigla + '</span>' +
+      '<span class="nome">' + esc(c.nome) + '</span>' + chev +
+      '<span class="go"><span>Entrar no QG</span><span aria-hidden="true">→</span></span>' +
+    '</a>';
+  }
+
+  async function meusCursos() {
+    view.className = 'hub';
+    view.innerHTML = '<p class="sub" style="text-align:center">Abrindo o QG…</p>';
+    var nome = 'Recruta', email = '', ids = [], admin = false;
+    if (T.demo) {
+      ids = T.ordem.slice(); admin = true; nome = 'Visitante';
+    } else {
+      var s = await T.sb.auth.getSession();
+      var u = s.data.session && s.data.session.user;
+      if (!u) return telaLogin();
+      email = u.email;
+      var p = await T.sb.from('perfis').select('nome').eq('id', u.id).maybeSingle();
+      nome = (p.data && p.data.nome) || (u.user_metadata && u.user_metadata.nome) || email.split('@')[0];
+      var m = await T.sb.from('matriculas').select('curso_id').eq('user_id', u.id).eq('ativo', true);
+      if (m.error) { console.error(m.error); return telaLogin('Não foi possível carregar seus cursos. Tente de novo.'); }
+      ids = (m.data || []).map(function (x) { return x.curso_id; });
+      admin = await T.isAdmin();
+      if (admin && !ids.length) ids = T.ordem.slice();
+    }
+    ids = T.ordem.filter(function (id) { return ids.indexOf(id) >= 0; });
+    if (pedido && ids.indexOf(pedido) >= 0) { location.replace('curso.html?c=' + pedido); return; }
+
+    var primeiro = String(nome).split(' ')[0];
+    var lista = ids.map(function (id, i) { return card(T.cursos[id], i); }).join('');
+    view.innerHTML =
+      '<div class="hub-head">' +
+        '<div><span class="badge-top">QG online</span><h1>Bem-vindo, ' + esc(primeiro) + '</h1>' +
+        '<p>' + (ids.length > 1 ? 'Escolha em qual QG você vai estudar agora.' : ids.length ? 'Sua mentoria está pronta para a missão de hoje.' : '') + '</p></div>' +
+        '<div class="me"><div class="av">' + esc(T.iniciais(nome)) + '</div><div><b>' + esc(nome) + '</b><small>' + esc(email || 'modo demonstração') + '</small></div></div>' +
+      '</div>' +
+      (ids.length ? '<div class="courses">' + lista + '</div>' :
+        '<div class="empty"><h2>Nenhuma mentoria liberada</h2><p>Se você já comprou, a equipe libera seu acesso em instantes.</p><a class="btn wa" target="_blank" rel="noopener" href="' + wa('Olá! Já tenho login, mas nenhuma mentoria aparece na minha área do aluno.') + '">Falar no WhatsApp</a></div>') +
+      '<div class="toolbar">' +
+        (admin ? '<a class="btn gold sm" href="admin.html">Painel do comandante</a>' : '') +
+        (T.demo ? '' : '<button class="btn ghost sm" id="sair">Sair da conta</button>') +
+      '</div>';
+    var sair = T.$('#sair');
+    if (sair) sair.onclick = async function () { await T.sb.auth.signOut(); pedido = null; telaLogin('Você saiu da conta.', true); };
+  }
+
+  /* ---------- Início ---------- */
+  async function iniciar() {
+    if (T.demo) { T.$('#demo').hidden = false; return meusCursos(); }
+    var recuperar = /type=(recovery|invite)/.test(location.hash);
+    T.sb.auth.onAuthStateChange(function (ev) { if (ev === 'PASSWORD_RECOVERY') setTimeout(telaSenha, 0); });
+    var s = await T.sb.auth.getSession();
+    if (recuperar && s.data.session) return telaSenha();
+    if (/error_description/.test(location.hash)) { history.replaceState(null, '', location.pathname); return telaLogin('O link expirou ou já foi usado. Peça um novo.'); }
+    if (s.data.session) meusCursos(); else telaLogin();
+  }
+  iniciar();
+})();
+</script>
+</body>
+</html>
