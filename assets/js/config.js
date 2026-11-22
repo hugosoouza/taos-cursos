@@ -18,9 +18,6 @@ window.TAOS_CONFIG = {
     email: "",         // e-mail de contato e do encarregado de dados (LGPD)
   },
 
-  // Palavras que giram no título da abertura: "Sua aprovação ___ começa aqui."
-  destaques: ["no ENEM", "na PMDF", "no vestibular", "na saúde", "na PCMG", "na educação", "em concursos"],
-
   // Áreas em que a TAOS atua (seção "Áreas" e formulário de inscrição)
   areas: [
     { id: "vestibular", nome: "Vestibulares e ENEM", texto: "Preparação para o ENEM e os principais vestibulares do país." },

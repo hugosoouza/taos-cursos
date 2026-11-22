@@ -372,3 +372,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 1100px) { .agrid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .agrid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .agrid { grid-template-columns: 1fr; } }
+
+/* ---------- Título: "Sua aprovação começa aqui." animado ---------- */
+.h-hero .line > .w { display: inline-block; animation: up .9s var(--ease) both; }
+.h-hero .line:nth-child(1) > .w:nth-child(1) { animation-delay: .05s; }
+.h-hero .line:nth-child(1) > .w:nth-child(2) { animation-delay: .15s; }
+.h-hero .line:nth-child(2) > .w:nth-child(1) { animation-delay: .3s; }
+.h-hero .line:nth-child(2) > .w:nth-child(2) { animation-delay: .42s; }
+.h-hero .line:nth-child(2) > .ponto { animation: up .9s .52s var(--ease) both, blink 1.6s 1.6s ease-in-out infinite; color: var(--electric); }
+.h-hero .line > .w.aqui { position: relative; color: transparent; background: linear-gradient(100deg, var(--electric) 0%, var(--electric) 40%, #d6e6ff 50%, var(--electric) 60%, var(--electric) 100%) 0 0 / 250% 100%; -webkit-background-clip: text; background-clip: text; animation: up .9s .42s var(--ease) both, shine 4.5s 1.4s ease-in-out infinite; }
+.aqui-bar { position: absolute; left: 0; right: 0; bottom: .02em; height: .1em; border-radius: 6px; background: var(--electric); transform: scaleX(0); transform-origin: left; animation: draw .9s 1.05s cubic-bezier(.7,0,.2,1) forwards; }
+@keyframes shine { 0%, 55% { background-position: 100% 0; } 100% { background-position: -50% 0; } }
+@keyframes draw { to { transform: scaleX(1); } }
+@keyframes blink { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .aqui-bar { transform: none; } .h-hero .aqui { color: var(--electric); } }
