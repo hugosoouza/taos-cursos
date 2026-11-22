@@ -124,7 +124,7 @@
           '<div class="m-top"><span class="uf" aria-hidden="true">' + m.uf + '</span><span class="m-tag">' + tipo + '</span>' +
           '<h3 class="m-sigla">' + m.sigla + '</h3><p class="m-nome">' + m.nome + "</p></div>" +
           '<div class="m-body"><p>' + m.resumo + "</p>" +
-            '<div class="m-chips"><span>Online</span><span>Individual</span><span>Até a prova</span></div>' +
+            '<div class="m-chips"><span>Online</span><span>Em turma</span><span>Até a prova</span></div>' +
             '<button class="m-more" aria-expanded="false" aria-controls="inc-' + idx + '">O que está incluso</button>' +
             '<ul class="m-inc" id="inc-' + idx + '">' + cfg.incluso.map(function (t) { return '<li><svg class="ico"><use href="#i-check"/></svg>' + t + "</li>"; }).join("") + "</ul>" +
             '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" href="' + waLink(msgMentoria(m.sigla)) + '"><svg class="ico"><use href="#i-wa"/></svg>Quero a mentoria ' + m.sigla + "</a>" +

@@ -69,7 +69,7 @@ window.TAOS_CONFIG = {
   // Itens que aparecem em todos os cards de mentoria
   incluso: [
     "Cronograma de estudos semanal",
-    "Acompanhamento individual pelo WhatsApp",
+    "Acompanhamento da turma e tira-dúvidas pelo WhatsApp",
     "Revisões e questões no estilo da banca",
     "Acesso à área do aluno",
   ],
