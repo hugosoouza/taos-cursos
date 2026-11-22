@@ -66,6 +66,15 @@ insert into public.perfis (id, email, nome)
 select id, email, raw_user_meta_data->>'nome' from auth.users
 on conflict (id) do nothing;
 
+-- ---------------- Permissões da API ----------------
+-- Só usuários logados falam com as tabelas; o RLS abaixo decide o que cada um vê.
+revoke all on public.perfis, public.admins, public.matriculas, public.progresso from anon;
+grant select, update                 on public.perfis     to authenticated;
+grant select                         on public.admins     to authenticated;
+grant select, insert, update, delete on public.matriculas to authenticated;
+grant select, insert, update         on public.progresso  to authenticated;
+grant execute on function public.is_admin(), public.tem_matricula(text) to authenticated;
+
 -- ---------------- Regras de acesso (RLS) ----------------
 alter table public.perfis     enable row level security;
 alter table public.admins     enable row level security;
