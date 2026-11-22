@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hub.css">
+<link rel="stylesheet" href="hub.css?v=3">
 </head>
 <body>
 <div class="wrap">
@@ -23,10 +23,10 @@
   <div class="center" id="view"></div>
 </div>
 
-<script src="config.js"></script>
-<script src="cursos.js"></script>
+<script src="config.js?v=3"></script>
+<script src="cursos.js?v=3"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
-<script src="common.js"></script>
+<script src="common.js?v=3"></script>
 <script>
 (function () {
   var T = window.TAOS, esc = T.esc, view = T.$('#view');
@@ -51,6 +51,7 @@
           '<button class="linkbtn" type="button" id="esqueci">Esqueci minha senha</button>' +
           '<a class="linkbtn" target="_blank" rel="noopener" href="' + wa('Olá! Preciso de ajuda para entrar na área do aluno da TAOS.') + '">Preciso de ajuda</a>' +
         '</div>' +
+        '<p class="legal-note">Ao entrar, você concorda com os <a href="../termos.html">Termos de uso</a> e a <a href="../privacidade.html">Política de privacidade</a>.</p>' +
       '</form>';
     T.$('#fLogin').onsubmit = async function (e) {
       e.preventDefault();

@@ -86,33 +86,22 @@
   // Formulário → WhatsApp
   var form = $("#inscricao");
   if (form) {
-    var tel = $("#f-tel");
-    tel.addEventListener("input", function () {
-      var d = tel.value.replace(/\D/g, "").slice(0, 11);
-      var out = d;
-      if (d.length > 2) out = "(" + d.slice(0, 2) + ") " + d.slice(2);
-      if (d.length > 7) out = "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-      tel.value = out;
-    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var nome = $("#f-nome").value.trim();
-      var digits = tel.value.replace(/\D/g, "");
       var conc = sel.value;
       var err = $("#form-err");
       $$(".field", form).forEach(function (f) { f.classList.remove("bad"); });
       var faltando = [];
       if (!nome) { faltando.push("seu nome"); $("#f-nome").parentNode.classList.add("bad"); }
-      if (digits.length < 10) { faltando.push("um WhatsApp com DDD"); tel.parentNode.classList.add("bad"); }
       if (!conc) { faltando.push("o concurso"); sel.parentNode.classList.add("bad"); }
       if (faltando.length) {
-        err.textContent = "Falta preencher " + faltando.join(", ") + ".";
+        err.textContent = "Falta preencher " + faltando.join(" e ") + ".";
         err.hidden = false;
         return;
       }
       err.hidden = true;
-      var texto = msgMentoria(conc, nome) + " Meu WhatsApp é " + tel.value + ".";
-      window.open(waLink(texto), "_blank", "noopener");
+      window.open(waLink(msgMentoria(conc, nome)), "_blank", "noopener");
     });
   }
 
@@ -179,5 +168,28 @@
 
   var ano = $("#ano");
   if (ano) ano.textContent = new Date().getFullYear();
+
+  // Dados da empresa (rodapé e páginas legais)
+  var emp = cfg.empresa || {};
+  var linha = [emp.razaoSocial || emp.nome, emp.cnpj ? "CNPJ " + emp.cnpj : "", emp.endereco, emp.email].filter(Boolean).join(" · ");
+  var ed = $("#empresa-dados");
+  if (ed) { ed.textContent = linha; ed.hidden = !linha; }
+  $$("[data-emp]").forEach(function (el) {
+    var k = el.getAttribute("data-emp");
+    var v = k === "whatsapp" ? "+" + cfg.whatsapp.replace(/^(\d{2})(\d{2})(\d{5})(\d{4})$/, "$1 ($2) $3-$4") : emp[k];
+    if (v) el.textContent = v; else if (el.hasAttribute("data-opcional")) el.closest("[data-linha]") ? el.closest("[data-linha]").remove() : el.remove();
+  });
+
+  // Aviso de cookies (só informativo: o site não usa rastreamento)
+  var ck = $("#cookie");
+  if (ck) {
+    var visto = false;
+    try { visto = localStorage.getItem("taos-cookie") === "ok"; } catch (e) {}
+    if (!visto) ck.hidden = false;
+    $("#cookie-ok").addEventListener("click", function () {
+      ck.hidden = true;
+      try { localStorage.setItem("taos-cookie", "ok"); } catch (e) {}
+    });
+  }
   onScroll();
 })();

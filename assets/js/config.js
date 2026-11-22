@@ -8,6 +8,16 @@ window.TAOS_CONFIG = {
 
   mensagemGeral: "Olá! Quero saber mais sobre as mentorias da TAOS Cursos.",
 
+  // DADOS DA EMPRESA (aparecem no rodapé e nas páginas legais).
+  // Campo vazio = não aparece. Preencha assim que tiver os dados oficiais.
+  empresa: {
+    nome: "TAOS Cursos",
+    razaoSocial: "",   // ex.: "TAOS Cursos Preparatórios LTDA"
+    cnpj: "",          // ex.: "00.000.000/0001-00"
+    endereco: "",      // ex.: "Brasília - DF"
+    email: "",         // e-mail de contato e do encarregado de dados (LGPD)
+  },
+
   mentorias: [
     {
       sigla: "PMDF",

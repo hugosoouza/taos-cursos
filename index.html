@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b2a5b'/%3E%3Cg fill='%23fff'%3E%3Crect x='20' y='22' width='60' height='9'/%3E%3Crect x='36' y='36' width='7' height='44'/%3E%3Crect x='46.5' y='36' width='7' height='44'/%3E%3Crect x='57' y='36' width='7' height='44'/%3E%3C/g%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -24,6 +24,7 @@
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
 </svg>
 
+<a class="skip" href="#topo">Pular para o conteúdo</a>
 <div class="topbar" id="topbar">
   <div class="wrap">
     <a data-wa="geral" target="_blank" rel="noopener" href="#"><svg class="ico"><use href="#i-wa"/></svg><span>Te ajudamos! <b>Fale com a gente pelo WhatsApp</b></span></a>
@@ -84,13 +85,12 @@
           <p>Preencha e continue a conversa no WhatsApp com a mensagem pronta.</p>
         </div>
         <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="name" placeholder="Como podemos te chamar?" required></div>
-        <div class="field"><label for="f-tel">WhatsApp</label><input id="f-tel" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(61) 90000-0000" required></div>
         <div class="field"><label for="f-concurso">Concurso</label>
           <select id="f-concurso" name="concurso" required><option value="">Escolha o concurso</option></select>
         </div>
         <p class="form-err" id="form-err" role="alert" hidden></p>
         <button class="btn btn-wa btn-block" type="submit"><svg class="ico"><use href="#i-wa"/></svg>Quero minha vaga</button>
-        <p class="fine">Ao continuar você abre o WhatsApp da TAOS Cursos. Nenhum pagamento é feito nesta página.</p>
+        <p class="fine">Ao continuar você abre o WhatsApp da TAOS Cursos com a mensagem pronta. Seu nome não fica salvo neste site. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
       </form>
     </div>
   </section>
@@ -177,6 +177,8 @@
         <details><summary>Posso fazer mais de uma mentoria?</summary><div><p>Pode. Fale com a equipe no WhatsApp para montar um plano que atenda aos dois concursos.</p></div></details>
         <details><summary>Como acesso a área do aluno?</summary><div><p>Depois da matrícula você recebe o seu login. É só entrar em “Área do aluno”, no topo do site.</p></div></details>
         <details><summary>Quais são as formas de pagamento?</summary><div><p>As formas de pagamento são informadas no atendimento pelo WhatsApp.</p></div></details>
+        <details><summary>A mentoria garante a aprovação?</summary><div><p>Não. Nenhum curso pode garantir aprovação em concurso. A mentoria organiza o seu estudo e acompanha a sua evolução, mas o resultado depende da sua dedicação e da concorrência de cada prova.</p></div></details>
+        <details><summary>Posso desistir depois de comprar?</summary><div><p>Sim. Você pode cancelar em até 7 dias após a compra e recebe o valor de volta, como garante o Código de Defesa do Consumidor. Veja a <a href="reembolso.html">política de cancelamento e reembolso</a>.</p></div></details>
       </div>
     </div>
   </section>
@@ -203,11 +205,21 @@
     <nav aria-label="Rodapé"><a href="#mentorias">Mentorias</a><a href="#duvidas">Dúvidas</a><a href="qg/">Área do aluno</a></nav>
     <span>© <span id="ano">2026</span> TAOS Cursos</span>
   </div>
+  <div class="wrap foot-legal">
+    <nav aria-label="Documentos legais"><a href="termos.html">Termos de uso</a><a href="privacidade.html">Política de privacidade</a><a href="privacidade.html#cookies">Cookies</a><a href="reembolso.html">Cancelamento e reembolso</a></nav>
+    <p id="empresa-dados"></p>
+    <p>A TAOS Cursos é uma empresa privada de preparação para concursos. Não tem vínculo com a PMDF, a PMGO, a PCTO, a PCMG, com os governos do Distrito Federal e dos estados ou com as bancas organizadoras. A mentoria não garante aprovação: o resultado depende do estudo de cada aluno.</p>
+  </div>
 </footer>
+
+<div class="cookie" id="cookie" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Este site não usa cookies de rastreamento nem de publicidade. Guardamos só o necessário para ele funcionar, como o seu login na área do aluno. <a href="privacidade.html#cookies">Saiba mais</a></p>
+  <button class="btn btn-navy" type="button" id="cookie-ok">Entendi</button>
+</div>
 
 <a class="wa-float" data-wa="geral" target="_blank" rel="noopener" href="#" aria-label="Falar no WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
 
-<script src="assets/js/config.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/config.js?v=3"></script>
+<script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
