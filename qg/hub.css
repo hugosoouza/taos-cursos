@@ -254,3 +254,4 @@ h1.stencil { font-size: 34px; }
   .divhead { flex-wrap: wrap; }
   .divhead .n { margin-left: 60px; }
 }
+.course.vestibular .sigla { font-family: 'Space Grotesk', var(--brand); font-weight: 700; letter-spacing: -.03em; }

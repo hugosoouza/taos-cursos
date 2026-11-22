@@ -4,6 +4,10 @@
    "PMDF - Soldado QPPMC"). Lei seca: Planalto.
    ============================================================ */
 const CURSO=window.CURSO;
+const PROPRIO=(CURSO.fonte||'gran')!=='gran';
+const ESTUDO=CURSO.tom==='estudo';
+const tx=(m,e)=>ESTUDO?e:m;
+const AU=PROPRIO?'etapa':'aula',AUc=PROPRIO?'Etapa':'Aula';
 const G=window.GRAN;
 const CORES=['#1d5fd1','#0b7285','#7048e8','#a07d00','#c2255c','#2b8a3e','#e8590c','#364fc7','#9c36b5','#e03131','#0ca678','#5c940d','#868e96'];
 const DISC=G.disc.map((d,i)=>({...d,cor:CORES[i%CORES.length]}));
@@ -17,8 +21,8 @@ const INTERVALOS=[1,7,15,30];
 const MIN_REV=10;
 const DIAS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 const DIAS_C=['D','S','T','Q','Q','S','S'];
-const MARCA='TAOS '+(CURSO.marca||'MILITAR');
-const LOGO=`<span class="taos-logo"><svg viewBox="0 0 90 90" fill="currentColor" aria-hidden="true"><rect width="90" height="14"/><rect x="24" y="22" width="10" height="68"/><rect x="40" y="22" width="10" height="68"/><rect x="56" y="22" width="10" height="68"/></svg><span class="sep"></span><span><b>TAOS</b><i>${CURSO.marca||'MILITAR'} · ${CURSO.sigla}</i></span></span>`;
+const MARCA='TAOS '+(CURSO.marca===''?CURSO.sigla:(CURSO.marca||'MILITAR'));
+const LOGO=`<span class="taos-logo"><svg viewBox="0 0 90 90" fill="currentColor" aria-hidden="true"><rect width="90" height="14"/><rect x="24" y="22" width="10" height="68"/><rect x="40" y="22" width="10" height="68"/><rect x="56" y="22" width="10" height="68"/></svg><span class="sep"></span><span><b>TAOS</b><i>${CURSO.marca===''?'':(CURSO.marca||'MILITAR')+' · '}${CURSO.sigla}</i></span></span>`;
 /* Patentes por questões certas: [mínimo, nome, nível da insígnia] */
 const PATENTES=CURSO.patentes||[[0,'Recruta',0],[300,'Soldado',1],[1000,'Cabo',2],[2500,'3º Sargento',3],[5000,'2º Sargento',4],[9000,'1º Sargento',5],[15000,'Subtenente',6],[25000,'Aspirante',7],[40000,'Tenente',8]];
 /* ---------- Arte (desenhos próprios) ---------- */
@@ -28,7 +32,8 @@ const ART={
  fuzil:`<svg viewBox="0 0 220 64" aria-hidden="true"><path fill="currentColor" d="M2 30l34-6 6-3h22l2-4h46l2 3h40l2-2h16l1 2h40v5h-40l-1 2h-12l-2 4h-26l-6 15h-10l4-15h-12l-6 21h-13l5-21H52l-5 2-20 16H4z"/><rect x="88" y="12" width="26" height="4" rx="1.5" fill="currentColor"/><rect x="96" y="9" width="10" height="4" fill="currentColor"/></svg>`,
  mira:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg>`
 };
-{const tpl=ART.granada;let gid=0;Object.defineProperty(ART,'granada',{get(){gid++;return tpl.replace(/gcp/g,'gcp'+gid).replace(/gbg/g,'gbg'+gid)}})}
+if(ESTUDO){ART.fuzil=`<svg viewBox="0 0 220 64" aria-hidden="true"><path fill="currentColor" d="M110 14c-20-8-48-9-70-2v46c22-7 50-6 70 2zm0 0c20-8 48-9 70-2v46c-22-7-50-6-70 2z" opacity=".9"/><path d="M110 14v46" stroke="#000" stroke-opacity=".25" stroke-width="2"/><path d="M52 24c14-3 30-2 44 2M52 33c14-3 30-2 44 2M52 42c14-3 30-2 44 2M124 26c14-4 30-5 44-2M124 35c14-4 30-5 44-2M124 44c14-4 30-5 44-2" stroke="#000" stroke-opacity=".22" stroke-width="2" fill="none"/></svg>`;ART.mira=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>`;ART.pino=`<svg viewBox="0 0 40 30" aria-hidden="true"><path d="M20 2l4 8.2 9 1.3-6.5 6.3 1.5 9L20 22.6 12 26.8l1.5-9L7 11.5l9-1.3z" fill="#ffd166"/></svg>`}
+{const tpl=ESTUDO?`<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 8h24v14c0 8-5.5 14-12 14s-12-6-12-14z" fill="#ffd166" stroke="#a87a12" stroke-width="2"/><path d="M20 12H10c0 9 4 14 10 15M44 12h10c0 9-4 14-10 15" fill="none" stroke="#ffd166" stroke-width="3.5"/><path d="M28 36h8v8h-8z" fill="#e0a92c"/><path d="M20 50h24v6H20z" fill="#e0a92c"/><path d="M24 44h16v6H24z" fill="#ffd166"/><path d="M32 13l2 4.2 4.6.6-3.4 3.1.9 4.5L32 23.2l-4.1 2.2.9-4.5-3.4-3.1 4.6-.6z" fill="#fff6d6"/></svg>`:ART.granada;let gid=0;Object.defineProperty(ART,'granada',{get(){gid++;return tpl.replace(/gcp/g,'gcp'+gid).replace(/gbg/g,'gbg'+gid)}})}
 document.getElementById('loadArt').innerHTML=ART.granada;
 document.getElementById('topLogo').innerHTML=LOGO;
 function insignia(n){
@@ -148,7 +153,7 @@ function marcarAula(v,on,d=hoje()){
   sincronizarRevisoes(UN[a.u]);
   if(on)ativ(d);
 }
-function rotuloRev(o){const ns=o.aulas.map(v=>AULA[v]&&AULA[v].n).filter(Boolean).sort((a,b)=>a-b);return ns.length===1?`Aula ${ns[0]}`:`Aulas ${ns[0]} a ${ns[ns.length-1]}`}
+function rotuloRev(o){const ns=o.aulas.map(v=>AULA[v]&&AULA[v].n).filter(Boolean).sort((a,b)=>a-b);return ns.length===1?`${AUc} ${ns[0]}`:`${AUc}s ${ns[0]} a ${ns[ns.length-1]}`}
 function revisoes(f){const out=[];for(const[id,o]of Object.entries(S.rv)){if(!UN[o.u])continue;o.r.forEach((r,k)=>{if(f(r))out.push({id,k,o,u:UN[o.u],...r})})}return out.sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:a.i-b.i)}
 const revsAte=d=>revisoes(r=>!r.ok&&r.d<=d);
 const revsNoDia=d=>revisoes(r=>!r.ok&&r.d===d);
@@ -220,11 +225,11 @@ function boom(x=lastXY[0],y=lastXY[1]){
 }
 function missaoCumprida(){
   const h=hoje(),bl=blocosFeitosEm(h),rvL=revsFeitas(h),rv=rvL.length,min=bl.reduce((s,b)=>s+b.min,0)+minRevs(rvL);
-  const fx=document.createElement('div');fx.className='fx';fx.setAttribute('role','dialog');fx.setAttribute('aria-label','Missão do dia cumprida');
+  const fx=document.createElement('div');fx.className='fx';fx.setAttribute('role','dialog');fx.setAttribute('aria-label',tx('Missão do dia cumprida','Meta do dia cumprida'));
   let sh='';for(let i=0;i<26;i++){const a=Math.random()*Math.PI*2,d=140+Math.random()*220;sh+=`<i class="fx-sh" style="background:${CORES_FX[i%5]};--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;--r:${Math.random()*720-360}deg"></i>`}
   fx.innerHTML=`<div class="fx-flash"></div><div class="fx-stage"><div class="fx-smoke"></div><div class="fx-fire"></div><div class="fx-ring"></div><div class="fx-ring r2"></div>${sh}<div class="fx-pin">${ART.pino}</div><div class="fx-gren">${ART.granada}</div>
-   <div class="fx-card"><div class="fx-stamp">MISSÃO CUMPRIDA</div><div class="fx-sub">Objetivo do dia neutralizado</div>
-   <div class="fx-stats"><span><b>${bl.length}</b> bloco${bl.length===1?'':'s'}</span><span><b>${minTxt(min)}</b> de estudo</span>${rv?`<span><b>${rv}</b> revis${rv===1?'ão':'ões'}</span>`:''}<span><b>${sequencia()}</b> dia${sequencia()===1?'':'s'} em operação</span></div>
+   <div class="fx-card"><div class="fx-stamp">${tx('MISSÃO CUMPRIDA','META CUMPRIDA')}</div><div class="fx-sub">${tx('Objetivo do dia neutralizado','Estudo do dia concluído')}</div>
+   <div class="fx-stats"><span><b>${bl.length}</b> bloco${bl.length===1?'':'s'}</span><span><b>${minTxt(min)}</b> de estudo</span>${rv?`<span><b>${rv}</b> revis${rv===1?'ão':'ões'}</span>`:''}<span><b>${sequencia()}</b> dia${sequencia()===1?'':'s'} ${tx('em operação','seguidos')}</span></div>
    <button class="btn gold" data-fx="fechar">Continuar</button></div></div>`;
   document.body.appendChild(fx);
   const fechar=()=>{fx.style.transition='opacity .25s';fx.style.opacity='0';setTimeout(()=>fx.remove(),260)};
@@ -244,14 +249,14 @@ const linkUn=(u,b)=>`#/assunto/${encodeURIComponent(u)}${b!==undefined?'/'+b:''}
 function rvChipsEntrada(o){const h=hoje();return o.r.map(r=>`<span class="rv ${r.ok?'ok':r.d<=h?'due':''}" title="Revisão de ${r.i} dia(s): ${r.ok?'feita em '+brA(r.ok):'prevista para '+brA(r.d)}">${r.i}d</span>`).join('')}
 
 /* ---------- Sidebar ---------- */
-const NAV=[['','Dashboard','dash'],['semana','Metas da semana','sem'],['conteudos','Conteúdos e aulas','cont'],['revisoes','Revisões','rev'],['questoes','Questões','q'],['desempenho','Desempenho','des'],['simulados','Simulados','sim'],['flashcards','Flashcards','fc'],['config','Configurações','cfg']];
+const NAV=[['','Dashboard','dash'],['semana','Metas da semana','sem'],['conteudos',PROPRIO?'Conteúdos':'Conteúdos e aulas','cont'],['revisoes','Revisões','rev'],['questoes','Questões','q'],['desempenho','Desempenho','des'],['simulados','Simulados','sim'],['flashcards','Flashcards','fc'],['config','Configurações','cfg']];
 function renderSide(rota){
-  const nome=S.nome||(USER?USER.email.split('@')[0]:'Futuro '+CURSO.cargo);
+  const nome=S.nome||(USER?USER.email.split('@')[0]:(CURSO.apelido||'Futuro '+CURSO.cargo));
   const ini=nome.split(/[\s._-]+/).filter(Boolean).slice(0,2).map(p=>p[0].toUpperCase()).join('');
   const nRev=revsAte(hoje()).length,nFc=cardsPend().length;
   const falta=S.prova?diffD(hoje(),S.prova):null;
   document.getElementById('side').innerHTML=`
-   <div class="brand brand-logo">${LOGO}<small>Missão: ${CURSO.cargo} ${CURSO.sigla}</small></div>
+   <div class="brand brand-logo">${LOGO}<small>${ESTUDO?(CURSO.lema||CURSO.sigla):'Missão: '+CURSO.cargo+' '+CURSO.sigla}</small></div>
    <div class="user"><div class="avatar">${esc(ini)}</div><div style="min-width:0"><b>${esc(nome)}</b><small>${patente(statsQ().c).f[1]} · Pré-edital</small><small>${falta!==null?(falta>=0?`Prova em ${falta} dia${falta===1?'':'s'}`:'Prova realizada'):'Defina a data da prova'}</small></div></div>
    <div class="nav-t">Estudos</div>
    <nav class="nav">${NAV.map(([r,t,i])=>{let b='';if(r==='revisoes'&&nRev)b=`<span class="badge">${nRev}</span>`;if(r==='flashcards'&&nFc)b=`<span class="badge">${nFc}</span>`;return`<a href="#/${r}" class="${r===rota?'on':''}">${svg(i)}${t}${b}</a>`}).join('')}</nav>
@@ -262,7 +267,7 @@ function renderSide(rota){
 /* ---------- Páginas ---------- */
 function itemBloco(b,feito){
   const u=UN[b.u],d=MAT[u.d],nb=blocosDe(u).length;
-  return`<div class="item ${feito?'done':''}"><button class="check ${feito?'on':''}" data-a="bloco" data-u="${u.id}" data-b="${b.i}" title="${feito?'Desmarcar':'Marcar bloco como concluído'}">${feito?svg('check'):''}</button><a class="tx" href="${linkUn(u.id,b.i)}" style="color:inherit"><b>${mdot(d.id)} ${esc(d.nome)}</b><span>${esc(nomeCurto(u))}${nb>1?` · bloco ${b.i+1}/${nb}`:''} · ${b.aulas.length} aula${b.aulas.length>1?'s':''}</span></a><span class="chip">${minTxt(b.min)}</span></div>`;
+  return`<div class="item ${feito?'done':''}"><button class="check ${feito?'on':''}" data-a="bloco" data-u="${u.id}" data-b="${b.i}" title="${feito?'Desmarcar':'Marcar bloco como concluído'}">${feito?svg('check'):''}</button><a class="tx" href="${linkUn(u.id,b.i)}" style="color:inherit"><b>${mdot(d.id)} ${esc(d.nome)}</b><span>${esc(nomeCurto(u))}${nb>1?` · bloco ${b.i+1}/${nb}`:''} · ${b.aulas.length} ${AU}${b.aulas.length>1?'s':''}</span></a><span class="chip">${minTxt(b.min)}</span></div>`;
 }
 function pgDash(){
   const h=hoje(),feitas=Object.keys(S.aulas).filter(v=>AULA[v]).length,p=pct(feitas,TOTAL_AULAS);
@@ -275,12 +280,12 @@ function pgDash(){
   const ini=addD(h,-dow(h));
   const dots=[0,1,2,3,4,5,6].map(i=>{const d=addD(ini,i);return`<span class="${S.at[d]?'on':''} ${d===h?'today':''}">${DIAS_C[i]}</span>`}).join('');
   const r=26,C=2*Math.PI*r;
-  const msg=seq?`${seq} dia${seq>1?'s':''} em operação! Cumpra a missão de hoje para não quebrar a sequência.`:'Inicie hoje a sua operação de estudos.';
+  const msg=seq?`${seq} dia${seq>1?'s':''} ${tx('em operação! Cumpra a missão','seguidos estudando! Cumpra a meta')} de hoje para não quebrar a sequência.`:tx('Inicie hoje a sua operação de estudos.','Comece hoje a sua rotina de estudos.');
   const ammo=[...Array(revs.length+revsOk.length?1:0)].map(()=>`<i class="rv ${revs.length?'':'on'}" title="Revisões"></i>`).join('')+feitosHoje.map(()=>'<i class="on"></i>').join('')+proj.novos.map(()=>'<i></i>').join('');
   const minFeito=feitosHoje.reduce((s,b)=>s+b.min,0)+Math.min(proj.revMin,minRevs(revsOk));
   const minMeta=feitosHoje.reduce((s,b)=>s+b.min,0)+proj.novos.reduce((s,b)=>s+b.min,0)+proj.revMin;
   return`
-  <div class="page-h"><div><h1>Bom serviço${S.nome?', '+esc(S.nome.split(' ')[0]):''}!</h1><p>${DIAS[dow(h)]}, ${brA(h)} · foco total na ${CURSO.sigla}.</p></div>
+  <div class="page-h"><div><h1>${tx('Bom serviço','Bons estudos')}${S.nome?', '+esc(S.nome.split(' ')[0]):''}!</h1><p>${DIAS[dow(h)]}, ${brA(h)} · foco total ${CURSO.foco||'na '+CURSO.sigla}.</p></div>
    ${S.prova?`<div class="chip" style="font-size:13px;padding:6px 12px">${svg('target','width="15" height="15"')} ${diffD(h,S.prova)>=0?diffD(h,S.prova)+' dias para a prova':'Prova em '+brA(S.prova)}</div>`:`<a class="btn sec" href="#/config">Definir data da prova</a>`}</div>
   <section class="hero">
     <div class="hero-art">${ART.fuzil}</div>
@@ -292,8 +297,8 @@ function pgDash(){
         <small>${fx.next?`faltam <b>${(fx.next[0]-c).toLocaleString('pt-BR')}</b> questões certas para <b>${fx.next[1]}</b>`:'Patente máxima alcançada!'}</small></div>
       <div class="panel"><div class="panel-t">Seu plano</div>
         <div class="ring-wrap"><div class="ring"><svg width="66" height="66"><circle cx="33" cy="33" r="${r}" stroke="rgba(127,127,127,.25)" stroke-width="7" fill="none"/><circle cx="33" cy="33" r="${r}" stroke="var(--ok)" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-p/100)}"/></svg><span>${p}%</span></div>
-        <div><b>${feitas}</b> <small>de ${TOTAL_AULAS.toLocaleString('pt-BR')} aulas · ${unFeitas}/${unTot} assuntos</small><br><small>${ter==='concluído'?'Conteúdo todo estudado!':ter?`término previsto em <b>${brA(ter)}</b>`:'defina suas horas de estudo'}</small></div></div></div>
-      <div class="panel"><div class="panel-t">Dias em operação</div>
+        <div><b>${feitas}</b> <small>de ${TOTAL_AULAS.toLocaleString('pt-BR')} ${AU}s · ${unFeitas}/${unTot} assuntos</small><br><small>${ter==='concluído'?'Conteúdo todo estudado!':ter?`término previsto em <b>${brA(ter)}</b>`:'defina suas horas de estudo'}</small></div></div></div>
+      <div class="panel"><div class="panel-t">${tx('Dias em operação','Dias seguidos')}</div>
         <div class="streak"><span style="color:var(--gold)">${svg('fire','width="22" height="22"')}</span>${seq} <small style="font-size:13px;font-weight:500;font-family:Inter">dias seguidos</small></div>
         <div class="dots">${dots}</div><small>estude, revise ou resolva questões para somar</small></div>
     </div>
@@ -305,13 +310,13 @@ function pgDash(){
     <div class="card stat"><div class="ic" style="background:var(--bad-soft);color:var(--bad)">${svg('fire','width="20" height="20"')}</div><div><b>${c7}</b><small>certas (7 dias)</small></div></div>
   </div>
   <div class="grid g2 mt">
-    <div class="card"><h2><span style="width:20px;height:20px;display:inline-flex">${ART.granada}</span> Missão do dia <span class="sub">${minTxt(minFeito)} de ${minTxt(minMeta)}</span></h2>
-      ${ammo?`<div class="ammo" title="Cada cartucho é um bloco da missão">${ammo}<small>${feitosHoje.length}/${feitosHoje.length+proj.novos.length} blocos</small></div>`:''}
+    <div class="card"><h2><span style="width:20px;height:20px;display:inline-flex">${ART.granada}</span> ${tx('Missão do dia','Meta do dia')} <span class="sub">${minTxt(minFeito)} de ${minTxt(minMeta)}</span></h2>
+      ${ammo?`<div class="ammo" title="${tx('Cada cartucho é um bloco da missão','Cada barra é um bloco da meta')}">${ammo}<small>${feitosHoje.length}/${feitosHoje.length+proj.novos.length} blocos</small></div>`:''}
       ${revs.length||revsOk.length?`<div class="item ${revs.length?'rev':'done'}"><div class="tx"><b>Revisões</b><span>${revs.length?`${revs.length} revis${revs.length>1?'ões':'ão'} para fazer`:'Revisões do dia concluídas'} · ~${minTxt(proj.revMin)}</span></div><a class="btn sm ${revs.length?'gold':'sec'}" href="#/revisoes">${revs.length?'Revisar':'Ver'}</a></div>`:''}
       ${feitosHoje.map(b=>itemBloco(b,true)).join('')}
       ${proj.novos.map(b=>itemBloco(b,false)).join('')}
       ${!revs.length&&!revsOk.length&&!feitosHoje.length&&!proj.novos.length?`<div class="empty">${minDia(h)?'Nada pendente para hoje. Aproveite para resolver questões!':'Hoje é dia de folga no seu plano. Ajuste em Configurações se quiser estudar.'}</div>`:''}
-      <p class="muted" style="font-size:12.5px;margin:12px 0 0">Clique numa meta para abrir as aulas. Quando todas as aulas de um assunto forem concluídas, as revisões de 1, 7, 15 e 30 dias são agendadas automaticamente.</p>
+      <p class="muted" style="font-size:12.5px;margin:12px 0 0">Clique numa meta para abrir ${PROPRIO?'as etapas':'as aulas'}. Quando todas as ${AU}s de um assunto forem concluídas, as revisões de 1, 7, 15 e 30 dias são agendadas automaticamente.</p>
     </div>
     <div class="card"><h2>Registrar questões</h2>
       ${formQuestoes()}
@@ -361,21 +366,21 @@ function pgSemana(){
   return`<div class="page-h"><div><h1>Metas da semana</h1><p>${brA(ini)} a ${brA(fim)} · ${minTxt(feito)} de ${minTxt(planejado)} (${pct(feito,planejado)}%)</p></div>
    <div class="row"><button class="btn sec" data-a="sem" data-v="-1">‹ Anterior</button><button class="btn sec" data-a="sem" data-v="0">Hoje</button><button class="btn sec" data-a="sem" data-v="1">Próxima ›</button></div></div>
    <div class="week">${cols}</div>
-   <div class="note mt">As metas são montadas automaticamente com as aulas do Gran, em blocos de até ${S.bloco} min, alternando as matérias pelo peso. Se um bloco não for concluído, ele passa para o próximo dia. Clique num bloco para abrir as aulas.</div>`;
+   <div class="note mt">As metas são montadas automaticamente com ${PROPRIO?'as etapas de estudo':'as aulas do Gran'}, em blocos de até ${S.bloco} min, alternando as matérias pelo peso. Se um bloco não for concluído, ele passa para o próximo dia. Clique num bloco para abrir ${PROPRIO?'as etapas':'as aulas'}.</div>`;
 }
 
 const abertas=new Set();
 function pgConteudos(){
   const unTot=Object.keys(UN).length,unF=Object.keys(S.top).filter(id=>UN[id]).length;
   const feitas=Object.keys(S.aulas).filter(v=>AULA[v]).length;
-  return`<div class="page-h"><div><h1>Conteúdos e aulas</h1><p>${CURSO.cargo} ${CURSO.sigla} · ${unF} de ${unTot} assuntos concluídos · ${feitas} de ${TOTAL_AULAS.toLocaleString('pt-BR')} aulas</p></div>
+  return`<div class="page-h"><div><h1>${PROPRIO?'Conteúdos':'Conteúdos e aulas'}</h1><p>${CURSO.cargo} ${CURSO.sigla} · ${unF} de ${unTot} assuntos concluídos · ${feitas} de ${TOTAL_AULAS.toLocaleString('pt-BR')} ${AU}s</p></div>
    <div class="row"><button class="btn sec" data-a="abrirTodas">Expandir tudo</button><button class="btn sec" data-a="fecharTodas">Recolher</button></div></div>
    ${DISC.map(d=>{let f=0,t=0;d.u.forEach(u=>{const p=progUn(u);f+=p.f;t+=p.t});
-    return`<details class="mat" data-m="${d.id}" ${abertas.has(d.id)?'open':''}><summary>${mdot(d.id)}<span class="nm">${esc(d.nome)} <span class="chip" style="margin-left:6px">peso ${peso(d)}</span></span><span class="muted" style="font-size:12.5px">${f}/${t} aulas</span>${pbar(pct(f,t),d.cor)}</summary>
+    return`<details class="mat" data-m="${d.id}" ${abertas.has(d.id)?'open':''}><summary>${mdot(d.id)}<span class="nm">${esc(d.nome)} <span class="chip" style="margin-left:6px">peso ${peso(d)}</span></span><span class="muted" style="font-size:12.5px">${f}/${t} ${AU}s</span>${pbar(pct(f,t),d.cor)}</summary>
      ${d.u.map(u=>{const p=progUn(u);const ok=!!S.top[u.id];
-       return`<a class="trow" href="${linkUn(u.id)}"><span class="check ${ok?'on':''}" style="pointer-events:none">${ok?svg('check'):''}</span><div class="tx">${esc(u.n)}<small>${p.t} aula${p.t>1?'s':''} · ${minTxt(p.tm)}${p.f&&!ok?` · ${p.f} assistida${p.f>1?'s':''}`:''}${S.top[u.id]?' · concluído em '+brA(S.top[u.id].e):''}</small></div><div class="meta">${`<div class="pbar mini">${`<span style="width:${pct(p.f,p.t)}%;background:${d.cor}"></span>`}</div>`}</div></a>`}).join('')}
+       return`<a class="trow" href="${linkUn(u.id)}"><span class="check ${ok?'on':''}" style="pointer-events:none">${ok?svg('check'):''}</span><div class="tx">${esc(u.n)}<small>${p.t} ${AU}${p.t>1?'s':''} · ${minTxt(p.tm)}${p.f&&!ok?` · ${p.f} ${PROPRIO?'feita':'assistida'}${p.f>1?'s':''}`:''}${S.top[u.id]?' · concluído em '+brA(S.top[u.id].e):''}</small></div><div class="meta">${`<div class="pbar mini">${`<span style="width:${pct(p.f,p.t)}%;background:${d.cor}"></span>`}</div>`}</div></a>`}).join('')}
     </details>`}).join('')}
-   <p class="credit">Aulas: Gran Cursos Online, curso “PMDF – Soldado QPPMC”. Os links abrem no Gran e exigem assinatura própria. Lei seca: Portal da Legislação do Planalto.</p>`;
+   <p class="credit">${PROPRIO?(CURSO.credito||''):'Aulas: Gran Cursos Online, curso “PMDF – Soldado QPPMC”. Os links abrem no Gran e exigem assinatura própria. Lei seca: Portal da Legislação do Planalto.'}</p>`;
 }
 
 function pgAssunto(id,blk){
@@ -387,22 +392,22 @@ function pgAssunto(id,blk){
   const mats=S.mats[u.id]||[];
   const i=d.u.indexOf(u),ant=d.u[i-1],seg=d.u[i+1];
   return`<div class="crumb"><a href="#/conteudos">Conteúdos</a> › ${mdot(d.id)} ${esc(d.nome)}</div>
-  <div class="page-h"><div style="max-width:900px"><h1 class="h-un">${esc(u.n)}</h1><p>${p.t} aula${p.t>1?'s':''} · ${minTxt(p.tm)} · ${bl.length} bloco${bl.length>1?'s':''} de estudo</p></div>
+  <div class="page-h"><div style="max-width:900px"><h1 class="h-un">${esc(u.n)}</h1><p>${p.t} ${AU}${p.t>1?'s':''} · ${minTxt(p.tm)} · ${bl.length} bloco${bl.length>1?'s':''} de estudo</p></div>
    ${ok?`<span class="chip" style="background:var(--ok-soft);color:var(--ok);border-color:transparent;font-size:13px;padding:6px 12px">${svg('check','width="14" height="14"')} Concluído em ${brA(ok.e)}</span>`:`<button class="btn ok" data-a="unidadeToda" data-u="${u.id}">Marcar assunto como concluído</button>`}</div>
   <div class="grid g21">
    <div>
     <div class="card"><h2><span class="step">1</span> Orientação</h2>
       <div class="row" style="gap:14px;align-items:center"><div style="flex:1;min-width:200px">${pbar(pct(p.fm,p.tm),'var(--ok)')}</div><b>${minTxt(p.fm)} de ${minTxt(p.tm)}</b></div>
       <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px">
-        ${ok?`<li>Assunto concluído! Agora é revisar nas datas marcadas e resolver questões.</li>`:prox?`<li>Próximo passo: <b style="color:var(--ink)">bloco ${prox.i+1}</b> (${prox.aulas.length} aula${prox.aulas.length>1?'s':''}, ${minTxt(prox.min)}).</li>`:''}
-        <li>Assista às aulas na ordem. Se preferir ler, abra a aula no Gran e use a aba <b>PDF</b>.</li>
-        <li>Ao terminar todas as aulas, resolva questões do assunto. As revisões de 1, 7, 15 e 30 dias são agendadas sozinhas.</li>
+        ${ok?`<li>Assunto concluído! Agora é revisar nas datas marcadas e resolver questões.</li>`:prox?`<li>Próximo passo: <b style="color:var(--ink)">bloco ${prox.i+1}</b> (${prox.aulas.length} ${AU}${prox.aulas.length>1?'s':''}, ${minTxt(prox.min)}).</li>`:''}
+        <li>${PROPRIO?'Faça as etapas na ordem: estude a teoria no seu material e marque cada etapa ao terminar. A última etapa é sempre de exercícios.':'Assista às aulas na ordem. Se preferir ler, abra a aula no Gran e use a aba <b>PDF</b>.'}</li>
+        <li>Ao terminar todas as ${AU}s, resolva questões do assunto. As revisões de 1, 7, 15 e 30 dias são agendadas sozinhas.</li>
       </ul>
       ${(()=>{const ls=Object.values(S.rv).filter(o=>o.u===u.id).sort((a,b)=>a.e<b.e?-1:1);return ls.length?`<div class="mt" style="display:grid;gap:6px"><span class="muted" style="font-size:12.5px;font-weight:600">Revisões deste assunto</span>${ls.map(o=>`<div class="row" style="gap:6px;font-size:12.5px"><span style="min-width:110px">${rotuloRev(o)}</span>${rvChipsEntrada(o)}</div>`).join('')}</div>`:''})()}
     </div>
-    <div class="card mt"><h2><span class="step">2</span> Teoria · videoaulas do Gran <span class="sub">${p.f}/${p.t} concluídas</span></h2>
+    <div class="card mt"><h2><span class="step">2</span> ${PROPRIO?'Etapas de estudo':'Teoria · videoaulas do Gran'} <span class="sub">${p.f}/${p.t} concluídas</span></h2>
       ${bl.map(b=>{const f=blocoFeito(b);return`<div class="blk-t ${b===alvo&&!f?'cur':''}" id="b${b.i}">${f?`<span style="color:var(--ok)">${svg('check','width="14" height="14"')}</span>`:''}Bloco ${b.i+1} · ${minTxt(b.min)}${b===alvo&&!f?' · <span>meta atual</span>':''}<button class="btn sec sm right" data-a="bloco" data-u="${u.id}" data-b="${b.i}">${f?'Desmarcar bloco':'Concluir bloco'}</button></div>
-        ${b.aulas.map(v=>{const a=AULA[v],on=!!S.aulas[v];return`<div class="aula ${on?'done':''}"><button class="check ${on?'on':''}" data-a="aula" data-v="${esc(v)}" title="${on?'Desmarcar':'Marcar como assistida'}">${on?svg('check'):''}</button><div class="tx"><b>Aula ${a.n} — ${esc(a.t)}</b><small>${minTxt(minAula(a))}${S.vel!=1?' (em '+S.vel+'x)':''} · ${esc(a.p||'')}${a.pdf?' · tem PDF':''}${on?' · assistida em '+br(S.aulas[v]):''}</small></div><div class="aula-bt">${pdfsDe(u,[v]).map(p=>`<a class="btn pdf sm" href="${esc(CURSO.base+p.f)}" target="_blank" rel="noopener" title="${esc(p.n)}">${svg('book','width="12" height="12"')} Abrir PDF</a>`).join('')}<a class="btn vid sm" href="${aulaUrl(v)}" target="_blank" rel="noopener">${svg('play','width="12" height="12"')} Abrir no Gran</a></div></div>`}).join('')}`}).join('')}
+        ${b.aulas.map(v=>{const a=AULA[v],on=!!S.aulas[v];return`<div class="aula ${on?'done':''}"><button class="check ${on?'on':''}" data-a="aula" data-v="${esc(v)}" title="${on?'Desmarcar':PROPRIO?'Marcar etapa como feita':'Marcar como assistida'}">${on?svg('check'):''}</button><div class="tx"><b>${AUc} ${a.n} — ${esc(a.t)}</b><small>${minTxt(minAula(a))}${S.vel!=1?' (em '+S.vel+'x)':''} · ${esc(a.p||'')}${a.pdf?' · tem PDF':''}${on?(PROPRIO?' · feita em ':' · assistida em ')+br(S.aulas[v]):''}</small></div><div class="aula-bt">${pdfsDe(u,[v]).map(p=>`<a class="btn pdf sm" href="${esc(CURSO.base+p.f)}" target="_blank" rel="noopener" title="${esc(p.n)}">${svg('book','width="12" height="12"')} Abrir PDF</a>`).join('')}${PROPRIO?'':`<a class="btn vid sm" href="${aulaUrl(v)}" target="_blank" rel="noopener">${svg('play','width="12" height="12"')} Abrir no Gran</a>`}</div></div>`}).join('')}`}).join('')}
     </div>
     <div class="card mt"><h2><span class="step">3</span> Meu caderno <span class="sub">dúvidas, macetes, artigos que caem</span></h2>
       <textarea class="notes" data-nota="${u.id}" placeholder="Anote aqui o que você não quer esquecer deste assunto. Salva sozinho.">${esc(S.notas[u.id]||'')}</textarea>
@@ -411,7 +416,7 @@ function pgAssunto(id,blk){
    <div>
     <div class="card"><h2>${svg('q','width="18" height="18"')} Questões</h2>
       <p class="muted" style="margin:0 0 12px;font-size:13px">Resolva questões deste assunto para fixar o conteúdo e registre o resultado.</p>
-      ${qUrl?`<a class="btn" style="width:100%" href="${esc(qUrl)}" target="_blank" rel="noopener">Resolver no Gran Questões ${svg('ext','width="13" height="13"')}</a>`:''}
+      ${qUrl?`<a class="btn" style="width:100%" href="${esc(qUrl)}" target="_blank" rel="noopener">Resolver no Gran Questões ${svg('ext','width="13" height="13"')}</a>`:(PROPRIO&&CURSO.questoes?`<a class="btn" style="width:100%" href="${esc(CURSO.questoes.url)}" target="_blank" rel="noopener">${esc(CURSO.questoes.nome)} ${svg('ext','width="13" height="13"')}</a>`:'')}
       <div class="mt">${formQuestoes(d.id)}</div>
     </div>
     ${pdfsDe(u).length?`<div class="card mt"><h2>${svg('book','width="18" height="18"')} Material TAOS <span class="sub">PDF</span></h2>${pdfsDe(u).map(p=>`<a class="law pdf" href="${esc(CURSO.base+p.f)}" target="_blank" rel="noopener"><b>PDF</b>${esc(p.n)}<span>Abrir ${svg('ext','width="12" height="12"')}</span></a>`).join('')}</div>`:''}
@@ -423,19 +428,19 @@ function pgAssunto(id,blk){
    </div>
   </div>
   <div class="row mt">${ant?`<a class="btn sec" href="${linkUn(ant.id)}">‹ Assunto anterior</a>`:''}${seg?`<a class="btn sec right" href="${linkUn(seg.id)}">Próximo assunto ›</a>`:''}</div>
-  <p class="credit">Videoaulas e PDFs: Gran Cursos Online (é preciso ter assinatura própria e estar logado no Gran). Lei seca: Planalto.</p>`;
+  <p class="credit">${PROPRIO?(CURSO.credito||''):'Videoaulas e PDFs: Gran Cursos Online (é preciso ter assinatura própria e estar logado no Gran). Lei seca: Planalto.'}</p>`;
 }
 
 function pgRevisoes(){
   const h=hoje(),pend=revsAte(h),prox=revisoes(r=>!r.ok&&r.d>h&&r.d<=addD(h,14)),feitasH=revsFeitas(h);
-  const item=(r,btn)=>`<div class="item ${btn?'rev':''}"><a class="tx" href="${linkUn(r.u.id)}" style="color:inherit"><b>${mdot(r.u.d)} ${esc(MAT[r.u.d].nome)} <span class="chip">${r.i===1?'dia anterior':r.i+' dias'}</span>${btn&&r.d<h?` <span class="chip" style="color:var(--bad)">atrasada ${diffD(r.d,h)}d</span>`:''}</b><span>${rotuloRev(r.o)} · ${esc(nomeCurto(r.u,110))}</span></a>${btn?`<a class="btn vid sm" href="${aulaUrl(r.o.aulas[0])}" target="_blank" rel="noopener" title="Abrir a primeira aula no Gran">Gran</a><button class="btn ok sm" data-a="revisar" data-id="${r.id}" data-k="${r.k}">Revisado</button>`:`<span class="chip">${br(r.d)}</span>`}</div>`;
+  const item=(r,btn)=>`<div class="item ${btn?'rev':''}"><a class="tx" href="${linkUn(r.u.id)}" style="color:inherit"><b>${mdot(r.u.d)} ${esc(MAT[r.u.d].nome)} <span class="chip">${r.i===1?'dia anterior':r.i+' dias'}</span>${btn&&r.d<h?` <span class="chip" style="color:var(--bad)">atrasada ${diffD(r.d,h)}d</span>`:''}</b><span>${rotuloRev(r.o)} · ${esc(nomeCurto(r.u,110))}</span></a>${btn?`${PROPRIO?'':`<a class="btn vid sm" href="${aulaUrl(r.o.aulas[0])}" target="_blank" rel="noopener" title="Abrir a primeira aula no Gran">Gran</a>`}<button class="btn ok sm" data-a="revisar" data-id="${r.id}" data-k="${r.k}">Revisado</button>`:`<span class="chip">${br(r.d)}</span>`}</div>`;
   const grupos={};prox.forEach(r=>{(grupos[r.d]=grupos[r.d]||[]).push(r)});
   return`<div class="page-h"><div><h1>Revisões</h1><p>Sistema 1-7-15-30: cada bloco que você estuda volta para revisão no dia seguinte e depois de 7, 15 e 30 dias.</p></div></div>
   <div class="grid g2">
    <div class="card"><h2>Para hoje <span class="sub">${feitasH.length} feita${feitasH.length===1?'':'s'} hoje</span></h2>
     ${pend.length?pend.map(r=>item(r,true)).join(''):'<div class="empty">Nenhuma revisão pendente. Ótimo trabalho!</div>'}
     ${pend.length>1?`<button class="btn sec mt" data-a="revisarTodas">Marcar todas como revisadas</button>`:''}
-    <div class="note mt"><b>Como revisar bem:</b> releia seu caderno do assunto (5 min) e resolva de 5 a 10 questões no Gran Questões. Registre o resultado para acompanhar o desempenho.</div>
+    <div class="note mt"><b>Como revisar bem:</b> releia seu caderno do assunto (5 min) e resolva de 5 a 10 questões ${PROPRIO?'do assunto':'no Gran Questões'}. Registre o resultado para acompanhar o desempenho.</div>
    </div>
    <div class="card"><h2>Próximos 14 dias <span class="sub">${prox.length} agendada${prox.length===1?'':'s'}</span></h2>
     ${Object.keys(grupos).length?Object.entries(grupos).map(([d,l])=>`<div class="muted" style="font-weight:700;font-size:12px;text-transform:uppercase;margin:12px 0 6px">${DIAS[dow(d)]} · ${br(d)}</div>${l.map(r=>item(r,false)).join('')}`).join(''):'<div class="empty">Nada agendado. Conclua assuntos para gerar revisões.</div>'}
@@ -444,9 +449,9 @@ function pgRevisoes(){
 }
 
 function pgQuestoes(){
-  return`<div class="page-h"><div><h1>Questões</h1><p>Registre as baterias de questões que você resolve (Gran Questões, QConcursos, TEC etc.).</p></div></div>
+  return`<div class="page-h"><div><h1>Questões</h1><p>${PROPRIO?'Registre as questões que você resolve (provas anteriores, listas, simulados).':'Registre as baterias de questões que você resolve (Gran Questões, QConcursos, TEC etc.).'}</p></div></div>
   <div class="card">${formQuestoes()}</div>
-  <div class="card mt"><h2>Cadernos do Gran Questões por matéria</h2><div class="row">${DISC.map(d=>{const u=questoesUrl(d.q);return u?`<a class="btn sec sm" href="${esc(u)}" target="_blank" rel="noopener">${mdot(d.id)} ${esc(d.nome)}</a>`:''}).join('')}</div></div>
+  <div class="card mt"><h2>${PROPRIO?(CURSO.questoes?esc(CURSO.questoes.titulo):'Questões'):'Cadernos do Gran Questões por matéria'}</h2>${PROPRIO&&CURSO.questoes?`<p class="muted" style="margin:0 0 12px;font-size:13px">${esc(CURSO.questoes.texto)}</p><a class="btn sec sm" href="${esc(CURSO.questoes.url)}" target="_blank" rel="noopener">${esc(CURSO.questoes.nome)} ${svg('ext','width="12" height="12"')}</a>`:''}<div class="row">${DISC.map(d=>{const u=questoesUrl(d.q);return u?`<a class="btn sec sm" href="${esc(u)}" target="_blank" rel="noopener">${mdot(d.id)} ${esc(d.nome)}</a>`:''}).join('')}</div></div>
   <div class="card mt"><h2>Histórico <span class="sub">${S.q.length} registro${S.q.length===1?'':'s'}</span></h2>${listaQuestoes(200)}</div>`;
 }
 
@@ -526,11 +531,11 @@ function pgConfig(){
     <div class="fld"><label>Data prevista da prova</label><input name="prova" type="date" value="${esc(S.prova)}"></div>
     <div class="fld"><label>Meta de acerto (%)</label><input name="corte" type="number" min="1" max="100" value="${S.corte}"></div>
     <div class="fld"><label>Tamanho máximo de cada bloco de estudo</label><select name="bloco">${[45,60,90,120,150].map(v=>`<option value="${v}" ${+S.bloco===v?'selected':''}>${v} minutos</option>`).join('')}</select></div>
-    <div class="fld"><label>Velocidade em que você assiste às aulas</label><select name="vel">${[1,1.25,1.5,1.75,2].map(v=>`<option value="${v}" ${+S.vel===v?'selected':''}>${String(v).replace('.',',')}x</option>`).join('')}</select></div>
+    <div class="fld"><label>${PROPRIO?'Ritmo de estudo (encurta a duração das etapas)':'Velocidade em que você assiste às aulas'}</label><select name="vel">${[1,1.25,1.5,1.75,2].map(v=>`<option value="${v}" ${+S.vel===v?'selected':''}>${String(v).replace('.',',')}x</option>`).join('')}</select></div>
    </div></div>
    <div class="card"><h2>Horas de estudo por dia</h2><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px">
     ${[1,2,3,4,5,6,0].map(i=>`<div class="fld"><label>${DIAS[i]}</label><input name="h${i}" type="number" step="0.5" min="0" max="16" value="${S.horas[i]}"></div>`).join('')}
-   </div><p class="muted" style="font-size:12.5px;margin-bottom:0">Use 0 para dias de folga. As revisões ocupam ~15 min (dia anterior) ou ~10 min (7, 15 e 30 dias) cada, até metade do seu tempo; o restante vira blocos de aulas.</p></div>
+   </div><p class="muted" style="font-size:12.5px;margin-bottom:0">Use 0 para dias de folga. As revisões ocupam ~15 min (dia anterior) ou ~10 min (7, 15 e 30 dias) cada, até metade do seu tempo; o restante vira blocos de ${AU}s.</p></div>
   </div>
   <div class="card mt"><h2>Peso das matérias <span class="sub">peso maior = aparece mais vezes no plano · 0 = fora do plano</span></h2>
    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px">${DISC.map(m=>`<div class="item" style="margin:0"><div class="tx"><b>${mdot(m.id)} ${esc(m.nome)}</b></div><input name="p_${m.id}" type="number" min="0" max="5" step="1" value="${peso(m)}" style="width:64px"></div>`).join('')}</div>

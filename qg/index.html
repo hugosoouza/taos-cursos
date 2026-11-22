@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Outfit:wght@400;500;600;700;800&family=Nunito:wght@900&family=Space+Grotesk:wght@700&family=Fraunces:ital,wght@1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hub.css?v=4">
+<link rel="stylesheet" href="hub.css?v=5">
 </head>
 <body>
 <div class="wrap">
@@ -24,9 +24,9 @@
 </div>
 
 <script src="config.js?v=3"></script>
-<script src="cursos.js?v=4"></script>
+<script src="cursos.js?v=5"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
-<script src="common.js?v=4"></script>
+<script src="common.js?v=5"></script>
 <script>
 (function () {
   var T = window.TAOS, esc = T.esc, view = T.$('#view');
@@ -116,13 +116,13 @@
 
   /* ---------- Meus cursos ---------- */
   function card(c, i) {
-    var chev = c.carreira === 'Militar' ? '<div class="chev" aria-hidden="true"><i></i><i></i><i></i></div>' : '<div class="chev" aria-hidden="true"><i></i></div>';
+    var chev = c.divisao !== 'militar' ? '' : c.carreira === 'Militar' ? '<div class="chev" aria-hidden="true"><i></i><i></i><i></i></div>' : '<div class="chev" aria-hidden="true"><i></i></div>';
     var dv = T.divDe(c);
     return '<a class="course ' + dv.id + '" href="curso.html?c=' + c.id + '" style="' + T.vars(c) + ';--d:' + (i * 0.08) + 's">' +
       '<span class="ring" aria-hidden="true"></span>' +
       (c.pronto ? '' : '<span class="soon">Em preparação</span>') +
       '<span class="stripe"></span>' +
-      '<span class="tag">' + (c.carreira === 'Militar' ? 'Polícia Militar' : 'Polícia Civil') + ' · ' + c.uf + '</span>' +
+      '<span class="tag">' + (c.rotulo || ((c.carreira === 'Militar' ? 'Polícia Militar' : 'Polícia Civil') + ' · ' + c.uf)) + '</span>' +
       '<span class="sigla">' + c.sigla + '</span>' +
       '<span class="nome">' + esc(c.nome) + '</span>' + chev +
       '<span class="go"><span>' + dv.cta + '</span><span aria-hidden="true">→</span></span>' +

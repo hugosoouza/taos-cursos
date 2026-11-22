@@ -52,9 +52,24 @@
         acc:'#c9a54a', 'acc-ink':'#111111', 'acc-soft':'#262010', gold:'#dcdcdc', 'gold-soft':'#1f1f22', 'gold-line':'#444448',
         hero:'#101012', hero2:'#18181b', 'hero-ink':'#f2f2f2', 'hero-muted':'#a0a0a5', sh:'7,7,8', 'acc-rgb':'201,165,74' },
       camo: ['#121214','#1b1b1e','#252528','#0a0a0b']
+    },
+    enem: {
+      id: 'enem', divisao: 'vestibular', marca: '', sigla: 'ENEM', nome: 'Exame Nacional do Ensino Médio', uf: 'BR',
+      rotulo: 'Exame nacional', cargo: 'Preparação', apelido: 'Futuro universitário', foco: 'no ENEM', lema: 'Rumo à universidade',
+      carreira: 'Vestibular', pronto: true, base: 'cursos/enem/',
+      fonte: 'propria', tom: 'estudo',
+      credito: 'Conteúdo organizado pela equipe TAOS com base na Matriz de Referência do ENEM (INEP). Os materiais de cada etapa serão liberados aos poucos.',
+      questoes: { titulo: 'Provas anteriores do ENEM', nome: 'Abrir provas e gabaritos (INEP)', texto: 'As provas oficiais dos anos anteriores são o melhor treino. Resolva por área e registre o resultado aqui.', url: 'https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos' },
+      fontes: { stencil: "'Space Grotesk', 'Outfit', sans-serif", cond: "'Outfit', 'Helvetica Neue', sans-serif" },
+      patentes: [[0,'Iniciante',0],[300,'Estudante',1],[1000,'Dedicado',2],[2500,'Focado',3],[5000,'Avançado',4],[9000,'Expert',5],[15000,'Mestre',6],[25000,'Aprovado',7],[40000,'Lenda',8]],
+      tema: { bg:'#0b0a1f', surface:'#15132e', surface2:'#100e25', ink:'#eceefe', muted:'#9a9cc4', line:'#24224a', line2:'#2e2b5a',
+        side:'#07061a', side2:'#17153a', 'side-ink':'#d2d4f5', 'side-muted':'#7a7cab',
+        acc:'#8f9bff', 'acc-ink':'#0b0f33', 'acc-soft':'#1d1c46', gold:'#ffd166', 'gold-soft':'#2a2410', 'gold-line':'#5a4813',
+        hero:'#100e28', hero2:'#1a1740', 'hero-ink':'#f1f2ff', 'hero-muted':'#a3a6d0', sh:'7,6,26', 'acc-rgb':'143,155,255' },
+      camo: ['#0f0d27','#131130','#171537','#0c0a22']
     }
   };
-  window.TAOS_ORDEM = ['pmdf', 'pmgo', 'pcto', 'pcmg'];
+  window.TAOS_ORDEM = ['pmdf', 'pmgo', 'pcto', 'pcmg', 'enem'];
 
   /* DIVISÕES DA ÁREA DO ALUNO
      Cada curso pertence a uma divisão (campo "divisao"). O aluno só vê as divisões
