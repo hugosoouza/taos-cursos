@@ -4,7 +4,7 @@
   Número: código do país + DDD + número, só dígitos. Ex.: 5561999999999
 */
 window.TAOS_CONFIG = {
-  whatsapp: "5561999999999", // NÚMERO DE EXEMPLO: troque pelo número real
+  whatsapp: "5561999096841", // NÚMERO TEMPORÁRIO: trocar pelo definitivo depois
 
   mensagemGeral: "Olá! Quero saber mais sobre as mentorias da TAOS Cursos.",
 
