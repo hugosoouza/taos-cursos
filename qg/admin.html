@@ -31,7 +31,7 @@
   var T = window.TAOS, esc = T.esc, view = T.$('#view');
   T.cena();
   T.$('#logoTop').innerHTML = T.logo;
-  var ALUNOS = [], MATS = {};
+  var ALUNOS = [], MATS = {}, ADMS = {}, EU = null;
 
   function senhaNova() {
     var a = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789', s = '';
@@ -88,7 +88,7 @@
         '<div id="nMsg"></div>' +
       '</form></section>' +
 
-      '<section class="box"><h2>Alunos</h2><p>Toque na sigla para liberar ou bloquear a mentoria. A mudança vale na hora.</p>' +
+      '<section class="box"><h2>Alunos e comandantes</h2><p>Toque na sigla para liberar ou bloquear a mentoria. Para dar acesso ao painel a um sócio, cadastre a conta dele e toque em "Comandante" (pede confirmação). A mudança vale na hora.</p>' +
         '<div class="search"><input id="busca" type="search" placeholder="Buscar por nome ou e-mail" aria-label="Buscar aluno"><button class="btn ghost sm" id="recarregar" type="button">Atualizar lista</button></div>' +
         '<div class="count" id="contagem"></div>' +
         '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Aluno</th><th>WhatsApp</th><th>Mentorias</th><th>Ações</th></tr></thead><tbody id="lista"></tbody></table></div>' +
@@ -147,8 +147,10 @@
     if (T.demo) { ALUNOS = [{ id: 'demo', nome: 'Aluno de exemplo', email: 'exemplo@gmail.com', telefone: '(61) 90000-0000' }]; MATS = { demo: ['pmdf'] }; return desenharLista(); }
     var p = await T.sb.from('perfis').select('id,nome,email,telefone,criado').order('criado', { ascending: false });
     var m = await T.sb.from('matriculas').select('user_id,curso_id,ativo');
+    var ad = await T.sb.from('admins').select('user_id');
     if (p.error || m.error) { T.$('#lMsg').innerHTML = '<div class="msg">Não foi possível carregar os alunos: ' + esc((p.error || m.error).message) + '</div>'; return; }
-    ALUNOS = p.data; MATS = {};
+    ALUNOS = p.data; MATS = {}; ADMS = {};
+    (ad.data || []).forEach(function (x) { ADMS[x.user_id] = true; });
     m.data.forEach(function (x) { if (!x.ativo) return; (MATS[x.user_id] = MATS[x.user_id] || []).push(x.curso_id); });
     desenharLista();
   }
@@ -165,13 +167,37 @@
           var c = T.cursos[id], on = ids.indexOf(id) >= 0;
           return '<button type="button" class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" data-toggle="' + id + '" aria-pressed="' + on + '"><span class="dot"></span>' + c.sigla + '</button>';
         }).join('') + '</div></td>' +
-        '<td><div class="actions"><button class="btn ghost sm" type="button" data-msg>Mensagem</button><button class="btn ghost sm" type="button" data-reset>Link de senha</button></div></td></tr>' +
+        '<td><div class="actions">' +
+          '<button type="button" class="chip ' + (ADMS[a.id] ? 'on' : '') + '" style="--cacc:#d6a630;--cink:#1a1405" data-adm aria-pressed="' + !!ADMS[a.id] + '"' + (a.id === EU ? ' disabled title="Você não pode remover a si mesmo"' : '') + '><span class="dot"></span>Comandante</button>' +
+          '<button class="btn ghost sm" type="button" data-msg>Mensagem</button><button class="btn ghost sm" type="button" data-reset>Link de senha</button></div></td></tr>' +
         '<tr class="extra" hidden><td colspan="4"></td></tr>';
     }).join('') : '<tr><td colspan="4" class="count">Nenhum aluno encontrado.</td></tr>';
 
     T.$('#lista').querySelectorAll('[data-toggle]').forEach(function (b) { b.onclick = function () { alternar(b); }; });
     T.$('#lista').querySelectorAll('[data-msg]').forEach(function (b) { b.onclick = function () { mostrarMsg(b); }; });
     T.$('#lista').querySelectorAll('[data-reset]').forEach(function (b) { b.onclick = function () { resetar(b); }; });
+    T.$('#lista').querySelectorAll('[data-adm]').forEach(function (b) { b.onclick = function () { comandante(b); }; });
+  }
+
+  async function comandante(b) {
+    var a = aluno(b), on = !!ADMS[a.id], nome = String(a.nome || a.email).split(' ')[0];
+    if (a.id === EU) return;
+    var conf = b.getAttribute('data-conf');
+    if (!conf) {
+      b.setAttribute('data-conf', '1');
+      b.lastChild.textContent = on ? 'Confirmar remoção' : 'Confirmar promoção';
+      setTimeout(function () { if (b.isConnected && b.getAttribute('data-conf')) { b.removeAttribute('data-conf'); b.lastChild.textContent = 'Comandante'; } }, 4000);
+      return;
+    }
+    b.removeAttribute('data-conf'); b.lastChild.textContent = 'Comandante';
+    if (T.demo) { ADMS[a.id] = !on; b.classList.toggle('on', !on); return; }
+    b.classList.add('busy');
+    var r = on ? await T.sb.from('admins').delete().eq('user_id', a.id)
+               : await T.sb.from('admins').insert({ user_id: a.id });
+    b.classList.remove('busy');
+    if (r.error) { T.toast('Erro: ' + r.error.message); return; }
+    ADMS[a.id] = !on; b.classList.toggle('on', !on); b.setAttribute('aria-pressed', String(!on));
+    T.toast(on ? nome + ' não é mais comandante' : nome + ' agora é comandante');
   }
 
   function aluno(b) { var id = b.closest('tr').getAttribute('data-id'); return ALUNOS.filter(function (a) { return a.id === id; })[0]; }
@@ -210,6 +236,7 @@
     if (T.demo) { T.$('#demo').hidden = false; return montar(); }
     var s = await T.sb.auth.getSession();
     if (!s.data.session) { location.replace('./'); return; }
+    EU = s.data.session.user.id;
     if (!(await T.isAdmin())) {
       view.innerHTML = '<div class="empty"><h2>Acesso negado</h2><p>Esta área é só para a equipe da TAOS.</p><a class="btn" href="./">Voltar ao QG</a></div>';
       return;
