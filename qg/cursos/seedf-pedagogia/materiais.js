@@ -1,6 +1,24 @@
 /* PDFs TAOS Educação · Pedagogia, um por assunto (a = etapas do assunto cobertas pelo PDF).
    Gerado por materiais-educacao/fonte/publicar.py. Não edite à mão. */
 window.TATICO_PDF = {
+  'por-1': [
+    {n: "Compreensão e interpretação de textos: tese, inferências e gêneros", f: 'ped-por-1-interpretacao.pdf', a: [1, 2, 3, 4]}
+  ],
+  'por-2': [
+    {n: "Ortografia oficial, acentuação gráfica e emprego do hífen", f: 'ped-por-2-ortografia.pdf', a: [1, 2, 3, 4]}
+  ],
+  'por-3': [
+    {n: "Morfologia: classes de palavras, pronomes e tempos e modos verbais", f: 'ped-por-3-morfologia.pdf', a: [1, 2, 3, 4]}
+  ],
+  'por-4': [
+    {n: "Sintaxe: termos da oração, período composto e pontuação", f: 'ped-por-4-sintaxe.pdf', a: [1, 2, 3, 4]}
+  ],
+  'por-5': [
+    {n: "Concordância nominal e verbal, regência e crase", f: 'ped-por-5-concordancia-regencia-crase.pdf', a: [1, 2, 3, 4]}
+  ],
+  'por-6': [
+    {n: "Coesão, colocação pronominal e reescrita de frases", f: 'ped-por-6-coesao-reescrita.pdf', a: [1, 2, 3, 4]}
+  ],
   'leg-1': [
     {n: "A educação na Constituição Federal (arts. 205 a 214) e o Fundeb", f: 'ped-leg-1-constituicao.pdf', a: [1, 2, 3]}
   ],
