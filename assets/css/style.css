@@ -528,3 +528,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .f1 { left: -30px; top: 92px; }
 @media (max-width: 1240px) { .f1 { left: -14px; } }
 @media (max-width: 900px) { .lit span { opacity: .32; } }
+/* caixas flutuantes só nos cantos do formulário, sem cobrir o texto */
+.fchip { padding: 8px 12px 8px 8px; gap: 9px; border-radius: 14px; }
+.fc-ic { width: 28px; height: 28px; font-size: 13px; }
+.fchip b { font-size: 13px; }
+.f3 { left: -34px; top: -30px; bottom: auto; }
+.f2 { right: -30px; top: -30px; left: auto; }
+.f1 { left: auto; right: -30px; top: auto; bottom: -30px; }
+@media (max-width: 1240px) { .f3 { left: -14px; } .f2 { right: -10px; } .f1 { right: -10px; } }
