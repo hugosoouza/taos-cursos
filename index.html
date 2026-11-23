@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b2a5b'/%3E%3Cg fill='%23fff'%3E%3Crect x='20' y='22' width='60' height='9'/%3E%3Crect x='36' y='36' width='7' height='44'/%3E%3Crect x='46.5' y='36' width='7' height='44'/%3E%3Crect x='57' y='36' width='7' height='44'/%3E%3C/g%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -57,6 +57,8 @@
     <div class="hero-bg" aria-hidden="true">
       <div class="glow g1"></div><div class="glow g2"></div>
       <div class="grid-lines"></div>
+      <div class="spot"></div>
+      <div class="lit" id="hero-lit"></div>
       <div class="pillars"><i></i><i></i><i></i><b></b></div>
     </div>
     <div class="wrap hero-in">
@@ -78,6 +80,10 @@
         </ul>
       </div>
 
+      <div class="lead-wrap">
+      <div class="fchip f1" aria-hidden="true"><span class="fc-ic ok">✓</span><span><small>Etapa concluída</small><b id="fc1">Função afim</b></span><em>+40 XP</em></div>
+      <div class="fchip f2" aria-hidden="true"><span class="fc-ic fogo">🔥</span><span><small>Sequência</small><b>12 dias seguidos</b></span></div>
+      <div class="fchip f3" aria-hidden="true"><span class="fc-ic rev">↻</span><span><small>Revisão de hoje</small><b id="fc3">Biologia · Ecologia</b></span></div>
       <form class="lead-card" id="inscricao" novalidate>
         <div class="lead-head">
           <span class="eyebrow">Faça sua inscrição</span>
@@ -92,6 +98,7 @@
         <button class="btn btn-wa btn-block" type="submit"><svg class="ico"><use href="#i-wa"/></svg>Quero minha vaga</button>
         <p class="fine">Ao continuar você abre o WhatsApp da TAOS Cursos com a mensagem pronta. Seu nome não fica salvo neste site. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
       </form>
+      </div>
     </div>
   </section>
 
@@ -289,6 +296,6 @@
 <a class="wa-float" data-wa="geral" target="_blank" rel="noopener" href="#" aria-label="Falar no WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
 
 <script src="assets/js/config.js?v=8"></script>
-<script src="assets/js/main.js?v=8"></script>
+<script src="assets/js/main.js?v=9"></script>
 </body>
 </html>
