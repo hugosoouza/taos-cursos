@@ -551,3 +551,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* celular: o formulário cabe na tela */
 .lead-card { grid-template-columns: minmax(0, 1fr); }
 .field input, .field select { width: 100%; min-width: 0; }
+/* sem as caixas flutuantes, "no escuro" mais visível e "plano exato" sem a linha */
+.fchip { display: none !important; }
+.h-hero .escuro .w { color: #8a97b2; }
+.h-hero .plano::after { display: none; }
