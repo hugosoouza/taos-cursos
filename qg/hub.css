@@ -255,3 +255,10 @@ h1.stencil { font-size: 34px; }
   .divhead .n { margin-left: 60px; }
 }
 .course.vestibular .sigla { font-family: 'Space Grotesk', var(--brand); font-weight: 700; letter-spacing: -.03em; }
+
+/* Cards da Educação: claros, em branco e bege */
+.course.educacao { color: #2b2118; border-color: #e2d6c4; background: linear-gradient(160deg, #ffffff, #f5efe6); }
+.course.educacao::before { background: radial-gradient(circle at 100% 0, var(--cacc-a), transparent 60%); opacity: .5; }
+.course.educacao .nome { color: #7d6e60; }
+.course.educacao .go { border-top-color: #e2d6c4; }
+.course.educacao .soon { background: #efe6d8; }

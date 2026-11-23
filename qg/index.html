@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Outfit:wght@400;500;600;700;800&family=Nunito:wght@900&family=Space+Grotesk:wght@700&family=Fraunces:ital,wght@1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hub.css?v=5">
+<link rel="stylesheet" href="hub.css?v=6">
 </head>
 <body>
 <div class="wrap">
@@ -24,7 +24,7 @@
 </div>
 
 <script src="config.js?v=3"></script>
-<script src="cursos.js?v=6"></script>
+<script src="cursos.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script src="common.js?v=5"></script>
 <script>
@@ -96,7 +96,7 @@
       '<form class="card" id="fSenha" novalidate>' +
         '<span class="badge-top">Primeiro acesso</span>' +
         '<h1 class="stencil">Crie sua senha</h1>' +
-        '<p class="sub">Você vai usar esta senha para entrar no QG.</p>' +
+        '<p class="sub">Você vai usar esta senha para entrar na área do aluno.</p>' +
         (msg ? '<div class="msg" role="alert">' + esc(msg) + '</div>' : '') +
         '<div class="fld"><label for="s1">Nova senha (mín. 8 caracteres)</label><input id="s1" type="password" minlength="8" autocomplete="new-password" required></div>' +
         '<div class="fld"><label for="s2">Repita a senha</label><input id="s2" type="password" minlength="8" autocomplete="new-password" required></div>' +
@@ -131,7 +131,7 @@
 
   async function meusCursos() {
     view.className = 'hub';
-    view.innerHTML = '<p class="sub" style="text-align:center">Abrindo o QG…</p>';
+    view.innerHTML = '<p class="sub" style="text-align:center">Abrindo seus cursos…</p>';
     var nome = 'Recruta', email = '', ids = [], admin = false;
     if (T.demo) {
       ids = T.ordem.slice(); admin = true; nome = 'Visitante';

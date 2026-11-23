@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QG · TAOS Militar</title>
+<title>TAOS · Área do aluno</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#050913">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="app.css?v=2">
 </head>
 <body>
-<div id="loading" class="loading"><span id="loadArt" style="width:64px;display:block"></span>PREPARANDO O QG…</div>
+<div id="loading" class="loading"><span id="loadArt" style="width:64px;display:block"></span><span id="loadTxt">PREPARANDO…</span></div>
 <div id="auth" class="hidden"></div>
 <div class="app hidden" id="app">
   <aside class="side" id="side"></aside>
@@ -26,7 +26,7 @@
 <div id="toast"></div>
 <div id="gate" class="hidden"></div>
 <script src="config.js"></script>
-<script src="cursos.js?v=6"></script>
+<script src="cursos.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script>
 /* Porteiro do QG: confere o login e a matrícula antes de abrir o curso. */
@@ -39,6 +39,10 @@
   Object.keys(C.tema).forEach(function (k) { root.style.setProperty('--' + k, C.tema[k]); });
   if (C.fontes) Object.keys(C.fontes).forEach(function (k) { root.style.setProperty('--' + k, C.fontes[k]); });
   if (C.tom) document.body.classList.add('tom-' + C.tom);
+  if (C.claro) document.body.classList.add('tom-claro');
+  // "QG" é só do militar; os outros cursos falam em "área de estudos"
+  var MIL = C.divisao === 'militar';
+  var lt = document.getElementById('loadTxt'); if (lt) lt.textContent = MIL ? 'PREPARANDO O QG…' : 'Preparando seus estudos…';
   document.querySelector('meta[name=theme-color]').content = C.tema.side;
   var DV = (window.TAOS_DIVISOES || {})[C.divisao] || { nome: 'TAOS' };
   document.title = (C.titulo || C.sigla) + ' · ' + DV.nome;
@@ -68,17 +72,17 @@
     }
   }
   if (!C.pronto) {
-    gate('QG em preparação', 'As matérias e o cronograma da ' + C.sigla + ' estão sendo carregados pela equipe. Assim que estiverem prontos, aparecem aqui automaticamente.',
-      '<a class="btn" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Olá! Quando o QG da ' + C.sigla + ' fica pronto?') + '">Falar com a equipe</a><a class="linkbtn" href="./">Voltar aos meus cursos</a>');
+    gate(MIL ? 'QG em preparação' : 'Curso em preparação', 'As matérias e o cronograma da ' + C.sigla + ' estão sendo carregados pela equipe. Assim que estiverem prontos, aparecem aqui automaticamente.',
+      '<a class="btn" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Olá! Quando o ' + (MIL ? 'QG da ' + C.sigla : 'curso ' + (C.titulo || C.sigla)) + ' fica pronto?') + '">Falar com a equipe</a><a class="linkbtn" href="./">Voltar aos meus cursos</a>');
     return;
   }
-  var arquivos = [C.base + 'dados.js', C.base + 'materiais.js', 'app.js'];
+  var arquivos = [C.base + 'dados.js', C.base + 'materiais.js', 'app.js?v=2'];
   (function carregar(i) {
     if (i >= arquivos.length) return;
     var sc = document.createElement('script');
     sc.src = arquivos[i];
     sc.onload = function () { carregar(i + 1); };
-    sc.onerror = function () { gate('Falha ao carregar', 'Não foi possível abrir o QG agora. Verifique a internet e tente de novo.', '<a class="btn" href="">Tentar de novo</a>'); };
+    sc.onerror = function () { gate('Falha ao carregar', 'Não foi possível abrir ' + (MIL ? 'o QG' : 'o curso') + ' agora. Verifique a internet e tente de novo.', '<a class="btn" href="">Tentar de novo</a>'); };
     document.body.appendChild(sc);
   })(0);
 })();

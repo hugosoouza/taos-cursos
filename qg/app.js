@@ -631,11 +631,11 @@ function mostrar(qual){['loading','auth','app'].forEach(id=>document.getElementB
 function telaLogin(msg,ok){
   mostrar('auth');
   document.getElementById('auth').className='auth';
-  document.getElementById('auth').innerHTML=`<div class="auth-card">${AUTH_BRAND}<h1>Identifique-se</h1><p>Acesso restrito à tropa convidada.</p>
+  document.getElementById('auth').innerHTML=`<div class="auth-card">${AUTH_BRAND}<h1>${tx('Identifique-se','Entrar')}</h1><p>${tx('Acesso restrito à tropa convidada.','Acesso exclusivo para alunos matriculados.')}</p>
    ${msg?`<div class="auth-msg ${ok?'ok':''}">${esc(msg)}</div>`:''}
    <form id="fLogin"><div class="fld"><label>E-mail</label><input name="email" type="email" autocomplete="email" required></div>
    <div class="fld"><label>Senha</label><input name="senha" type="password" autocomplete="current-password" required></div>
-   <button class="btn">Entrar no QG</button></form>
+   <button class="btn">${tx('Entrar no QG','Entrar')}</button></form>
    <div style="text-align:center;margin-top:12px"><button class="linkbtn" id="esqueci">Esqueci minha senha</button></div></div>`;
   document.getElementById('fLogin').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const b=e.target.querySelector('button');b.disabled=true;b.textContent='Entrando…';
     const {error}=await sb.auth.signInWithPassword({email:fd.get('email').trim(),password:fd.get('senha')});

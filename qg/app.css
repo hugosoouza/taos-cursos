@@ -377,3 +377,31 @@ details.mat>summary .nm{font-family:var(--cond);font-size:17px;text-transform:up
 .tom-estudo .ammo i { border-radius: 3px; background: linear-gradient(var(--acc-soft), var(--acc-soft)); }
 .tom-estudo .ammo i.on { background: linear-gradient(var(--acc), var(--acc)); box-shadow: 0 0 8px rgba(var(--acc-rgb), .45); }
 .tom-estudo .taos-logo b { font-family: var(--cond); font-weight: 700; letter-spacing: 1px; }
+
+/* ===== Tom claro (Educação): branco e bege, sem camuflagem nem cantoneiras ===== */
+.tom-claro{color-scheme:light;--shadow:0 1px 2px rgba(60,40,20,.05),0 8px 24px -12px rgba(60,40,20,.12);--ok:#3f8a35;--ok-soft:#e5f1df;--bad:#c0443a;--bad-soft:#f8e3e0;--vid:#5b7a8c}
+body.tom-claro{background-image:none;background-color:var(--bg)}
+.tom-claro .side{background:var(--side);border-right:1px solid var(--line2)}
+.tom-claro .topbar{background:var(--side);color:var(--ink);border-bottom:1px solid var(--line2)}
+.tom-claro .topbar button,.tom-claro .taos-logo,.tom-claro .brand b,.tom-claro .user b,.tom-claro .hero b,.tom-claro .rank b,.tom-claro .auth-card .brand b{color:var(--ink)}
+.tom-claro .nav a:hover,.tom-claro .side-foot button:hover,.tom-claro .trocar:hover{color:var(--ink)}
+.tom-claro .nav a:hover{background:var(--side2)}
+.tom-claro .user{background:#fff;border:1px solid var(--line2);border-left:3px solid var(--acc)}
+.tom-claro .hero{background:var(--hero);border:1px solid var(--line2)}
+.tom-claro .hero .panel{background:#fff;border:1px solid var(--line2);backdrop-filter:none}
+.tom-claro .hero-art{opacity:.08}
+.tom-claro .card{background:var(--surface);box-shadow:var(--shadow);border-color:var(--line)}
+.tom-claro .card::before,.tom-claro .card::after{display:none}
+.tom-claro .day-h{background:var(--hero2);color:var(--ink)}
+.tom-claro .day.today .day-h{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.tom-claro .step{background:var(--acc);color:var(--acc-ink)}
+.tom-claro .bar>span{background:var(--acc)}
+.tom-claro .belt i{border-color:rgba(60,40,20,.12)}
+.tom-claro #toast{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tom-claro .auth,.tom-claro .gate{background:var(--bg)}
+.tom-claro .auth-card{background:#fff;border:1px solid var(--line2);box-shadow:var(--shadow)}
+.tom-claro .gate-card{background:#fff;box-shadow:var(--shadow)}
+.tom-claro .scrim.open{background:rgba(43,33,24,.35)}
+.tom-claro .fx{background:rgba(250,247,242,.9)}
+.tom-claro .loading{font-family:var(--cond);letter-spacing:.02em;color:var(--muted)}
+.tom-claro input,.tom-claro select,.tom-claro textarea{background:#fff;border-color:var(--line2)}

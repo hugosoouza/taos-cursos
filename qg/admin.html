@@ -10,20 +10,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hub.css?v=5">
+<link rel="stylesheet" href="hub.css?v=6">
 </head>
 <body>
 <div class="wrap">
   <div class="topline">
-    <a href="./" id="logoTop" aria-label="Voltar ao QG"></a>
-    <a class="back" href="./">← <span>Voltar ao QG</span></a>
+    <a href="./" id="logoTop" aria-label="Voltar aos cursos"></a>
+    <a class="back" href="./">← <span>Voltar aos cursos</span></a>
   </div>
   <div class="demo" id="demo" hidden>Modo demonstração: conecte o banco de dados para cadastrar alunos de verdade. Nada do que você fizer aqui é salvo.</div>
   <div class="admin" id="view"><p class="sub" style="text-align:center">Conferindo credenciais…</p></div>
 </div>
 
 <script src="config.js?v=3"></script>
-<script src="cursos.js?v=6"></script>
+<script src="cursos.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script src="common.js?v=5"></script>
 <script>
@@ -238,7 +238,7 @@
     if (!s.data.session) { location.replace('./'); return; }
     EU = s.data.session.user.id;
     if (!(await T.isAdmin())) {
-      view.innerHTML = '<div class="empty"><h2>Acesso negado</h2><p>Esta área é só para a equipe da TAOS.</p><a class="btn" href="./">Voltar ao QG</a></div>';
+      view.innerHTML = '<div class="empty"><h2>Acesso negado</h2><p>Esta área é só para a equipe da TAOS.</p><a class="btn" href="./">Voltar aos cursos</a></div>';
       return;
     }
     montar();
