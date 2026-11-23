@@ -550,3 +550,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero .plano { position: relative; display: inline-block; white-space: nowrap; font-weight: 600; color: var(--electric); }
 .hero .plano::after { content: ""; position: absolute; left: 0; right: 0; bottom: .02em; height: .12em; border-radius: 6px; background: var(--electric); transform: scaleX(0); transform-origin: left; animation: draw .9s 1.3s cubic-bezier(.7,0,.2,1) forwards; }
 @media (prefers-reduced-motion: reduce) { .hero .plano::after { transform: none; } .h-hero .escuro .w { animation: none; color: #cfe0ff; -webkit-text-stroke: 0; } }
+
+/* ---------- Título simétrico (o JS ajusta o tamanho de cada linha) e "no escuro" em destaque ---------- */
+.h-hero .l { display: block; width: fit-content; white-space: nowrap; line-height: .98; }
+.h-hero .escuro { margin-top: .04em; }
+.h-hero .escuro .w { -webkit-text-stroke: 0; color: transparent;
+  background: linear-gradient(100deg, #5b9bff 0%, #5b9bff 38%, #ffffff 48%, #d6e6ff 52%, #5b9bff 62%, #5b9bff 100%) 0 0 / 320% 100%; -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 0 28px rgba(91,155,255,.55));
+  animation: up .8s calc(var(--i) * 45ms + 60ms) var(--ease) both, lanterna 4.2s 1.2s ease-in-out infinite; }
+.h-hero .escuro .wm:nth-child(2) .w { animation-delay: calc(var(--i) * 45ms + 60ms), 1.32s; }
+.h-hero .escuro .wm { padding-bottom: .12em; margin-bottom: -.12em; }
+@media (prefers-reduced-motion: reduce) { .h-hero .escuro .w { animation: none; color: var(--electric); background: none; } }
