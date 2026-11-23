@@ -539,3 +539,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* texto de apoio do topo: menor e com linhas mais próximas */
 .hero .lead { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.45; max-width: 46ch; }
+
+/* sem o selo "Inscrições abertas": o título sobe um pouco */
+.hero .h-hero { margin-top: 0; }

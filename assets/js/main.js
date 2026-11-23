@@ -290,30 +290,6 @@
     }
   }
 
-  // Topo: lanterna que segue o mouse (ou passeia sozinha) e revela as matérias no escuro
-  var hero = $(".hero"), lit = $("#hero-lit");
-  if (hero && lit) {
-    var mats = [["Matemática", 8, 18], ["Redação", 30, 9], ["Direito Penal", 52, 22], ["Biologia", 14, 46], ["Português", 40, 40], ["Direito Constitucional", 60, 58], ["História", 6, 74], ["Química", 30, 66], ["Lei Orgânica do DF", 46, 84], ["Física", 70, 12], ["Geografia", 22, 90], ["Informática", 74, 80], ["Plano de hoje ✓", 34, 28, "x"], ["Revisão ✓", 58, 74, "x"], ["Questões ✓", 12, 60, "x"]];
-    lit.innerHTML = mats.map(function (m) { return '<span' + (m[3] ? ' class="x"' : '') + ' style="left:' + m[1] + '%;top:' + m[2] + '%">' + m[0] + '</span>'; }).join("");
-    var cx = 30, cy = 40, tx = 30, ty = 40, ultimo = -1e9, ativo = true, t0 = performance.now();
-    var fino = window.matchMedia("(pointer: fine)").matches;
-    if (fino) hero.addEventListener("pointermove", function (e) {
-      var r = hero.getBoundingClientRect();
-      tx = (e.clientX - r.left) / r.width * 100; ty = (e.clientY - r.top) / r.height * 100; ultimo = performance.now();
-    });
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { ativo = en[0].isIntersecting; if (ativo) iniciar(); }).observe(hero);
-    var rodando = false;
-    var iniciar = function () { if (!rodando && !reduce) { rodando = true; requestAnimationFrame(passo); } };
-    var passo = function (now) {
-      if (!ativo) { rodando = false; return; }
-      if (now - ultimo > 2500) { var t = (now - t0) / 1000; tx = 34 + Math.sin(t * .45) * 26; ty = 45 + Math.sin(t * .7 + 1) * 26; }
-      cx += (tx - cx) * .07; cy += (ty - cy) * .07;
-      hero.style.setProperty("--mx", cx.toFixed(2) + "%"); hero.style.setProperty("--my", cy.toFixed(2) + "%");
-      requestAnimationFrame(passo);
-    };
-    iniciar();
-  }
-
   // Avisos do app ao redor do formulário: o conteúdo vai trocando
   var fc1 = $("#fc1"), fc3 = $("#fc3");
   if (fc1 && !reduce) {
