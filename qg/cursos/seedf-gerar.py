@@ -158,8 +158,10 @@ def gerar(cid, titulo, materias):
         f.write("/* SEEDF · %s · plano organizado pela equipe TAOS (Termo de Referência nº 3/2026 e edital de 2022).\n" % titulo)
         f.write("   Gerado por cursos/seedf-gerar.py. Não edite à mão: edite o seedf-gerar.py e rode de novo. */\n")
         f.write("window.GRAN=" + json.dumps(dados, ensure_ascii=False, separators=(",", ":")) + ";\n")
-    with open(os.path.join(pasta, "materiais.js"), "w", encoding="utf-8") as f:
-        f.write("/* PDFs da SEEDF: nenhum por enquanto. */\nwindow.TATICO_PDF = {};\n")
+    mat = os.path.join(pasta, "materiais.js")
+    if not os.path.exists(mat):  # não apaga a lista de PDFs já cadastrada
+        with open(mat, "w", encoding="utf-8") as f:
+            f.write("/* PDFs da SEEDF: nenhum por enquanto. */\nwindow.TATICO_PDF = {};\n")
     n_un = sum(len(d["u"]) for d in disc); n_et = sum(len(u["a"]) for d in disc for u in d["u"])
     print("%-16s matérias: %2d  assuntos: %2d  etapas: %3d" % (cid, len(disc), n_un, n_et))
 
