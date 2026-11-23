@@ -202,22 +202,6 @@
     })(bloco);
   });
 
-  // Título simétrico: cada linha ganha o tamanho de fonte que a deixa da mesma largura
-  var ajustaTitulo = function () {
-    var h = $(".h-hero"), ls = $$(".h-hero .l");
-    if (!h || !ls.length) return;
-    ls.forEach(function (l) { l.style.fontSize = ""; });
-    var ws = ls.map(function (l) { return l.getBoundingClientRect().width; });
-    var alvo = window.innerWidth < 700 ? h.clientWidth : Math.min(h.clientWidth, Math.max.apply(null, ws));
-    for (var passo = 0; passo < 3; passo++) ls.forEach(function (l) {
-      var w = l.getBoundingClientRect().width, fs = parseFloat(getComputedStyle(l).fontSize);
-      if (w) l.style.fontSize = (fs * alvo / w).toFixed(2) + "px";
-    });
-  };
-  ajustaTitulo();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustaTitulo);
-  var tAj; window.addEventListener("resize", function () { clearTimeout(tAj); tAj = setTimeout(ajustaTitulo, 120); });
-
   // Foco cirúrgico: lista as provas com turma aberta
   var sig = $("#dor-siglas");
   if (sig && cfg.mentorias && cfg.mentorias.length) {
