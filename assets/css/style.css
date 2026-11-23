@@ -542,3 +542,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* sem o selo "Inscrições abertas": o título sobe um pouco */
 .hero .h-hero { margin-top: 0; }
+
+/* "no escuro" sem efeito: cor fixa */
+.h-hero .escuro .w { color: #5d6a85; background: none; -webkit-background-clip: border-box; background-clip: border-box; animation: up .8s calc(var(--i) * 45ms + 60ms) var(--ease) both; }
+.h-hero .escuro .wm:nth-child(2) .w { animation-delay: calc(var(--i) * 45ms + 60ms); }
+/* sem a grade de quadrados no fundo do topo */
+.grid-lines { display: none; }
+/* celular: o formulário cabe na tela */
+.lead-card { grid-template-columns: minmax(0, 1fr); }
+.field input, .field select { width: 100%; min-width: 0; }
