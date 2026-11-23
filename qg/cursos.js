@@ -69,7 +69,34 @@
       camo: ['#0f0d27','#131130','#171537','#0c0a22']
     }
   };
-  window.TAOS_ORDEM = ['pmdf', 'pmgo', 'pcto', 'pcmg', 'enem'];
+  /* SEEDF: três cargos com o mesmo tema (cores da divisão Educação), cada um com o seu plano.
+     O plano sai do cursos/seedf-gerar.py. "titulo" separa os três no painel e nos avisos. */
+  var EDU_PAT = [[0,'Iniciante',0],[300,'Estudante',1],[1000,'Dedicado',2],[2500,'Focado',3],[5000,'Avançado',4],[9000,'Especialista',5],[15000,'Mestre',6],[25000,'Aprovado',7],[40000,'Nomeado',8]];
+  function temaEdu(acc, rgb) {
+    return { bg:'#120c07', surface:'#1d140c', surface2:'#170f09', ink:'#f4ece4', muted:'#ab9a8a', line:'#2e2218', line2:'#3a2b1f',
+      side:'#0c0805', side2:'#1e150d', 'side-ink':'#e4d6c8', 'side-muted':'#8a7a6b',
+      acc:acc, 'acc-ink':'#2b1500', 'acc-soft':'#2e1e0e', gold:'#ffd166', 'gold-soft':'#2a2410', 'gold-line':'#5a4813',
+      hero:'#1a110a', hero2:'#26180d', 'hero-ink':'#fbf3ea', 'hero-muted':'#b9a796', sh:'12,8,5', 'acc-rgb':rgb };
+  }
+  function seedf(id, titulo, cargo, nome, acc, rgb) {
+    return {
+      id: id, divisao: 'educacao', marca: 'EDUCAÇÃO', sigla: 'SEEDF', titulo: titulo, nome: nome, uf: 'DF',
+      rotulo: 'SEEDF · ' + cargo, cargo: cargo, apelido: 'Futuro servidor da SEEDF', foco: 'na SEEDF', lema: 'Rumo à SEEDF',
+      carreira: 'Educação', pronto: true, base: 'cursos/' + id + '/',
+      fonte: 'propria', tom: 'estudo',
+      credito: 'Plano organizado pela equipe TAOS com base no Termo de Referência nº 3/2026 da SEEDF e no edital de 2022 (Quadrix). Ele será ajustado quando o edital de 2026 for publicado.',
+      questoes: { titulo: 'Provas anteriores da SEEDF', nome: 'Abrir as provas de 2022 (Quadrix)', texto: 'A banca é a mesma do concurso de 2022. Resolva as provas anteriores e registre o resultado aqui.', url: 'https://site.quadrix.org.br/encerrados/2022/seedfsecretaria-de-estado-de-educacao-do-distrito-federal.aspx' },
+      fontes: { stencil: "'Outfit', sans-serif", cond: "'Outfit', 'Helvetica Neue', sans-serif" },
+      patentes: EDU_PAT,
+      tema: temaEdu(acc, rgb),
+      camo: ['#170f09','#1d140c','#231811','#120c07']
+    };
+  }
+  window.TAOS_CURSOS['seedf-pedagogia'] = seedf('seedf-pedagogia', 'SEEDF Pedagogia', 'Professor', 'Professor de Educação Básica · Pedagogia', '#ffa24c', '255,162,76');
+  window.TAOS_CURSOS['seedf-analista'] = seedf('seedf-analista', 'SEEDF Analista', 'Analista', 'Analista · Apoio Administrativo', '#f2c14e', '242,193,78');
+  window.TAOS_CURSOS['seedf-monitor'] = seedf('seedf-monitor', 'SEEDF Monitor', 'Monitor', 'Analista · Monitor em Gestão Educacional', '#ff8a6b', '255,138,107');
+
+  window.TAOS_ORDEM = ['pmdf', 'pmgo', 'pcto', 'pcmg', 'enem', 'seedf-pedagogia', 'seedf-analista', 'seedf-monitor'];
 
   /* DIVISÕES DA ÁREA DO ALUNO
      Cada curso pertence a uma divisão (campo "divisao"). O aluno só vê as divisões

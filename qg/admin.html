@@ -23,7 +23,7 @@
 </div>
 
 <script src="config.js?v=3"></script>
-<script src="cursos.js?v=5"></script>
+<script src="cursos.js?v=6"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script src="common.js?v=5"></script>
 <script>
@@ -43,7 +43,7 @@
   function chipsCursos(nome, marcados) {
     return T.ordem.map(function (id) {
       var c = T.cursos[id], on = marcados.indexOf(id) >= 0;
-      return '<label class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" title="' + T.divDe(c).nome + '"><input type="checkbox" name="' + nome + '" value="' + id + '" ' + (on ? 'checked' : '') + '><span class="dot"></span>' + c.sigla + '</label>';
+      return '<label class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" title="' + T.divDe(c).nome + '"><input type="checkbox" name="' + nome + '" value="' + id + '" ' + (on ? 'checked' : '') + '><span class="dot"></span>' + (c.titulo || c.sigla) + '</label>';
     }).join('');
   }
   function ligarChips(root) {
@@ -52,7 +52,7 @@
     });
   }
   function mensagem(nome, email, senha, ids) {
-    var cursos = ids.map(function (id) { return T.cursos[id].sigla; }).join(', ');
+    var cursos = ids.map(function (id) { return T.cursos[id].titulo || T.cursos[id].sigla; }).join(', ');
     return 'Olá, ' + String(nome || '').split(' ')[0] + '! Seu acesso à área do aluno da TAOS foi liberado.\n\n' +
       'Curso: ' + cursos + '\n' +
       'Acesse: ' + window.TAOS_SITE + '\n' +
@@ -165,7 +165,7 @@
         '<td>' + esc(a.telefone || '—') + '</td>' +
         '<td><div class="chips">' + T.ordem.map(function (id) {
           var c = T.cursos[id], on = ids.indexOf(id) >= 0;
-          return '<button type="button" class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" data-toggle="' + id + '" aria-pressed="' + on + '"><span class="dot"></span>' + c.sigla + '</button>';
+          return '<button type="button" class="chip ' + (on ? 'on' : '') + '" style="' + T.vars(c) + '" data-toggle="' + id + '" aria-pressed="' + on + '"><span class="dot"></span>' + (c.titulo || c.sigla) + '</button>';
         }).join('') + '</div></td>' +
         '<td><div class="actions">' +
           '<button type="button" class="chip ' + (ADMS[a.id] ? 'on' : '') + '" style="--cacc:#d6a630;--cink:#1a1405" data-adm aria-pressed="' + !!ADMS[a.id] + '"' + (a.id === EU ? ' disabled title="Você não pode remover a si mesmo"' : '') + '><span class="dot"></span>Comandante</button>' +
@@ -213,7 +213,7 @@
     var l = MATS[a.id] = MATS[a.id] || [];
     if (on) l.splice(l.indexOf(curso), 1); else l.push(curso);
     b.classList.toggle('on', !on); b.setAttribute('aria-pressed', String(!on));
-    T.toast((on ? 'Bloqueado: ' : 'Liberado: ') + T.cursos[curso].sigla + ' para ' + String(a.nome || a.email).split(' ')[0]);
+    T.toast((on ? 'Bloqueado: ' : 'Liberado: ') + (T.cursos[curso].titulo || T.cursos[curso].sigla) + ' para ' + String(a.nome || a.email).split(' ')[0]);
   }
 
   function mostrarMsg(b) {

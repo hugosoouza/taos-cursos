@@ -74,6 +74,15 @@ window.TAOS_CONFIG = {
       grupo: "ENEM e Vestibular",
       resumo: "Plano de estudo para as quatro áreas do ENEM e a redação, organizado pela matriz do INEP.",
     },
+    {
+      sigla: "SEEDF",
+      nome: "Secretaria de Educação do DF",
+      uf: "DF",
+      carreira: "Educação",
+      area: "educacao",
+      grupo: "Educação",
+      resumo: "Planos separados para Professor de Pedagogia, Analista de Apoio Administrativo e Monitor, montados a partir do Termo de Referência do concurso.",
+    },
   ],
 
   // Itens que aparecem em todos os cards de mentoria
