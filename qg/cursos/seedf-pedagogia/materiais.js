@@ -1,6 +1,30 @@
 /* PDFs TAOS Educação · Pedagogia, um por assunto (a = etapas do assunto cobertas pelo PDF).
    Gerado por materiais-educacao/fonte/publicar.py. Não edite à mão. */
 window.TATICO_PDF = {
+  'leg-1': [
+    {n: "A educação na Constituição Federal (arts. 205 a 214) e o Fundeb", f: 'ped-leg-1-constituicao.pdf', a: [1, 2, 3]}
+  ],
+  'leg-2': [
+    {n: "LDB (Lei nº 9.394/1996): princípios, organização, níveis, modalidades e profissionais", f: 'ped-leg-2-ldb.pdf', a: [1, 2, 3, 4, 5]}
+  ],
+  'leg-3': [
+    {n: "ECA (Lei nº 8.069/1990): direitos fundamentais, educação e Conselho Tutelar", f: 'ped-leg-3-eca.pdf', a: [1, 2, 3, 4]}
+  ],
+  'leg-4': [
+    {n: "Planos e normas do DF: PNE, Plano Distrital de Educação, gestão democrática e Regimento Escolar", f: 'ped-leg-4-planos-normas-df.pdf', a: [1, 2, 3, 4]}
+  ],
+  'leg-5': [
+    {n: "Inclusão e diversidade: LBI, relações étnico-raciais e educação em direitos humanos", f: 'ped-leg-5-inclusao-diversidade.pdf', a: [1, 2, 3, 4]}
+  ],
+  'cur-1': [
+    {n: "Currículo em Movimento: pressupostos teóricos, eixos transversais e ciclos", f: 'ped-cur-1-curriculo-em-movimento.pdf', a: [1, 2, 3, 4]}
+  ],
+  'cur-2': [
+    {n: "Avaliação: Diretrizes de Avaliação da SEEDF, avaliação formativa e larga escala", f: 'ped-cur-2-avaliacao.pdf', a: [1, 2, 3, 4]}
+  ],
+  'cur-3': [
+    {n: "Projeto Político-Pedagógico e coordenação pedagógica", f: 'ped-cur-3-ppp.pdf', a: [1, 2, 3]}
+  ],
   'fund-1': [
     {n: "Tendências pedagógicas: liberais, progressistas, Saviani e Paulo Freire", f: 'ped-fund-1-tendencias.pdf', a: [1, 2, 3, 4]}
   ],
