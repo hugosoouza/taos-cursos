@@ -536,3 +536,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .f2 { right: -30px; top: -30px; left: auto; }
 .f1 { left: auto; right: -30px; top: auto; bottom: -30px; }
 @media (max-width: 1240px) { .f3 { left: -14px; } .f2 { right: -10px; } .f1 { right: -10px; } }
+
+/* texto de apoio do topo: menor e com linhas mais próximas */
+.hero .lead { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.45; max-width: 46ch; }
