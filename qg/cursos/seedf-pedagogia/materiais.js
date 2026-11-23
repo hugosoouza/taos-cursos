@@ -1,6 +1,18 @@
 /* PDFs TAOS Educação · Pedagogia, um por assunto (a = etapas do assunto cobertas pelo PDF).
    Gerado por materiais-educacao/fonte/publicar.py. Não edite à mão. */
 window.TATICO_PDF = {
+  'fund-1': [
+    {n: "Tendências pedagógicas: liberais, progressistas, Saviani e Paulo Freire", f: 'ped-fund-1-tendencias.pdf', a: [1, 2, 3, 4]}
+  ],
+  'fund-2': [
+    {n: "Teorias da aprendizagem: Piaget, Vygotsky e Wallon", f: 'ped-fund-2-teorias-aprendizagem.pdf', a: [1, 2, 3, 4]}
+  ],
+  'fund-3': [
+    {n: "Didática e planejamento: plano de aula, metodologias ativas e gestão da sala", f: 'ped-fund-3-didatica.pdf', a: [1, 2, 3, 4]}
+  ],
+  'fund-4': [
+    {n: "Educação inclusiva: educação especial, adequação curricular e AEE", f: 'ped-fund-4-educacao-inclusiva.pdf', a: [1, 2, 3, 4]}
+  ],
   'alf-1': [
     {n: "Psicogênese da língua escrita: hipóteses, sondagem e intervenções", f: 'ped-alf-1-psicogenese.pdf', a: [1, 2, 3]}
   ],
