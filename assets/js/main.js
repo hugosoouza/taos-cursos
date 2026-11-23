@@ -182,6 +182,114 @@
     });
   });
 
+  // Headline: separa as palavras para animar uma a uma
+  var nW = 0;
+  $$("[data-split]").forEach(function (bloco) {
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (ch) {
+        if (ch.nodeType === 1) return walk(ch);
+        if (ch.nodeType !== 3 || !ch.textContent.trim()) return;
+        var frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(function (p) {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(" ")); return; }
+          var wm = document.createElement("span"); wm.className = "wm";
+          var w = document.createElement("span"); w.className = "w"; w.style.setProperty("--i", nW++); w.textContent = p;
+          wm.appendChild(w); frag.appendChild(wm);
+        });
+        node.replaceChild(frag, ch);
+      });
+    })(bloco);
+  });
+
+  // Foco cirúrgico: lista as provas com turma aberta
+  var sig = $("#dor-siglas");
+  if (sig && cfg.mentorias && cfg.mentorias.length) {
+    var ss = cfg.mentorias.map(function (m) { return m.sigla; });
+    sig.textContent = ss.length > 1 ? ss.slice(0, -1).join(", ") + " e " + ss[ss.length - 1] : ss[0];
+  }
+
+  // Prévia da plataforma (dados de exemplo)
+  var PV = {
+    enem: { rot: "ENEM", sub: "Vestibular", cor: "#8f9bff", marca: "ENEM", ola: "Bons estudos, Ana!", foco: "foco total no ENEM", faltam: 347,
+      pat: "Focado", prox: "Avançado", xp: [2980, 5000],
+      vars: { pbg: "#0b0a1f", psf: "#15132e", psf2: "#100e25", pline: "#24224a", pink: "#eceefe", pmut: "#9a9cc4", pacc: "#8f9bff", paccink: "#0b0f33", pgold: "#ffd166", pside: "#07061a" },
+      etapas: [["Matemática", "#8f9bff", "Função afim", 40], ["Redação", "#ff8fa3", "Repertório sociocultural", 40], ["Biologia", "#4ade80", "Relações ecológicas", 40], ["Matemática", "#8f9bff", "Exercícios: Funções", 35]],
+      st: [["12", "dias seguidos"], ["78%", "acertos em 7 dias"], ["4", "revisões para hoje"]], q: [40, 65, 30, 80, 55, 90, 70] },
+    pmdf: { rot: "PMDF", sub: "Militar", cor: "#4f8ff0", marca: "MILITAR", ola: "Bom serviço, Ana!", foco: "foco total na PMDF", faltam: 128,
+      pat: "Cabo", prox: "3º Sargento", xp: [1640, 2500],
+      vars: { pbg: "#070c17", psf: "#0e1628", psf2: "#0a111f", pline: "#1d2940", pink: "#e7ecf6", pmut: "#8d99b0", pacc: "#4f8ff0", paccink: "#ffffff", pgold: "#d6a630", pside: "#050913" },
+      etapas: [["Português", "#4f8ff0", "Concordância nominal e verbal", 50], ["Constitucional", "#d6a630", "Direitos e garantias fundamentais", 45], ["Legislação da PMDF", "#4ade80", "Lei Orgânica do DF", 40], ["Direito Penal", "#ff8fa3", "Teoria geral do crime", 45]],
+      st: [["21", "dias seguidos"], ["82%", "acertos em 7 dias"], ["6", "revisões para hoje"]], q: [60, 45, 85, 70, 95, 50, 75] }
+  };
+  var pvWin = $("#pv-win"), pvTabs = $("#pv-tabs"), pvRoot = $(".pv");
+  if (pvWin && pvTabs) {
+    var ckIco = '<svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>';
+    var menu = ["Dashboard", "Metas da semana", "Conteúdos", "Revisões", "Questões", "Desempenho", "Simulados", "Flashcards"];
+    var atual = "enem", feitos = {};
+    pvTabs.innerHTML = Object.keys(PV).map(function (k) {
+      var c = PV[k];
+      return '<button class="pv-tab" role="tab" id="pvt-' + k + '" aria-controls="pv-win" data-k="' + k + '" style="--c:' + c.cor + '"><i></i>' + c.rot + ' <small>' + c.sub + '</small></button>';
+    }).join("");
+    var pvProg = function () {
+      var c = PV[atual], n = $$(".pv-etapa.ok", pvWin).length, tot = c.etapas.length;
+      $("#pv-feito").textContent = n + " de " + tot + " concluídas";
+      $("#pv-bar").style.setProperty("--p", (n / tot * 100) + "%");
+      var xp = c.xp[0] + n * 40;
+      $("#pv-xpn").textContent = xp.toLocaleString("pt-BR") + " / " + c.xp[1].toLocaleString("pt-BR") + " XP";
+      $("#pv-xpb").style.setProperty("--p", (xp / c.xp[1] * 100) + "%");
+    };
+    var pvRender = function () {
+      var c = PV[atual];
+      feitos[atual] = feitos[atual] || {};
+      Object.keys(c.vars).forEach(function (v) { pvRoot.style.setProperty("--" + v, c.vars[v]); });
+      $$(".pv-tab", pvTabs).forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-k") === atual ? "true" : "false"); });
+      pvWin.setAttribute("aria-labelledby", "pvt-" + atual);
+      var dias = ["S", "T", "Q", "Q", "S", "S", "D"];
+      pvWin.innerHTML =
+        '<div class="pv-bar" aria-hidden="true"><i></i><i></i><i></i><span class="pv-url">taos · área do aluno · ' + c.rot + '</span></div>' +
+        '<div class="pv-app pv-swap">' +
+          '<nav class="pv-side" aria-hidden="true"><span class="pv-brand"><svg viewBox="0 0 90 90" fill="currentColor"><rect width="90" height="14"/><rect x="24" y="22" width="10" height="68"/><rect x="40" y="22" width="10" height="68"/><rect x="56" y="22" width="10" height="68"/></svg><span>TAOS<small>' + c.marca + '</small></span></span>' +
+            menu.map(function (m, i) { return '<span class="pv-nav' + (i ? "" : " on") + '">' + m + '</span>'; }).join("") + '</nav>' +
+          '<div class="pv-main">' +
+            '<div class="pv-head"><div><h3>' + c.ola + '</h3><p>Segunda-feira · ' + c.foco + '</p></div><div class="pv-count"><b>' + c.faltam + ' dias</b><span>até a prova</span></div></div>' +
+            '<div class="pv-stats">' + c.st.map(function (s) { return '<div class="pv-stat"><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join("") + '</div>' +
+            '<div class="pv-grid">' +
+              '<div class="pv-card"><h4>Seu plano de hoje <span id="pv-feito"></span></h4><div class="pv-prog"><i id="pv-bar"></i></div>' +
+                c.etapas.map(function (e, i) {
+                  return '<button type="button" class="pv-etapa' + (feitos[atual][i] ? " ok" : "") + '" data-i="' + i + '" aria-pressed="' + (feitos[atual][i] ? "true" : "false") + '">' +
+                    '<span class="pv-ck">' + ckIco + '</span><span class="pv-et"><b>' + e[2] + '</b><small><i style="--m:' + e[1] + '"></i>' + e[0] + '</small></span><span class="pv-min">' + e[3] + ' min</span></button>';
+                }).join("") + '</div>' +
+              '<div class="pv-card"><h4>Seu nível</h4><div class="pv-pat"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14C10 26 5 22 5 15V7z"/><path d="M16 10l2 4 4.5.6-3.3 3 .8 4.4-4-2.2-4 2.2.8-4.4-3.3-3 4.5-.6z"/></svg><div><b>' + c.pat + '</b><small>próximo: ' + c.prox + '</small></div></div>' +
+                '<div class="pv-xp"><span class="pv-et"><small id="pv-xpn"></small></span><div class="pv-prog"><i id="pv-xpb"></i></div></div>' +
+                '<h4 style="margin-top:14px">Questões por dia</h4><div class="pv-chart" aria-hidden="true">' + c.q.map(function (h, k) { return '<i style="--h:' + h + '%;--k:' + k + '"></i>'; }).join("") + '</div>' +
+                '<div class="pv-days" aria-hidden="true">' + dias.map(function (d) { return '<span>' + d + '</span>'; }).join("") + '</div></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      pvProg();
+    };
+    pvTabs.addEventListener("click", function (e) {
+      var b = e.target.closest(".pv-tab"); if (!b || b.getAttribute("data-k") === atual) return;
+      atual = b.getAttribute("data-k"); pvRender();
+    });
+    pvWin.addEventListener("click", function (e) {
+      var b = e.target.closest(".pv-etapa"); if (!b) return;
+      var i = b.getAttribute("data-i"), on = !b.classList.contains("ok");
+      b.classList.toggle("ok", on); b.setAttribute("aria-pressed", on ? "true" : "false");
+      feitos[atual][i] = on; pvProg();
+    });
+    pvRender();
+    // Quando a prévia aparece na tela, marca a primeira etapa sozinha
+    if ("IntersectionObserver" in window && !reduce) {
+      var pio = new IntersectionObserver(function (en) {
+        if (!en[0].isIntersecting) return; pio.disconnect();
+        setTimeout(function () { var b = $(".pv-etapa:not(.ok)", pvWin); if (b && !Object.keys(feitos[atual]).length) b.click(); }, 1100);
+      }, { threshold: 0.4 });
+      pio.observe(pvWin);
+    }
+  }
+
   // Revelar ao rolar
   var items = $$("[data-reveal]");
   if ("IntersectionObserver" in window && !reduce) {
