@@ -19,6 +19,27 @@ window.TATICO_PDF = {
   'por-6': [
     {n: "Coesão, colocação pronominal e reescrita de frases", f: 'ped-por-6-coesao-reescrita.pdf', a: [1, 2, 3, 4]}
   ],
+  'df-1': [
+    {n: "História do DF: da ideia da capital no interior à Brasília de hoje", f: 'ped-df-1-historia.pdf', a: [1, 2, 3, 4]}
+  ],
+  'df-2': [
+    {n: "Geografia do DF: Cerrado, clima, águas, regiões administrativas e problemas urbanos", f: 'ped-df-2-geografia.pdf', a: [1, 2, 3, 4]}
+  ],
+  'df-3': [
+    {n: "Sociedade, economia e cultura do DF", f: 'ped-df-3-sociedade.pdf', a: [1, 2, 3, 4]}
+  ],
+  'df-4': [
+    {n: "Organização política e administrativa do DF e a RIDE", f: 'ped-df-4-politica-ride.pdf', a: [1, 2, 3]}
+  ],
+  'lodf-1': [
+    {n: "LODF: princípios fundamentais, competências do DF e Regiões Administrativas", f: 'ped-lodf-1-fundamentos.pdf', a: [1, 2, 3, 4]}
+  ],
+  'lodf-2': [
+    {n: "LODF: princípios da administração pública e servidores públicos", f: 'ped-lodf-2-administracao.pdf', a: [1, 2, 3]}
+  ],
+  'lodf-3': [
+    {n: "A educação na LODF (arts. 221 a 245): princípios, gestão democrática e financiamento", f: 'ped-lodf-3-educacao.pdf', a: [1, 2, 3]}
+  ],
   'leg-1': [
     {n: "A educação na Constituição Federal (arts. 205 a 214) e o Fundeb", f: 'ped-leg-1-constituicao.pdf', a: [1, 2, 3]}
   ],
