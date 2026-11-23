@@ -40,6 +40,27 @@ window.TATICO_PDF = {
   'lodf-3': [
     {n: "A educação na LODF (arts. 221 a 245): princípios, gestão democrática e financiamento", f: 'ped-lodf-3-educacao.pdf', a: [1, 2, 3]}
   ],
+  'lc840-1': [
+    {n: "LC nº 840/2011: provimento, posse, exercício, estágio probatório, vacância e movimentação", f: 'ped-lc840-1-provimento.pdf', a: [1, 2, 3, 4]}
+  ],
+  'lc840-2': [
+    {n: "LC nº 840/2011: remuneração, férias, licenças e afastamentos", f: 'ped-lc840-2-direitos.pdf', a: [1, 2, 3]}
+  ],
+  'lc840-3': [
+    {n: "LC nº 840/2011: deveres, proibições e responsabilidades do servidor", f: 'ped-lc840-3-deveres.pdf', a: [1, 2, 3]}
+  ],
+  'lc840-4': [
+    {n: "LC nº 840/2011: sanções disciplinares, prescrição e processo disciplinar", f: 'ped-lc840-4-disciplinar.pdf', a: [1, 2, 3]}
+  ],
+  'mul-1': [
+    {n: "Lei Maria da Penha (Lei nº 11.340/2006)", f: 'ped-mul-1-maria-da-penha.pdf', a: [1, 2, 3, 4, 5]}
+  ],
+  'mul-2': [
+    {n: "Plano Distrital de Política para Mulheres e a rede de enfrentamento no DF", f: 'ped-mul-2-plano-distrital.pdf', a: [1, 2, 3]}
+  ],
+  'ps-1': [
+    {n: "Noções de primeiros socorros na escola", f: 'ped-ps-1-primeiros-socorros.pdf', a: [1, 2, 3, 4, 5, 6]}
+  ],
   'leg-1': [
     {n: "A educação na Constituição Federal (arts. 205 a 214) e o Fundeb", f: 'ped-leg-1-constituicao.pdf', a: [1, 2, 3]}
   ],
