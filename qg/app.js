@@ -285,7 +285,7 @@ function pgDash(){
   const minFeito=feitosHoje.reduce((s,b)=>s+b.min,0)+Math.min(proj.revMin,minRevs(revsOk));
   const minMeta=feitosHoje.reduce((s,b)=>s+b.min,0)+proj.novos.reduce((s,b)=>s+b.min,0)+proj.revMin;
   return`
-  <div class="page-h"><div><h1>${tx('Bom serviço','Bons estudos')}${S.nome?', '+esc(S.nome.split(' ')[0]):''}!</h1><p>${DIAS[dow(h)]}, ${brA(h)} · foco total ${CURSO.foco||'na '+CURSO.sigla}.</p></div>
+  <div class="page-h"><div><h1>${tx('Bom serviço','Bons estudos')}${S.nome?', '+esc(S.nome.split(' ')[0]):''}!</h1><p>${DIAS[dow(h)]}${dow(h)%6?'-feira':''}, ${brA(h)}</p></div>
    ${S.prova?`<div class="chip" style="font-size:13px;padding:6px 12px">${svg('target','width="15" height="15"')} ${diffD(h,S.prova)>=0?diffD(h,S.prova)+' dias para a prova':'Prova em '+brA(S.prova)}</div>`:`<a class="btn sec" href="#/config">Definir data da prova</a>`}</div>
   <section class="hero">
     <div class="hero-art">${ART.fuzil}</div>
