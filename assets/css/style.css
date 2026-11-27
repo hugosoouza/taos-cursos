@@ -469,6 +469,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .pv.in .pv-chart i { animation: rise .8s calc(var(--k) * 60ms + .3s) var(--ease) both; }
 .pv-days { display: flex; gap: 7px; font-size: 10.5px; color: var(--pmut); margin-top: 4px; }
 .pv-days span { flex: 1; text-align: center; }
+.pv-claro .pv-bar { background: #f3ece1; }
+.pv-claro .pv-bar i { background: rgba(43,33,24,.18); }
+.pv-claro .pv-url { background: rgba(43,33,24,.06); }
+.pv-claro .pv-win { border-color: rgba(255,255,255,.25); }
 .pv-nota { font-size: 12.5px; color: rgba(255,255,255,.5); margin-top: 12px; }
 .pv-feats { list-style: none; padding: 0; margin: 36px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .pv-feats li { border-top: 2px solid rgba(91,155,255,.45); padding-top: 14px; display: grid; gap: 4px; }

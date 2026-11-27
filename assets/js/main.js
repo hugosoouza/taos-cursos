@@ -220,7 +220,12 @@
       pat: "Cabo", prox: "3º Sargento", xp: [1640, 2500],
       vars: { pbg: "#070c17", psf: "#0e1628", psf2: "#0a111f", pline: "#1d2940", pink: "#e7ecf6", pmut: "#8d99b0", pacc: "#4f8ff0", paccink: "#ffffff", pgold: "#d6a630", pside: "#050913" },
       etapas: [["Português", "#4f8ff0", "Concordância nominal e verbal", 50], ["Constitucional", "#d6a630", "Direitos e garantias fundamentais", 45], ["Legislação da PMDF", "#4ade80", "Lei Orgânica do DF", 40], ["Direito Penal", "#ff8fa3", "Teoria geral do crime", 45]],
-      st: [["21", "dias seguidos"], ["82%", "acertos em 7 dias"], ["6", "revisões para hoje"]], q: [60, 45, 85, 70, 95, 50, 75] }
+      st: [["21", "dias seguidos"], ["82%", "acertos em 7 dias"], ["6", "revisões para hoje"]], q: [60, 45, 85, 70, 95, 50, 75] },
+    seedf: { rot: "SEEDF", sub: "Educação", cor: "#b8692e", marca: "EDUCAÇÃO", ola: "Bons estudos, Ana!", foco: "foco total na SEEDF", faltam: 214, claro: true,
+      pat: "Grau 2", prox: "Grau 3", xp: [3120, 5000],
+      vars: { pbg: "#faf7f2", psf: "#ffffff", psf2: "#f5efe6", pline: "#ece3d6", pink: "#2b2118", pmut: "#7d6e60", pacc: "#b8692e", paccink: "#ffffff", pgold: "#a8792a", pside: "#f3ece1" },
+      etapas: [["Alfabetização e Letramento", "#b8692e", "Psicogênese da língua escrita", 45], ["Legislação", "#a8792a", "LDB: princípios e fins da educação", 40], ["Língua Portuguesa", "#5b8a72", "Interpretação de textos", 40], ["Didática", "#a8553f", "Planejamento e avaliação", 35]],
+      st: [["15", "dias seguidos"], ["80%", "acertos em 7 dias"], ["5", "revisões para hoje"]], q: [50, 70, 40, 85, 60, 75, 90] }
   };
   var pvWin = $("#pv-win"), pvTabs = $("#pv-tabs"), pvRoot = $(".pv");
   if (pvWin && pvTabs) {
@@ -243,6 +248,7 @@
       var c = PV[atual];
       feitos[atual] = feitos[atual] || {};
       Object.keys(c.vars).forEach(function (v) { pvRoot.style.setProperty("--" + v, c.vars[v]); });
+      pvRoot.classList.toggle("pv-claro", !!c.claro);
       $$(".pv-tab", pvTabs).forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-k") === atual ? "true" : "false"); });
       pvWin.setAttribute("aria-labelledby", "pvt-" + atual);
       var dias = ["S", "T", "Q", "Q", "S", "S", "D"];
