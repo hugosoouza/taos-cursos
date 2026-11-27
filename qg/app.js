@@ -291,10 +291,10 @@ function pgDash(){
     <div class="hero-art">${ART.fuzil}</div>
     <div class="hero-top"><span style="width:18px;display:inline-flex">${ART.mira}</span>${msg}</div>
     <div class="grid g3">
-      <div class="panel"><div class="panel-t">Sua patente</div>
+      <div class="panel"><div class="panel-t">${CURSO.rotuloPatente||(CURSO.divisao==='militar'?'Sua patente militar':'Sua patente')}</div>
         <div class="rank">${insignia(fx.f[2])}<b>${fx.f[1]}</b></div>
         <div class="bar"><span style="width:${fx.next?pct(c-fx.f[0],fx.next[0]-fx.f[0]):100}%"></span></div>
-        <small>${fx.next?`faltam <b>${(fx.next[0]-c).toLocaleString('pt-BR')}</b> questões certas para <b>${fx.next[1]}</b>`:'Patente máxima alcançada!'}</small></div>
+        <small>${fx.next?`faltam <b>${(fx.next[0]-c).toLocaleString('pt-BR')}</b> questões certas para <b>${fx.next[1]}</b>`:(CURSO.maxPatente||'Patente máxima alcançada!')}</small></div>
       <div class="panel"><div class="panel-t">Seu plano</div>
         <div class="ring-wrap"><div class="ring"><svg width="66" height="66"><circle cx="33" cy="33" r="${r}" stroke="rgba(127,127,127,.25)" stroke-width="7" fill="none"/><circle cx="33" cy="33" r="${r}" stroke="var(--ok)" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-p/100)}"/></svg><span>${p}%</span></div>
         <div><b>${feitas}</b> <small>de ${TOTAL_AULAS.toLocaleString('pt-BR')} ${AU}s · ${unFeitas}/${unTot} assuntos</small><br><small>${ter==='concluído'?'Conteúdo todo estudado!':ter?`término previsto em <b>${brA(ter)}</b>`:'defina suas horas de estudo'}</small></div></div></div>

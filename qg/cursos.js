@@ -71,7 +71,8 @@
   };
   /* SEEDF: três cargos com o mesmo tema (cores da divisão Educação), cada um com o seu plano.
      O plano sai do cursos/seedf-gerar.py. "titulo" separa os três no painel e nos avisos. */
-  var EDU_PAT = [[0,'Iniciante',0],[300,'Estudante',1],[1000,'Dedicado',2],[2500,'Focado',3],[5000,'Avançado',4],[9000,'Especialista',5],[15000,'Mestre',6],[25000,'Aprovado',7],[40000,'Nomeado',8]];
+  // Graus da Educação por questões certas: [mínimo, nome, nível da insígnia]
+  var EDU_PAT = [[0,'Grau 1',1],[1000,'Grau 2',2],[5000,'Grau 3',3]];
   // Tema claro da Educação: branco, bege e um tom terroso de destaque
   function temaEdu(acc, rgb) {
     return { bg:'#faf7f2', surface:'#ffffff', surface2:'#f5efe6', ink:'#2b2118', muted:'#7d6e60', line:'#ece3d6', line2:'#e2d6c4',
@@ -89,6 +90,7 @@
       questoes: { titulo: 'Provas anteriores da SEEDF', nome: 'Abrir as provas de 2022 (Quadrix)', texto: 'A banca é a mesma do concurso de 2022. Resolva as provas anteriores e registre o resultado aqui.', url: 'https://site.quadrix.org.br/encerrados/2022/seedfsecretaria-de-estado-de-educacao-do-distrito-federal.aspx' },
       fontes: { stencil: "'Outfit', sans-serif", cond: "'Outfit', 'Helvetica Neue', sans-serif" },
       patentes: EDU_PAT,
+      rotuloPatente: 'Seu grau', maxPatente: 'Grau máximo alcançado!',
       tema: temaEdu(acc, rgb),
       camo: ['#faf7f2','#faf7f2','#faf7f2','#faf7f2']
     };
