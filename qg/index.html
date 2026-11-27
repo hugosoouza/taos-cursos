@@ -27,12 +27,14 @@
 <script src="cursos.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script src="common.js?v=5"></script>
+<script src="olho.js?v=1"></script>
 <script>
 (function () {
   var T = window.TAOS, esc = T.esc, view = T.$('#view');
   T.cena();
   T.$('#logoTop').innerHTML = T.logo;
   var pedido = new URLSearchParams(location.search).get('c');
+  var modoRecuperar = /type=recovery/.test(location.hash);
   var wa = function (t) { return 'https://wa.me/' + window.TAOS_WHATSAPP + '?text=' + encodeURIComponent(t); };
 
   /* ---------- Telas de acesso ---------- */
@@ -94,14 +96,19 @@
   function telaSenha(msg) {
     view.innerHTML =
       '<form class="card" id="fSenha" novalidate>' +
-        '<span class="badge-top">Primeiro acesso</span>' +
-        '<h1 class="stencil">Crie sua senha</h1>' +
+        '<span class="badge-top">' + (modoRecuperar ? 'Recuperar acesso' : 'Primeiro acesso') + '</span>' +
+        '<h1 class="stencil">' + (modoRecuperar ? 'Crie uma nova senha' : 'Crie sua senha') + '</h1>' +
         '<p class="sub">Você vai usar esta senha para entrar na área do aluno.</p>' +
         (msg ? '<div class="msg" role="alert">' + esc(msg) + '</div>' : '') +
         '<div class="fld"><label for="s1">Nova senha (mín. 8 caracteres)</label><input id="s1" type="password" minlength="8" autocomplete="new-password" required></div>' +
         '<div class="fld"><label for="s2">Repita a senha</label><input id="s2" type="password" minlength="8" autocomplete="new-password" required></div>' +
         '<button class="btn block" type="submit">Salvar e entrar</button>' +
+        '<div style="display:flex;justify-content:space-between;gap:8px;margin-top:12px;flex-wrap:wrap">' +
+          '<button class="linkbtn" type="button" id="esqueci2">Recuperar senha</button>' +
+          '<a class="linkbtn" target="_blank" rel="noopener" href="' + wa('Olá! Preciso de ajuda para criar minha senha na área do aluno da TAOS.') + '">Preciso de ajuda</a>' +
+        '</div>' +
       '</form>';
+    T.$('#esqueci2').onclick = function () { telaEsqueci(); };
     T.$('#fSenha').onsubmit = async function (e) {
       e.preventDefault();
       var a = T.$('#s1').value, b = T.$('#s2').value;
@@ -199,7 +206,7 @@
   async function iniciar() {
     if (T.demo) { T.$('#demo').hidden = false; return meusCursos(); }
     var recuperar = /type=(recovery|invite)/.test(location.hash);
-    T.sb.auth.onAuthStateChange(function (ev) { if (ev === 'PASSWORD_RECOVERY') setTimeout(telaSenha, 0); });
+    T.sb.auth.onAuthStateChange(function (ev) { if (ev === 'PASSWORD_RECOVERY') { modoRecuperar = true; setTimeout(telaSenha, 0); } });
     var s = await T.sb.auth.getSession();
     if (recuperar && s.data.session) return telaSenha();
     if (/error_description/.test(location.hash)) { history.replaceState(null, '', location.pathname); return telaLogin('O link expirou ou já foi usado. Peça um novo.'); }

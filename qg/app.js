@@ -659,7 +659,9 @@ function telaSenha(msg){
    ${msg?`<div class="auth-msg">${esc(msg)}</div>`:''}
    <form id="fSenha"><div class="fld"><label>Nova senha (mín. 8 caracteres)</label><input name="s1" type="password" minlength="8" autocomplete="new-password" required></div>
    <div class="fld"><label>Repita a senha</label><input name="s2" type="password" minlength="8" autocomplete="new-password" required></div>
-   <button class="btn">Salvar e entrar</button></form></div>`;
+   <button class="btn">Salvar e entrar</button></form>
+   <div style="text-align:center;margin-top:12px"><button class="linkbtn" id="esqueci2">Recuperar senha</button></div></div>`;
+  document.getElementById('esqueci2').onclick=()=>telaEsqueci();
   document.getElementById('fSenha').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);
     if(fd.get('s1')!==fd.get('s2'))return telaSenha('As senhas não conferem.');
     const {error}=await sb.auth.updateUser({password:fd.get('s1')});

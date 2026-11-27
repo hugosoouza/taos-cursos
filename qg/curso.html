@@ -26,6 +26,7 @@
 <div id="toast"></div>
 <div id="gate" class="hidden"></div>
 <script src="config.js"></script>
+<script src="olho.js?v=1"></script>
 <script src="cursos.js?v=7"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script>
@@ -76,7 +77,7 @@
       '<a class="btn" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Olá! Quando o ' + (MIL ? 'QG da ' + C.sigla : 'curso ' + (C.titulo || C.sigla)) + ' fica pronto?') + '">Falar com a equipe</a><a class="linkbtn" href="./">Voltar aos meus cursos</a>');
     return;
   }
-  var arquivos = [C.base + 'dados.js?v=3', C.base + 'materiais.js?t=' + Math.floor(Date.now() / 60000), 'app.js?v=2'];
+  var arquivos = [C.base + 'dados.js?v=3', C.base + 'materiais.js?t=' + Math.floor(Date.now() / 60000), 'app.js?v=3'];
   (function carregar(i) {
     if (i >= arquivos.length) return;
     var sc = document.createElement('script');
