@@ -35,6 +35,12 @@ def inline(t):
     t = re.sub(r'==(.+?)==', r'<mark>\1</mark>', t)
     return t
 
+def _li(x):
+    if '<ul>' in x:
+        cab, resto = x.split('<ul>', 1)
+        return inline(cab) + '<ul>' + resto
+    return inline(x)
+
 # ---------------------------------------------------------------- blocos de texto
 def corpo(linhas):
     """Converte linhas soltas (parágrafos, listas, tabelas, subtítulos) em HTML."""
@@ -58,10 +64,16 @@ def corpo(linhas):
             tag = 'ol' if m.group(2)[0].isdigit() else 'ul'
             itens = []
             while i < len(linhas) and re.match(r'\s*(- |\d+\. )', linhas[i]):
+                if re.match(r'\s{2,}- ', linhas[i]) and itens:
+                    subs = []
+                    while i < len(linhas) and re.match(r'\s{2,}- ', linhas[i]):
+                        subs.append(linhas[i].strip()[2:]); i += 1
+                    itens[-1] += '<ul>' + ''.join('<li>' + inline(x) + '</li>' for x in subs) + '</ul>'
+                    continue
                 itens.append(re.sub(r'^\s*(- |\d+\. )', '', linhas[i].rstrip())); i += 1
                 while i < len(linhas) and linhas[i].startswith('  ') and linhas[i].strip() and not re.match(r'\s*(- |\d+\. )', linhas[i]):
                     itens[-1] += ' ' + linhas[i].strip(); i += 1
-            out.append('<%s>%s</%s>' % (tag, ''.join('<li>' + inline(x) + '</li>' for x in itens), tag)); continue
+            out.append('<%s>%s</%s>' % (tag, ''.join('<li>' + _li(x) + '</li>' for x in itens), tag)); continue
         par = [l.strip()]; i += 1
         while i < len(linhas) and linhas[i].strip() and not re.match(r'\s*(- |\d+\. |\||## )', linhas[i]):
             par.append(linhas[i].strip()); i += 1
@@ -71,7 +83,38 @@ def corpo(linhas):
 CAIXAS = {
     'doc': ('§', 'Documento'), 'sala': ('✎', 'Na sala de aula'), 'pegadinha': ('!', 'Pegadinha da banca'),
     'macete': ('★', 'Macete'), 'atencao': ('i', 'Atenção'), 'resumo': ('≡', 'Resumo'), 'exemplo': ('→', 'Exemplo'),
+    'pense': ('?', 'Pare e pense'), 'juris': ('⚖', 'Jurisprudência'), 'compara': ('⇄', 'Compare'), 'erro': ('✕', 'Erro comum'),
 }
+
+def bloco_especial(tipo, tit, dentro):
+    """Blocos visuais: linha do tempo, flashcards e mapa mental."""
+    if tipo == 'linha':
+        pts = [[c.strip() for c in l.split('|')] for l in dentro if l.strip()]
+        h = '<div class="tl">' + ('<div class="tl-t">' + inline(tit) + '</div>' if tit else '') + '<div class="tl-bar">'
+        for k, pt in enumerate(pts):
+            pos, rot = pt[0], pt[1]
+            det = pt[2] if len(pt) > 2 else ''
+            lado = 'cima' if k % 2 == 0 else 'baixo'
+            h += f'<div class="tl-p"><i></i><span><b>{inline(rot)}</b>{inline(det)}</span></div>'
+        return h + '</div></div>'
+    if tipo == 'cards':
+        pares = [l.split('||') for l in dentro if '||' in l]
+        h = '<div class="fc-t">' + inline(tit or 'Flashcards') + '<small>Cubra a coluna da direita e tente responder. Depois confira.</small></div><div class="fc">'
+        for k, (q, r) in enumerate(pares):
+            h += f'<div class="fc-q"><span>{k+1:02d}</span>{inline(q.strip())}</div><div class="fc-r">{inline(r.strip())}</div>'
+        return h + '</div>'
+    if tipo == 'mapa':
+        ramos, atual_r = [], None
+        for l in dentro:
+            if l.startswith('## '):
+                atual_r = [l[3:].strip(), []]; ramos.append(atual_r)
+            elif l.strip().startswith('- ') and atual_r:
+                atual_r[1].append(l.strip()[2:])
+        h = '<div class="mapa"><div class="mapa-c">' + inline(tit) + '</div><div class="mapa-g">'
+        for nome, itens in ramos:
+            h += '<div class="mapa-r"><b>' + inline(nome) + '</b><ul>' + ''.join('<li>' + inline(x) + '</li>' for x in itens) + '</ul></div>'
+        return h + '</div></div>'
+    return None
 
 def ler(caminho):
     txt = open(caminho, encoding='utf-8').read()
@@ -118,6 +161,8 @@ def montar(meta, texto):
                 else:
                     h += '<ol class="alts">' + ''.join('<li><b>%s)</b> %s</li>' % (a[0].upper(), inline(a[3:])) for a in alts) + '</ol>'
                 atual['html'].append(h + '</div></div>')
+            elif bloco_especial(tipo, tit, dentro) is not None:
+                atual['html'].append(bloco_especial(tipo, tit, dentro))
             else:
                 ic, nome = CAIXAS[tipo]
                 cab = nome + (' · ' + tit if tit else '')
