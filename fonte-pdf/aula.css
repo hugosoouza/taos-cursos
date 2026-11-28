@@ -1,0 +1,118 @@
+/* TAOS Educação · visual das aulas em PDF (A4) */
+:root {
+  --bg: #faf7f2; --ink: #2b2118; --mut: #7d6e60; --line: #e7dccb; --acc: #b8692e; --acc-d: #9a5520;
+  --gold: #a8792a; --gold-bg: #f6ecd8; --sand: #f3ebdf; --green: #5b7a5a; --green-bg: #eef3ec;
+  --red: #b5402f; --red-bg: #fbece8; --dark: #2b2118;
+}
+@page {
+  size: A4; margin: 22mm 18mm 20mm 18mm;
+  @top-left { content: "TAOS EDUCAÇÃO"; font: 700 9.5pt Outfit, sans-serif; letter-spacing: .08em; color: var(--ink); vertical-align: bottom; padding-bottom: 3mm; }
+  @top-right { content: "__CABECA__"; font: 500 7pt Outfit, sans-serif; letter-spacing: .1em; color: #8c7c6c; vertical-align: bottom; padding-bottom: 3.4mm; }
+  @bottom-left { content: "__RODAPE__"; font: 400 7pt Outfit, sans-serif; color: #8c7c6c; }
+  @bottom-right { content: counter(page); font: 700 8pt Outfit, sans-serif; color: #fff; background: var(--acc); border-radius: 3mm; width: 9mm; height: 5.4mm; text-align: center; margin-top: 6mm; }
+}
+@page :first { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; }
+body { font: 400 10.6pt/1.62 Inter, system-ui, sans-serif; color: var(--ink); text-align: justify; hyphens: auto; }
+b { font-weight: 700; }
+mark { background: #fbe3c8; color: inherit; padding: 0 2px; border-radius: 2px; }
+p { margin: 0 0 3.2mm; orphans: 3; widows: 3; }
+h1, h2, h3 { font-family: Outfit, sans-serif; text-align: left; hyphens: none; }
+
+/* ---------- capa ---------- */
+.capa { text-align: left; position: relative; width: 210mm; height: 297mm; background: var(--bg); overflow: hidden; break-after: page; padding: 0 20mm 0 27mm; }
+.faixa { position: absolute; left: 0; top: 0; bottom: 0; width: 7mm; background: var(--acc); }
+.capa-top { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24mm; }
+.logo { display: flex; align-items: center; gap: 3.5mm; color: var(--ink); }
+.logo svg { width: 13mm; height: 13mm; }
+.logo .sep { width: .3mm; height: 11mm; background: #cbbba5; }
+.logo b { display: block; font: 700 19pt/1 Outfit; letter-spacing: .02em; }
+.logo i { display: block; font: 600 7pt Outfit; font-style: normal; letter-spacing: .32em; color: var(--acc); margin-top: 1.5mm; }
+.capa-cargo { text-align: right; font: 600 8.6pt/1.7 Outfit; letter-spacing: .22em; color: #6b5b4b; }
+.capa-cargo b { display: block; color: var(--acc); }
+.pilares { position: absolute; right: 9mm; top: 69mm; width: 120mm; height: 176mm; }
+.pilares b { position: absolute; top: 0; left: 0; right: 0; height: 27mm; background: #efe5d7; }
+.pilares i { position: absolute; top: 43mm; bottom: 0; width: 20mm; background: #efe5d7; }
+.pilares i:nth-child(1) { left: 47mm; } .pilares i:nth-child(2) { left: 78mm; } .pilares i:nth-child(3) { left: 109mm; width: 20mm; }
+.capa-meio { position: relative; margin-top: 52mm; }
+.capa-kicker { font: 600 9.6pt/1.7 Outfit; letter-spacing: .24em; color: var(--acc); padding-left: 13mm; position: relative; max-width: 150mm; }
+.capa-kicker::before { content: ""; position: absolute; left: 0; top: 2.6mm; width: 10mm; height: .7mm; background: var(--acc); }
+.capa h1 { font: 800 34pt/1.08 Outfit; letter-spacing: -.02em; margin: 6mm 0 4mm; max-width: 145mm; }
+.capa-sub { font: 400 13pt Outfit; color: #6b5b4b; margin: 0; }
+.capa-cards { display: grid; grid-template-columns: 1.1fr 1fr; margin-top: 13mm; border: .3mm solid var(--line); border-radius: 4mm; overflow: hidden; background: #fff; text-align: left; }
+.cc { padding: 7mm 7mm; }
+.cc-t { font: 700 9pt Outfit; letter-spacing: .2em; color: var(--acc); text-transform: uppercase; margin-bottom: 4mm; }
+.cc ul { margin: 0; padding-left: 4.5mm; font-size: 9.6pt; line-height: 1.5; }
+.cc li { margin-bottom: 1.6mm; }
+.ficha { background: #f6efe5; border-left: .3mm solid var(--line); }
+.fl { display: flex; justify-content: space-between; gap: 4mm; font-size: 9.4pt; padding: 2.6mm 0; border-bottom: .3mm solid #e4d8c6; }
+.fl:last-child { border-bottom: 0; }
+.fl span { color: #7d6e60; } .fl b { text-align: right; }
+.legenda { position: absolute; left: 27mm; right: 20mm; bottom: 27mm; display: flex; gap: 2.6mm; flex-wrap: wrap; }
+.legenda span { font: 500 8pt Inter; border: .3mm solid var(--line); border-radius: 9mm; padding: 1.8mm 3.6mm; background: #fff; display: inline-flex; align-items: center; gap: 2mm; }
+.d { width: 3mm; height: 3mm; border-radius: 50%; display: inline-block; }
+.d.doc { background: var(--gold); } .d.sala { background: var(--green); } .d.peg { background: var(--red); } .d.mac { border: .4mm dashed var(--acc); } .d.cpk { background: var(--dark); }
+.capa-pe { position: absolute; left: 27mm; right: 20mm; bottom: 13mm; border-top: .3mm solid var(--line); padding-top: 5mm; display: flex; justify-content: space-between; font: 400 8pt Outfit; color: #7d6e60; }
+.capa-pe b { font: 700 9pt Outfit; letter-spacing: .24em; color: var(--ink); }
+
+/* ---------- páginas internas ---------- */
+.pag { break-after: page; }
+.tit-pag { font: 800 23pt/1.1 Outfit; letter-spacing: -.02em; margin: 0 0 1mm; }
+.kick { font: 600 8.4pt Outfit; letter-spacing: .2em; text-transform: uppercase; color: var(--acc); }
+.sum { margin: 8mm 0 9mm; border-top: .5mm solid var(--ink); }
+.sum-l { display: grid; grid-template-columns: 14mm 1fr; padding: 3.4mm 0; border-bottom: .3mm solid var(--line); text-align: left; }
+.sum-l .n { font: 800 13pt Outfit; color: var(--acc); }
+.sum-l b { font: 600 10.4pt Inter; display: block; } .sum-l small { color: var(--mut); font-size: 9pt; }
+
+.sec { margin-top: 11mm; }
+.sec.gab { break-before: page; margin-top: 0; }
+.pag + .sec { margin-top: 0; }
+.sec-h { break-after: avoid; break-inside: avoid; display: flex; gap: 5mm; align-items: center; padding-bottom: 4mm; margin-bottom: 6mm; border-bottom: .5mm solid var(--ink); }
+.sec-n { flex: none; width: 15mm; height: 15mm; border-radius: 3.5mm; background: var(--acc); color: #fff; display: grid; place-items: center; font: 800 15pt Outfit; }
+.sec-h h2 { margin: 0 0 1mm; font: 800 18pt/1.15 Outfit; letter-spacing: -.015em; }
+h3 { font: 700 13pt/1.25 Outfit; margin: 7mm 0 3mm; color: var(--ink); break-after: avoid; }
+h3::before { content: ""; display: inline-block; width: 2.4mm; height: 2.4mm; background: var(--acc); border-radius: .6mm; margin-right: 2.6mm; vertical-align: .6mm; }
+ul, ol { margin: 0 0 3.6mm; padding-left: 6mm; }
+li { margin-bottom: 1.4mm; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 5mm; font-size: 9.4pt; line-height: 1.45; text-align: left; break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { background: var(--dark); color: #fff; font: 600 8.6pt Outfit; letter-spacing: .06em; text-transform: uppercase; padding: 2.4mm 3mm; }
+td { padding: 2.4mm 3mm; border-bottom: .3mm solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) td { background: #fbf8f3; }
+
+/* ---------- quadros ---------- */
+.caixa { border-radius: 3mm; padding: 4.6mm 5.4mm 1.6mm; margin: 4mm 0 5mm; border-left: 1.4mm solid; break-inside: avoid; }
+.caixa p:last-child, .caixa ul:last-child, .caixa ol:last-child, .caixa table:last-child { margin-bottom: 3mm; }
+.cx-h { font: 700 8.8pt Outfit; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 2.6mm; display: flex; align-items: center; gap: 2.4mm; text-align: left; }
+.ic { width: 5.2mm; height: 5.2mm; border-radius: 50%; display: grid; place-items: center; color: #fff; font: 700 8pt Outfit; letter-spacing: 0; flex: none; }
+.box-doc { background: var(--gold-bg); border-color: var(--gold); } .box-doc .cx-h { color: #7d5718; } .box-doc .ic { background: var(--gold); }
+.box-doc p { font-size: 10pt; }
+.box-sala { background: var(--green-bg); border-color: var(--green); } .box-sala .cx-h { color: #3f5a3e; } .box-sala .ic { background: var(--green); }
+.box-pegadinha { background: var(--red-bg); border-color: var(--red); } .box-pegadinha .cx-h { color: #8f2e20; } .box-pegadinha .ic { background: var(--red); }
+.box-macete { background: #fff; border: .5mm dashed var(--acc); border-left: 1.4mm solid var(--acc); } .box-macete .cx-h { color: var(--acc-d); } .box-macete .ic { background: var(--acc); }
+.box-atencao { background: var(--sand); border-color: var(--acc); } .box-atencao .cx-h { color: var(--acc-d); } .box-atencao .ic { background: var(--acc); }
+.box-resumo { background: #fff; border: .4mm solid var(--ink); border-left: 1.4mm solid var(--ink); } .box-resumo .cx-h { color: var(--ink); } .box-resumo .ic { background: var(--ink); }
+.box-exemplo { background: #f7f3ee; border-color: #8c7c6c; } .box-exemplo .cx-h { color: #5c4e41; } .box-exemplo .ic { background: #8c7c6c; }
+
+/* ---------- checkpoints ---------- */
+.cp { border: .4mm solid var(--dark); border-radius: 3mm; margin: 5mm 0 6mm; overflow: hidden; break-inside: avoid; }
+.cp-h { background: var(--dark); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 2.6mm 4.4mm; font: 700 9.2pt Outfit; letter-spacing: .12em; text-transform: uppercase; }
+.cp-h em { font-style: normal; background: var(--acc); padding: .8mm 2.6mm; border-radius: 1.4mm; font-size: 7.6pt; }
+.cp-b { padding: 4mm 4.6mm .6mm; }
+.cp-b p { text-align: left; }
+.opts { display: flex; align-items: center; gap: 2.4mm; font: 600 10pt Outfit; margin: 1mm 0 4mm; }
+.box { width: 4.4mm; height: 4.4mm; border: .4mm solid var(--dark); border-radius: 1mm; display: inline-block; margin-left: 4mm; }
+.box:first-child { margin-left: 0; }
+.alts { list-style: none; padding: 0; margin: 0 0 3.4mm; text-align: left; }
+.alts li { padding: 1.4mm 0 1.4mm 0; border-bottom: .3mm dashed var(--line); }
+.alts li:last-child { border-bottom: 0; }
+.alts b { display: inline-block; width: 6mm; color: var(--acc); }
+
+/* ---------- gabarito ---------- */
+.gab-grade { display: grid; grid-template-columns: repeat(7, 1fr); border: .3mm solid var(--line); margin-bottom: 6mm; }
+.gab-grade div { text-align: center; padding: 2.6mm 0; border-right: .3mm solid var(--line); border-bottom: .3mm solid var(--line); }
+.gab-grade small { display: block; font: 500 7.4pt Outfit; letter-spacing: .1em; color: var(--mut); }
+.gab-grade b { font: 800 13pt Outfit; }
+.gab-t td:first-child { width: 17mm; white-space: nowrap; }
