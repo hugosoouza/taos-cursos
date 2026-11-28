@@ -242,7 +242,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .final-words { font-size: clamp(48px, 9vw, 128px); font-weight: 800; letter-spacing: -.04em; line-height: .95; }
 .final-words span { display: inline-block; }
 .final-words span:nth-child(2) { color: var(--electric); }
-.final-words span:nth-child(3) { color: transparent; -webkit-text-stroke: 2px #fff; }
+/* Contorno limpo: o preenchimento na cor do fundo cobre as linhas internas das letras sobrepostas */
+.final-words span:nth-child(3) { color: var(--navy); -webkit-text-stroke: 4px #fff; paint-order: stroke fill; letter-spacing: 0; }
 .js .final-words[data-reveal] span { opacity: 0; transform: translateY(40px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .js .final-words[data-reveal].in span { opacity: 1; transform: none; }
 .js .final-words[data-reveal].in span:nth-child(2) { transition-delay: .12s; }
