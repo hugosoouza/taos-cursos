@@ -10,263 +10,253 @@ etapa: 2
 total: 4
 titulo: Estágio probatório e estabilidade
 tempo: 90
-objetivos: **Conceitos-base**: posse, exercício, cargo efetivo, estágio, estabilidade e vitaliciedade ; **Estágio probatório**: prazo, regras, proibições e suspensão (LC nº 840, arts. 22 a 27) ; **Avaliação**: fatores, notas semestrais, comissão especial e reprovação (arts. 28 a 31) ; **Estabilidade**: requisitos e as quatro formas de perda do cargo (CF, arts. 41 e 169) ; **Recondução** e treino final com questões no estilo Quadrix
+objetivos: Conceitos de posse, exercício, cargo efetivo, estabilidade e vitaliciedade ; Regras do estágio probatório na LC nº 840/2011 (arts. 22 a 27) ; Avaliação de desempenho, comissão especial e reprovação (arts. 28 a 31) ; Estabilidade e perda do cargo (CF, arts. 41 e 169) ; Recondução e questões no estilo Quadrix
 ---
-# Antes de começar | Os conceitos que sustentam a aula inteira
+# Conceitos iniciais | O vocabulário que a prova usa
 
-## Para que serve esta aula
+## Por que estudar este tema com calma
 
-Estágio probatório e estabilidade é um dos temas **mais cobrados** de regime jurídico de servidores. Ele aparece em praticamente toda prova de concurso que tem estatuto de servidor no edital, e a Quadrix costuma explorá-lo em itens de **certo ou errado** cheios de detalhes: prazo, quem avalia, quando começa, o que suspende, o que acontece com o reprovado.
+Estágio probatório e estabilidade aparecem em quase toda prova que traz estatuto de servidor no edital, e com a LC nº 840/2011 não é diferente. A Quadrix gosta de explorar o assunto em itens de certo ou errado que trocam um detalhe só: o momento em que o estágio começa, quem faz a avaliação, o que acontece com quem é reprovado. Quem estudou "por cima" acaba caindo justamente nesses detalhes.
 
-Ao fim desta aula, você deve conseguir:
+Ao terminar esta etapa, você deve ser capaz de explicar a diferença entre estágio probatório, estabilidade, efetividade e vitaliciedade; dizer quando o estágio começa, quanto dura e em que situações a contagem fica suspensa; descrever como o servidor é avaliado até a decisão da comissão; distinguir exoneração de demissão; listar as hipóteses em que o servidor estável perde o cargo; e aplicar a recondução a casos concretos.
 
-1. Explicar, com suas palavras, a diferença entre **estágio probatório**, **estabilidade**, **efetividade** e **vitaliciedade**.
-2. Dizer **quando começa**, **quanto dura** e **o que suspende** o estágio na LC nº 840/2011.
-3. Listar os **seis fatores** de avaliação e descrever o caminho da avaliação até a **comissão especial**.
-4. Distinguir **exoneração** de **demissão** e saber o que acontece com o servidor **reprovado**.
-5. Enumerar as **quatro hipóteses** em que o servidor estável pode perder o cargo.
-6. Aplicar a **recondução** a casos concretos.
-
-:::pense Antes de ler, responda de cabeça
-Um professor da SEEDF que tomou posse ontem já pode ser "mandado embora" pela administração? E um professor que está na rede há 15 anos? O que muda entre os dois? Guarde a sua resposta: no fim da aula, volte aqui e compare.
+:::pense Antes de ler
+Pense em dois professores da SEEDF. Um tomou posse ontem; o outro está na rede há quinze anos. A administração pode desligar algum dos dois? Em que condições? Anote a sua resposta. No fim da etapa você vai voltar a ela.
 :::
 
-## O vocabulário da aula
+## Termos que você precisa dominar
 
-Muitos erros de prova vêm de confundir palavras parecidas. Antes de entrar na lei, fixe o significado de cada uma:
+Boa parte dos erros nesta matéria vem de confundir palavras parecidas. Vale a pena fixar o sentido técnico de cada uma antes de entrar na lei.
 
-| Termo | O que significa | Exemplo |
+| Termo | Significado | Exemplo |
 |---|---|---|
-| **Cargo público** | Conjunto de atribuições e responsabilidades criado por lei, com denominação própria e vencimento pago pelos cofres públicos | Professor de Educação Básica da SEEDF |
-| **Cargo efetivo** | Cargo provido por **concurso público**, com vocação de permanência | O cargo de professor ocupado pela Ana, aprovada no concurso |
-| **Cargo em comissão** | Cargo de **livre nomeação e exoneração**, para direção, chefia e assessoramento | Diretor de uma regional de ensino nomeado sem concurso |
-| **Provimento** | Ato que preenche o cargo público | A **nomeação** é o provimento originário |
-| **Posse** | Aceitação formal das atribuições, com assinatura do termo | Com a posse, a pessoa passa a ser servidora |
-| **Exercício** | Efetivo desempenho das atribuições do cargo | Primeiro dia de trabalho na escola |
-| **Estágio probatório** | **Período de avaliação** do servidor nomeado para cargo efetivo | Os três primeiros anos da Ana na SEEDF |
-| **Estabilidade** | **Garantia** de permanência no serviço público, obtida após o estágio | A Ana, depois de três anos e aprovada, fica estável |
-| **Exoneração** | Desligamento **sem caráter de punição** | A pedido ou por reprovação no estágio |
-| **Demissão** | Desligamento **como penalidade** por infração grave | Após processo disciplinar |
+| Cargo público | Conjunto de atribuições e responsabilidades criado por lei, com denominação própria e vencimento pago pelos cofres públicos | Professor de Educação Básica da SEEDF |
+| Cargo efetivo | Cargo preenchido por concurso público, pensado para ser permanente | O cargo da professora aprovada no concurso |
+| Cargo em comissão | Cargo de livre nomeação e exoneração, destinado a direção, chefia e assessoramento | Um cargo de direção numa coordenação regional ocupado sem concurso |
+| Provimento | Ato que preenche o cargo | A nomeação é a forma de provimento originário |
+| Posse | Aceitação formal do cargo, com assinatura do termo | É a partir dela que a pessoa se torna servidora |
+| Exercício | Início do desempenho das atribuições | O primeiro dia de trabalho na escola |
+| Estágio probatório | Período em que o servidor efetivo é avaliado | Os três primeiros anos na SEEDF |
+| Estabilidade | Garantia de permanência no serviço público adquirida depois do estágio | Depois de três anos e aprovada na avaliação, a professora fica estável |
+| Exoneração | Desligamento sem natureza de punição | A pedido, ou por reprovação no estágio |
+| Demissão | Desligamento como penalidade por falta grave | Aplicada ao fim de processo disciplinar |
 
-:::atencao Posse x exercício
-Não confunda: a **posse** é o "sim" do servidor ao cargo (um ato formal); o **exercício** é o começo do trabalho de verdade. Entre um e outro pode haver alguns dias. Para o estágio probatório, o que importa é o **exercício**.
-:::
-
-## A linha do tempo de um servidor efetivo
+Uma confusão comum é entre posse e exercício. A posse é um ato formal, o momento em que o nomeado assina o termo e aceita o cargo. O exercício vem depois, às vezes alguns dias depois, quando ele começa a trabalhar. Para o estágio probatório, o marco é o exercício.
 
 :::linha Do concurso à estabilidade
-0 | Nomeação | ato publicado no DODF
+0 | Nomeação | publicada no DODF
 12 | Posse | assinatura do termo
-24 | Exercício | começa o estágio
+24 | Exercício | início do estágio
 50 | Avaliações | semestrais, pela chefia
 78 | Comissão | avaliação especial
-100 | Estabilidade | 3 anos + aprovação
+100 | Estabilidade | três anos e aprovação
 :::
 
-## Quem passa pelo estágio (e quem não passa)
+## Quem passa pelo estágio
 
-| Situação | Faz estágio probatório? | Pode adquirir estabilidade do art. 41? |
+Só faz estágio probatório quem foi nomeado para cargo efetivo depois de aprovado em concurso. Quem ocupa apenas cargo em comissão está numa relação de confiança com a autoridade que o nomeou e pode ser exonerado a qualquer momento; não existe estágio nem estabilidade nesse caso.
+
+| Situação | Faz estágio? | Pode adquirir a estabilidade do art. 41 da CF? |
 |---|---|---|
-| Professor **efetivo**, aprovado em concurso da SEEDF | **Sim** | **Sim** |
-| Servidor ocupante **apenas de cargo em comissão** | Não | Não |
-| Professor em **contrato temporário** | Não | Não |
-| Servidor **estável** que toma posse em **novo cargo efetivo** | **Sim, de novo** (no novo cargo) | Já é estável no serviço público |
+| Professor efetivo aprovado em concurso da SEEDF | Sim | Sim |
+| Servidor que ocupa apenas cargo em comissão | Não | Não |
+| Professor em contrato temporário | Não | Não |
+| Servidor estável que toma posse em outro cargo efetivo | Sim, no novo cargo | Já é estável no serviço público |
 
-:::sala O caso do professor temporário
-Na rede pública do DF é comum o **professor substituto em contrato temporário**. Ele trabalha na escola, dá aula e é avaliado pela direção, mas **não ocupa cargo efetivo**: tem um contrato por prazo determinado, para atender necessidade temporária de excepcional interesse público (CF, art. 37, IX). Por isso, ele **não faz estágio probatório** e **não adquire estabilidade**, por mais tempo que fique na rede.
+:::sala O professor substituto
+Na rede do DF há muitos professores em contrato temporário. Eles dão aula, cumprem horário e são acompanhados pela direção como qualquer colega, mas não ocupam cargo efetivo. O vínculo é um contrato por prazo determinado, autorizado pela Constituição para necessidade temporária de excepcional interesse público (art. 37, IX). Por isso não fazem estágio probatório e não adquirem estabilidade, mesmo depois de vários anos na rede.
 :::
 
-## Estabilidade, efetividade e vitaliciedade
+## Efetividade, estabilidade e vitaliciedade
 
-Essas três palavras parecem sinônimas, mas cada uma tem um sentido técnico:
+Efetividade é uma qualidade do cargo. O cargo efetivo é aquele provido por concurso, e o servidor já o ocupa desde a posse.
 
-- **Efetividade** é uma característica do **cargo**: o cargo efetivo é aquele provido por concurso, com vocação de permanência. Desde a posse, a Ana já ocupa um **cargo efetivo**.
-- **Estabilidade** é uma garantia da **pessoa** no **serviço público**: depois de vencer o estágio, a Ana só perde o cargo nas hipóteses da Constituição.
-- **Vitaliciedade** é uma garantia **ainda mais forte**, reservada a algumas carreiras (magistrados, membros do Ministério Público e dos Tribunais de Contas). Quem é vitalício só perde o cargo por **sentença judicial transitada em julgado**.
+Estabilidade é uma garantia do servidor em relação ao serviço público, e só vem depois de vencido o estágio. A partir dela, o servidor perde o cargo apenas nas hipóteses que a Constituição enumera.
 
-:::compara Estabilidade x vitaliciedade
+Vitaliciedade é uma garantia mais forte, reservada a magistrados, membros do Ministério Público e membros dos Tribunais de Contas. O vitalício só perde o cargo por sentença judicial transitada em julgado.
+
+:::compara Estabilidade e vitaliciedade
 | | Estabilidade | Vitaliciedade |
 |---|---|---|
 | Quem tem | Servidores efetivos em geral | Magistrados, membros do MP e dos Tribunais de Contas |
-| Quando adquire | Após **3 anos** de efetivo exercício e aprovação na avaliação especial | Em regra, após **2 anos** de exercício (no primeiro grau) |
-| Como perde | Sentença transitada em julgado, processo administrativo, avaliação periódica ou excesso de despesa | **Só** por sentença judicial transitada em julgado |
+| Quando se adquire | Após três anos de efetivo exercício e aprovação na avaliação especial | Em regra, após dois anos de exercício no primeiro grau |
+| Como se perde | Sentença transitada em julgado, processo administrativo, avaliação periódica ou excesso de despesa com pessoal | Apenas por sentença judicial transitada em julgado |
 :::
 
-## Uma estabilidade "fora da regra": art. 19 do ADCT
+## A estabilidade do art. 19 do ADCT
 
-A Constituição de 1988 criou uma situação especial de transição. Os servidores que, em **5 de outubro de 1988**, estavam em exercício **há pelo menos cinco anos continuados**, mesmo **sem concurso**, foram considerados **estáveis no serviço público** (ADCT, art. 19). É a chamada **estabilidade extraordinária** ou **excepcional**.
+Quando a Constituição de 1988 entrou em vigor, havia muita gente trabalhando no serviço público sem ter feito concurso. O art. 19 do ADCT considerou estáveis no serviço público os servidores que, em 5 de outubro de 1988, estavam em exercício havia pelo menos cinco anos continuados, mesmo sem concurso. A doutrina chama essa situação de estabilidade extraordinária.
 
-Ela não interessa ao servidor que entra hoje na SEEDF, mas cai em prova como "pegadinha": a regra geral é que estabilidade exige concurso, e o ADCT é a **exceção histórica**.
+Ela não se aplica a quem ingressa hoje na SEEDF, mas a banca às vezes a usa para testar se o candidato sabe que a regra geral exige concurso e que o ADCT tratou de uma situação de transição.
 
 :::cp ce
 O servidor nomeado para cargo em comissão adquire estabilidade após três anos de efetivo exercício, desde que aprovado em avaliação especial de desempenho.
-= E | Cargo em comissão é de **livre nomeação e exoneração**. Quem ocupa apenas cargo em comissão não passa por estágio probatório e não adquire estabilidade. A estabilidade do art. 41 é para servidor nomeado para **cargo efetivo** em virtude de **concurso público**.
+= E | Cargo em comissão é de livre nomeação e exoneração. Quem ocupa apenas esse tipo de cargo não passa por estágio probatório e não adquire estabilidade. O art. 41 da CF trata do servidor nomeado para cargo efetivo em virtude de concurso público.
 :::
 
 :::cp ce
 Efetividade e estabilidade são conceitos equivalentes: ambos se referem à garantia de permanência adquirida pelo servidor após o estágio probatório.
-= E | **Efetividade** é atributo do **cargo** (provido por concurso, desde a posse). **Estabilidade** é garantia do **servidor** no serviço público, adquirida após o estágio. O servidor ocupa cargo efetivo desde o início, mas só fica estável depois.
+= E | Efetividade é qualidade do cargo, presente desde a posse. Estabilidade é garantia do servidor no serviço público e só é adquirida depois do estágio.
 :::
 
-# Quanto dura e quando começa | LC nº 840/2011, art. 22, e a história dos três anos
+# Prazo e início do estágio | LC nº 840/2011, art. 22
 
 :::doc LC nº 840/2011, art. 22
-**Art. 22.** Ao entrar em exercício, o servidor nomeado para cargo de provimento efetivo fica sujeito ao **estágio probatório** pelo prazo de **três anos**.
+**Art. 22.** Ao entrar em exercício, o servidor nomeado para cargo de provimento efetivo fica sujeito ao estágio probatório pelo prazo de três anos.
 :::
 
-Vamos ler o artigo "devagar", como um professor faria em sala:
+O artigo é curto, mas cada trecho tem consequência na prova.
 
-- **"Ao entrar em exercício"**: o marco inicial é o **exercício**. Não é a publicação da nomeação, não é a posse. Se a Ana tomou posse no dia 2 e entrou em exercício no dia 10, o estágio começa no dia **10**.
-- **"o servidor nomeado para cargo de provimento efetivo"**: só quem foi nomeado para cargo efetivo (por concurso). Comissionados e temporários estão fora.
-- **"fica sujeito ao estágio probatório"**: não é opcional. Todo servidor efetivo passa por ele.
-- **"pelo prazo de três anos"**: prazo **fixo**. A lei não prevê redução por bom desempenho nem prorrogação a critério da chefia.
+O estágio começa com a entrada em exercício. A data da nomeação e a data da posse não servem como marco. Se a professora tomou posse no dia 2 e começou a trabalhar no dia 10, o estágio conta a partir do dia 10.
 
-E o que se avalia nesse período? O art. 28 responde: a **aptidão**, a **capacidade** e a **eficiência** do servidor para o cargo, a partir de seis fatores que veremos na seção 4.
+Só está sujeito ao estágio o servidor nomeado para cargo de provimento efetivo. Comissionados e temporários ficam de fora.
 
-## Por que três anos? A história que a banca adora
+O prazo é de três anos e não há na lei qualquer previsão de redução por bom desempenho ou de prorrogação por decisão da chefia.
 
-| Período | Prazo para a estabilidade (CF) | Prazo do estágio na Lei nº 8.112/1990 (federais) |
+O que se avalia nesse período é a aptidão, a capacidade e a eficiência do servidor para o cargo, de acordo com o art. 28, que você verá adiante.
+
+## A mudança de dois para três anos
+
+| Período | Prazo da estabilidade na CF | Prazo do estágio na Lei nº 8.112/1990 (servidores federais) |
 |---|---|---|
-| Até 1998 | **2 anos** | 24 meses |
-| Depois da **EC nº 19/1998** | **3 anos** | O texto da lei continuou dizendo 24 meses |
-| Entendimento atual (STF e STJ) | **3 anos** | Estágio e estabilidade **caminham juntos**: 3 anos |
+| Até 1998 | Dois anos | 24 meses |
+| Após a EC nº 19/1998 | Três anos | O texto da lei continuou com 24 meses |
+| Entendimento atual do STF e do STJ | Três anos | O estágio acompanha a estabilidade e também tem três anos |
 
-A **Emenda Constitucional nº 19/1998** (Reforma Administrativa) aumentou de dois para três anos o prazo para adquirir a estabilidade. A Lei nº 8.112/1990, dos servidores federais, continuou com o texto antigo de "24 meses" para o estágio, e isso gerou anos de discussão. Os tribunais superiores firmaram o entendimento de que não faz sentido avaliar o servidor por 24 meses e só torná-lo estável aos 36: **o estágio probatório acompanha o prazo da estabilidade, de três anos**.
+A Emenda Constitucional nº 19/1998, conhecida como Reforma Administrativa, aumentou de dois para três anos o tempo necessário para a estabilidade. A Lei nº 8.112/1990, que rege os servidores federais, manteve no texto os 24 meses de estágio, e durante alguns anos se discutiu se os dois prazos poderiam conviver. Prevaleceu nos tribunais superiores o entendimento de que estágio e estabilidade caminham juntos, com três anos.
 
-A LC nº 840/2011, por ser bem posterior à EC nº 19, já nasceu com o prazo correto: **três anos**.
+A LC nº 840 foi editada em 2011, bem depois da emenda, e já previu os três anos. No DF, portanto, essa discussão não existe.
 
-:::pegadinha "24 meses"
-Item típico: "O servidor público do DF nomeado para cargo efetivo fica sujeito a estágio probatório de **24 meses**." **Errado.** Na LC nº 840/2011, o prazo é de **três anos**. O "24 meses" vem do texto original da Lei nº 8.112/1990 e não vale para o DF.
+:::pegadinha 24 meses
+É comum aparecer um item afirmando que o servidor do DF fica sujeito a estágio probatório de 24 meses. Está errado. O número vem do texto original da Lei nº 8.112/1990 e não se aplica à LC nº 840/2011.
 :::
 
-## "Efetivo exercício": por que a palavra "efetivo" importa
+## Efetivo exercício
 
-A estabilidade exige três anos de **efetivo exercício**. Isso quer dizer tempo em que o servidor esteve de fato no cargo ou em situações que a lei considera equivalentes a estar trabalhando (como as férias). Quando a lei manda **suspender** a contagem (art. 27, que veremos na próxima seção), aquele período **não entra** na conta dos três anos.
+A Constituição fala em três anos de efetivo exercício. Entram nessa conta o tempo trabalhado e os afastamentos que a lei equipara ao exercício, como as férias. Quando a lei manda suspender a contagem do estágio (art. 27), aquele período não é computado e o fim do estágio é adiado.
 
-:::exemplo Contando o tempo
-A Ana entrou em exercício em 10/2/2026. Sem nenhuma suspensão, o estágio terminaria em **10/2/2029**. Agora suponha que, no meio do caminho, ela tire **60 dias** de licença por motivo de doença em pessoa da família (hipótese de suspensão). O "relógio" do estágio para nesses 60 dias, e o fim do estágio é empurrado para cerca de **11/4/2029**.
+:::exemplo Contagem de datas
+Uma professora entrou em exercício em 10/2/2026. Sem nenhuma suspensão, o estágio terminaria em 10/2/2029. Se ela tirar 60 dias de licença por motivo de doença em pessoa da família, que é hipótese de suspensão, o término passa para cerca de 11/4/2029.
 :::
 
 :::cp ce
 Segundo a LC nº 840/2011, o prazo do estágio probatório começa a contar da data da posse do servidor nomeado para cargo de provimento efetivo.
-= E | O estágio começa quando o servidor **entra em exercício** (art. 22), e não na posse. A posse é o momento em que ele aceita o cargo; o exercício é quando começa a trabalhar de fato.
+= E | O estágio começa com a entrada em exercício (art. 22). A posse é a aceitação formal do cargo e normalmente acontece antes.
 :::
 
 :::cp ce
 O servidor do DF que obtiver desempenho excelente nas avaliações semestrais poderá ter o estágio probatório reduzido para dois anos, a critério da chefia imediata.
-= E | O prazo de **três anos** é fixo (art. 22). Não há previsão de redução por desempenho. Além disso, a chefia imediata faz as avaliações periódicas, mas não tem poder para alterar a duração do estágio.
+= E | O prazo de três anos é fixo (art. 22). A chefia imediata faz as avaliações periódicas, mas não tem competência para alterar a duração do estágio.
 :::
 
-# As regras durante o estágio | LC nº 840/2011, arts. 23 a 27
+# Regras durante o estágio | LC nº 840/2011, arts. 23 a 27
 
-Durante os três anos de estágio, o servidor tem quase todos os direitos de qualquer colega. Mas, como a administração precisa **observá-lo trabalhando**, a lei traz algumas regras próprias. Vamos uma por uma.
+Durante o estágio, o servidor tem praticamente os mesmos direitos dos colegas estáveis. As restrições que a lei impõe existem porque a administração precisa acompanhar o trabalho dele nesse período.
 
-## Regra 1 · Acumulação lícita: um estágio para cada cargo (art. 23)
+## Acumulação de cargos (art. 23)
 
-A Constituição permite, em casos específicos, que a mesma pessoa ocupe **dois cargos públicos** ao mesmo tempo, desde que haja **compatibilidade de horários**. Para quem é da educação, o caso mais comum é o de **dois cargos de professor** (CF, art. 37, XVI, "a"). Também se admite um cargo de professor com outro **técnico ou científico** (alínea "b").
+A Constituição admite que a mesma pessoa ocupe dois cargos públicos quando há compatibilidade de horários, em hipóteses específicas. A mais comum na educação é a de dois cargos de professor (art. 37, XVI, "a"); também é permitido um cargo de professor com outro técnico ou científico (alínea "b").
 
-Quando isso acontece, a LC nº 840 manda que o servidor faça o estágio probatório **em cada cargo**, e proíbe **aproveitar** o tempo ou a pontuação de um estágio no outro.
+Nesses casos, o art. 23 da LC nº 840 exige estágio probatório em cada cargo e proíbe que o tempo ou a pontuação de um seja aproveitado no outro.
 
-:::sala Dois cargos, dois estágios
-A professora Bia já é estável num cargo de professor da SEEDF (entrou em 2018). Em 2026, ela toma posse num **segundo cargo** de professor, por novo concurso, acumulando licitamente (um turno em cada escola). No segundo cargo, ela começa um **novo estágio probatório de três anos**, do zero. As notas excelentes do primeiro estágio **não contam** para o segundo, e o tempo de serviço no primeiro cargo também **não abrevia** o novo estágio.
+:::sala Segundo cargo de professor
+Uma professora estável desde 2018 assume, em 2026, um segundo cargo de professor na SEEDF, aprovada em novo concurso, trabalhando um turno em cada escola. No segundo cargo ela começa um estágio de três anos desde o início. O tempo de serviço e as notas do primeiro cargo não são aproveitados.
 :::
 
-## Regra 2 · Desistência do estágio (art. 24)
+## Desistência do estágio (art. 24)
 
 :::doc LC nº 840/2011, art. 24
-**Art. 24.** O servidor pode **desistir do estágio probatório** e ser **reconduzido** ao cargo de provimento efetivo anteriormente ocupado, observado o disposto no art. 37.
-**Parágrafo único.** Não pode desistir do estágio probatório o servidor que responde a **processo disciplinar**.
+**Art. 24.** O servidor pode desistir do estágio probatório e ser reconduzido ao cargo de provimento efetivo anteriormente ocupado, observado o disposto no art. 37.
+**Parágrafo único.** Não pode desistir do estágio probatório o servidor que responde a processo disciplinar.
 :::
 
-Para que a desistência faça sentido, o servidor precisa ter **para onde voltar**: um cargo efetivo anterior em que **já era estável**. É por isso que o artigo fala em **recondução** (seção 7).
+A desistência pressupõe que o servidor já fosse estável em outro cargo efetivo, para o qual possa voltar por recondução. Quem está no primeiro cargo público e quer sair simplesmente pede exoneração.
 
-O parágrafo único fecha uma porta: quem está respondendo a **processo disciplinar** não pode desistir. Sem essa regra, o servidor poderia usar a desistência como "rota de fuga" para escapar de uma punição no cargo novo.
+O parágrafo único impede a desistência de quem responde a processo disciplinar. A lógica é evitar que o servidor use a volta ao cargo anterior para escapar de uma punição no cargo novo.
 
-:::erro "Qualquer servidor em estágio pode desistir e voltar"
-Não. A desistência com recondução pressupõe um **cargo efetivo anterior** em que o servidor **era estável**. Quem está no **primeiro** cargo público não tem cargo de origem: se quiser sair, simplesmente **pede exoneração**.
+:::erro Desistência para qualquer servidor
+Não é qualquer servidor em estágio que pode desistir e voltar. A recondução só existe para quem era estável em cargo efetivo anterior.
 :::
 
-## Regra 3 · O que é proibido: afastamento sem remuneração (art. 25)
+## Afastamentos sem remuneração (art. 25)
 
 :::doc LC nº 840/2011, art. 25 (síntese)
-**Caput:** é vedado à administração pública conceder **licença não remunerada** ou autorizar **afastamento sem remuneração** ao servidor em estágio probatório.
-**§ 1º:** a vedação **não se aplica** aos casos de **serviço militar** e de **mandato eletivo**.
-**§ 2º:** a vedação também se aplica ao gozo da **licença-servidor** (redação dada pela LC nº 952/2019).
+**Caput:** é vedado à administração pública conceder licença não remunerada ou autorizar afastamento sem remuneração ao servidor em estágio probatório.
+**§ 1º:** a vedação não se aplica aos casos de serviço militar e de mandato eletivo.
+**§ 2º:** a vedação também se aplica ao gozo da licença-servidor (redação dada pela LC nº 952/2019).
 :::
 
-Por que proibir? Porque um afastamento longo e sem remuneração (como uma licença para tratar de interesses particulares) tiraria o servidor do cargo justamente no período em que a administração precisa avaliá-lo.
+Uma licença longa e sem remuneração, como a licença para tratar de interesses particulares, tiraria o servidor do cargo justamente no período em que ele precisa ser avaliado. Daí a proibição. As exceções do § 1º se explicam porque serviço militar e mandato eletivo são afastamentos assegurados pela própria Constituição, que uma lei distrital não poderia restringir.
 
-E por que as exceções? **Serviço militar** e **mandato eletivo** são afastamentos garantidos pela própria Constituição. Uma lei distrital não poderia impedi-los.
-
-:::macete Licença sem remuneração no estágio
-"**No estágio, sem salário, não sai.** Só sai **farda** (serviço militar) ou **urna** (mandato eletivo)."
+:::macete Afastamento sem remuneração no estágio
+Só passam pela vedação a farda e a urna: serviço militar e mandato eletivo.
 :::
 
-## Regra 4 · O que é permitido: cargos de confiança e cessão (art. 26)
+## Cargos de confiança e cessão (art. 26)
 
 :::doc LC nº 840/2011, art. 26 (síntese)
-O servidor em estágio probatório **pode**:
-**I** – exercer qualquer **cargo em comissão** ou **função de confiança** no órgão ou entidade de **lotação**;
-**II** – ser **cedido** a outro órgão ou entidade para ocupar **cargo de natureza especial** ou de nível equivalente.
+O servidor em estágio probatório pode:
+**I** – exercer qualquer cargo em comissão ou função de confiança no órgão ou entidade de lotação;
+**II** – ser cedido a outro órgão ou entidade para ocupar cargo de natureza especial ou de nível equivalente.
 :::
 
-Na escola: um professor em estágio pode ser **vice-diretor**, **coordenador pedagógico** ou **supervisor** na própria SEEDF (inciso I). E pode até ser cedido para ocupar um cargo de alto escalão em outro órgão (inciso II), como um cargo de natureza especial em outra secretaria.
+Um professor em estágio pode, portanto, ser vice-diretor ou coordenador na própria SEEDF. Também pode ser cedido para um cargo de natureza especial em outra secretaria, mas essa segunda hipótese tem efeito sobre a contagem do estágio, como você verá a seguir.
 
-## Regra 5 · Quando o "relógio" do estágio para (art. 27)
+## Suspensão da contagem (art. 27)
 
 :::doc LC nº 840/2011, art. 27 (síntese)
-Fica **suspensa a contagem** do tempo de estágio probatório:
-**I** – nos afastamentos previstos no **art. 26, II** (cessão para cargo de natureza especial em outro órgão) e no **art. 162**;
-**II** – durante a **licença remunerada por motivo de doença em pessoa da família**.
+Fica suspensa a contagem do tempo de estágio probatório:
+**I** – nos afastamentos previstos no art. 26, II, e no art. 162;
+**II** – durante a licença remunerada por motivo de doença em pessoa da família.
 :::
 
-Suspender **não é zerar**. O tempo cumprido antes continua valendo; a contagem só fica parada enquanto durar a situação e recomeça de onde parou.
+Suspender a contagem não apaga o tempo já cumprido. O período de afastamento simplesmente deixa de contar, e o estágio continua de onde parou quando o servidor volta.
 
-| Situação | É permitida? | O estágio continua contando? | Base |
+| Situação | Permitida? | O estágio continua contando? | Base |
 |---|---|---|---|
-| Cargo em comissão ou função de confiança **no próprio órgão** | Sim | **Sim** | Art. 26, I |
-| Cessão para cargo de natureza especial **em outro órgão** | Sim | **Não** (suspende) | Arts. 26, II, e 27, I |
-| Afastamentos do art. 162 | Sim | **Não** (suspende) | Art. 27, I |
-| Licença por motivo de doença em pessoa da família | Sim | **Não** (suspende) | Art. 27, II |
-| Licença para tratar de interesses particulares (sem remuneração) | **Não** | — | Art. 25 |
-| Licença-servidor | **Não** | — | Art. 25, § 2º |
+| Cargo em comissão ou função de confiança no próprio órgão | Sim | Sim | Art. 26, I |
+| Cessão para cargo de natureza especial em outro órgão | Sim | Não | Arts. 26, II, e 27, I |
+| Afastamentos do art. 162 | Sim | Não | Art. 27, I |
+| Licença por motivo de doença em pessoa da família | Sim | Não | Art. 27, II |
+| Licença para tratar de interesses particulares | Não | — | Art. 25 |
+| Licença-servidor | Não | — | Art. 25, § 2º |
 | Serviço militar ou mandato eletivo | Sim | — | Art. 25, § 1º |
 
-:::pegadinha Cargo em comissão suspende o estágio?
-Depende de **onde** é o cargo. No **próprio órgão de lotação** (art. 26, I), o estágio **continua correndo**, porque a administração segue acompanhando o servidor. Na **cessão para outro órgão** em cargo de natureza especial (art. 26, II), a contagem **fica suspensa**. A banca costuma generalizar ("qualquer cargo em comissão suspende o estágio") para induzir ao erro.
+:::pegadinha Cargo em comissão e suspensão do estágio
+A banca às vezes afirma que o exercício de cargo em comissão suspende o estágio. Depende do caso. No próprio órgão de lotação (art. 26, I), a contagem segue normalmente. Na cessão para cargo de natureza especial em outro órgão (art. 26, II), a contagem fica suspensa.
 :::
 
 :::juris Greve durante o estágio
-O servidor em estágio probatório também tem direito de greve. O STF já declarou **inconstitucional** lei estadual que previa a **exoneração** do servidor em estágio pelo simples fato de ter aderido a uma greve (ADI 3.235). Participar de greve, por si só, não é motivo para reprovar ou exonerar o servidor em estágio.
+O servidor em estágio também pode exercer o direito de greve. O STF declarou inconstitucional lei estadual que determinava a exoneração do servidor em estágio pelo simples fato de aderir a uma greve (ADI 3.235).
 :::
 
-## Três casos para treinar o raciocínio
+## Três situações para treinar
 
-:::exemplo Caso 1 · A vice-diretora
-Marta, professora em estágio (1 ano de exercício), foi escolhida **vice-diretora** da escola em que está lotada. **Pode?** Sim (art. 26, I). **O estágio para?** Não: continua contando normalmente.
+:::exemplo Vice-direção
+Uma professora com um ano de exercício foi escolhida vice-diretora da escola em que está lotada. Ela pode assumir a função (art. 26, I), e o estágio continua correndo normalmente.
 :::
 
-:::exemplo Caso 2 · A mãe doente
-João, professor em estágio, precisou de **licença por motivo de doença em pessoa da família** para cuidar da mãe por 45 dias. **Pode?** Sim. **O estágio para?** Sim: a contagem fica **suspensa** durante a licença (art. 27, II), e o fim do estágio é adiado em 45 dias.
+:::exemplo Licença para cuidar da mãe
+Um professor em estágio precisou de 45 dias de licença por motivo de doença em pessoa da família. A licença é permitida, mas a contagem do estágio fica suspensa durante esse período (art. 27, II), e o término é adiado em 45 dias.
 :::
 
-:::exemplo Caso 3 · O sonho de viajar
-Rafael, professor em estágio, pediu **licença não remunerada para tratar de interesses particulares** por um ano. **Pode?** **Não**: é vedado conceder licença não remunerada ao servidor em estágio (art. 25).
+:::exemplo Um ano de viagem
+Um professor em estágio pediu licença não remunerada para tratar de interesses particulares por um ano. O pedido deve ser negado, porque o art. 25 proíbe esse tipo de licença durante o estágio.
 :::
 
 :::cp ce
 Servidor estável que, após tomar posse em outro cargo efetivo do DF, responde a processo disciplinar no novo cargo pode desistir do estágio probatório e ser reconduzido ao cargo anterior.
-= E | O art. 24, parágrafo único, **proíbe** a desistência do estágio pelo servidor que responde a processo disciplinar.
+= E | O parágrafo único do art. 24 proíbe a desistência do estágio pelo servidor que responde a processo disciplinar.
 :::
 
 :::cp ce
 O servidor em estágio probatório que for nomeado para função de confiança no próprio órgão de lotação terá a contagem do estágio suspensa enquanto durar o exercício da função.
-= E | No órgão de lotação (art. 26, I), o estágio **continua contando**. A suspensão do art. 27 alcança a cessão do art. 26, II (para outro órgão), os afastamentos do art. 162 e a licença por motivo de doença em pessoa da família.
+= E | No órgão de lotação (art. 26, I) a contagem continua. A suspensão do art. 27 alcança a cessão do art. 26, II, os afastamentos do art. 162 e a licença por motivo de doença em pessoa da família.
 :::
 
 :::cp ce
 É vedado conceder licença não remunerada a servidor em estágio probatório, salvo nas hipóteses de serviço militar e de mandato eletivo.
-= C | É exatamente o que dizem o caput e o § 1º do art. 25 da LC nº 840/2011.
+= C | É o que dispõem o caput e o § 1º do art. 25.
 :::
 
 :::cp ce
@@ -274,53 +264,47 @@ Professor que acumula licitamente dois cargos efetivos na SEEDF deve cumprir est
 = C | Art. 23 da LC nº 840/2011.
 :::
 
-# Como o servidor é avaliado | LC nº 840/2011, arts. 28 a 30
+# Avaliação de desempenho | LC nº 840/2011, arts. 28 a 30
 
-O estágio não é apenas "esperar três anos passar". O servidor é **avaliado de verdade**, com notas, e pode ser **reprovado**. A LC nº 840 organiza essa avaliação em dois momentos:
+A avaliação no estágio acontece em duas etapas. Ao longo do período, a chefia imediata faz avaliações semestrais. Perto do fim, uma comissão faz a avaliação especial, que é a condição constitucional para a estabilidade.
 
-1. As **avaliações periódicas**, feitas pela **chefia imediata**, a cada semestre;
-2. A **avaliação especial**, feita por uma **comissão**, perto do fim do estágio.
+## Fatores de avaliação
 
-## O que se avalia: aptidão, capacidade e eficiência
+O art. 28 determina que a aptidão, a capacidade e a eficiência do servidor sejam avaliadas segundo seis fatores.
 
-O art. 28 diz que a avaliação mede a **aptidão**, a **capacidade** e a **eficiência** do servidor para o cargo, por meio de **seis fatores**:
-
-| Fator | O que se observa | Exemplo na escola |
+| Fator | O que se observa | Na escola |
 |---|---|---|
-| **Assiduidade** | Comparecimento ao trabalho | Não faltar sem justificativa; cumprir a carga horária |
-| **Pontualidade** | Cumprimento de horários | Chegar no horário de entrada, das aulas e da coordenação |
-| **Disciplina** | Respeito a normas e à hierarquia | Seguir o regimento escolar e as orientações da direção |
-| **Capacidade de iniciativa** | Agir sem precisar de ordem | Propor projetos, resolver problemas da turma, sugerir melhorias |
-| **Produtividade** | Entregar o trabalho esperado | Cumprir o planejamento, os diários, os relatórios e as avaliações |
-| **Responsabilidade** | Zelo e compromisso | Cuidar dos alunos, dos materiais e dos compromissos assumidos |
+| Assiduidade | Comparecimento ao trabalho | Não faltar sem justificativa e cumprir a carga horária |
+| Pontualidade | Cumprimento de horários | Chegar no horário das aulas e da coordenação |
+| Disciplina | Respeito às normas e à hierarquia | Seguir o regimento escolar e as orientações da direção |
+| Capacidade de iniciativa | Atuação sem necessidade de ordem | Propor projetos e resolver problemas da turma |
+| Produtividade | Entrega do trabalho esperado | Cumprir planejamento, diários e relatórios |
+| Responsabilidade | Zelo e compromisso | Cuidar dos alunos, do material e dos prazos |
 
 :::macete Os seis fatores
-"**A**na **P**ega a **D**isciplina, **I**nventa, **P**roduz e **R**esponde."
-**A**ssiduidade · **P**ontualidade · **D**isciplina · **I**niciativa · **P**rodutividade · **R**esponsabilidade
+Assiduidade, Pontualidade, Disciplina, Iniciativa, Produtividade e Responsabilidade. Uma frase para guardar a ordem: "A Professora Dá Ideias, Produz e Responde".
 :::
 
-:::compara LC nº 840/2011 x Lei nº 8.112/1990
-A Lei nº 8.112/1990 (servidores federais) lista **cinco** fatores: assiduidade, disciplina, capacidade de iniciativa, produtividade e responsabilidade. A LC nº 840/2011 (DF) tem **seis**: os mesmos cinco **mais a pontualidade**. Se a questão for sobre o DF e omitir a pontualidade, ou disser que são "cinco fatores", fique atento.
+:::compara LC nº 840/2011 e Lei nº 8.112/1990
+A lei federal tem cinco fatores: assiduidade, disciplina, capacidade de iniciativa, produtividade e responsabilidade. A LC nº 840 tem esses mesmos cinco e acrescenta a pontualidade. Em prova sobre o DF, desconfie de item que fale em cinco fatores ou que deixe a pontualidade de fora.
 :::
 
-:::pegadinha Fatores que não estão na lei
-A banca pode incluir na lista fatores que "parecem" certos, mas **não estão** no art. 28, como **"lealdade"**, **"urbanidade"**, **"relacionamento interpessoal"** ou **"formação acadêmica"**. Lealdade e urbanidade aparecem na lei como **deveres** do servidor, não como fatores de avaliação do estágio. Decore os seis.
+:::pegadinha Fatores que não estão no art. 28
+Lealdade, urbanidade, relacionamento interpessoal e formação acadêmica costumam aparecer em listas da banca, mas não são fatores de avaliação do estágio. Lealdade e urbanidade aparecem na LC nº 840 como deveres do servidor.
 :::
 
-## As avaliações periódicas (semestrais)
+## Avaliações periódicas
 
-O § 1º do art. 28 manda o Poder Executivo e o Poder Legislativo regulamentarem o procedimento, mas já fixa um **mínimo obrigatório**:
+O § 1º do art. 28 deixa o detalhamento do procedimento para regulamento, mas fixa algumas regras mínimas. Até o trigésimo mês do estágio, a avaliação é semestral e usa notas de zero a dez. Ela é feita pela chefia imediata, em formulário elaborado previamente, que deve conter:
 
-- **Até o trigésimo mês** do estágio, a avaliação é **semestral**, com **notas numéricas de zero a dez**.
-- Quem avalia é a **chefia imediata**, em **formulário previamente elaborado**, que deve conter, no mínimo:
-  - as **principais atribuições, tarefas e rotinas** do semestre;
-  - os **fatores** do art. 28;
-  - o **ciente** do servidor avaliado.
+- as principais atribuições, tarefas e rotinas do semestre;
+- os fatores do art. 28;
+- o ciente do servidor avaliado.
 
-Faça a conta: do mês 1 ao mês 30 há **cinco semestres**, e portanto **cinco avaliações periódicas**.
+Do primeiro ao trigésimo mês há cinco semestres, o que significa cinco avaliações feitas pela chefia.
 
 :::linha Os 36 meses do estágio
-0 | Mês 0 | entra em exercício
+0 | Mês 0 | início do exercício
 17 | Mês 6 | 1ª avaliação
 33 | Mês 12 | 2ª avaliação
 50 | Mês 18 | 3ª avaliação
@@ -330,42 +314,36 @@ Faça a conta: do mês 1 ao mês 30 há **cinco semestres**, e portanto **cinco 
 100 | Mês 36 | fim do estágio
 :::
 
-## As garantias do servidor avaliado
+## Garantias do servidor avaliado
 
-O servidor em estágio não fica à mercê da chefia. O § 2º do art. 28 assegura, em **toda** avaliação:
-
-1. **Amplo acesso aos critérios** de avaliação;
-2. **Conhecimento dos motivos** das notas recebidas;
-3. **Contraditório e ampla defesa**.
-
-O § 3º completa: as avaliações devem ser **acompanhadas pela comissão** do art. 29. Ou seja, a comissão não aparece só no fim; ela acompanha o processo todo.
+Em todas as avaliações, o § 2º do art. 28 assegura ao servidor amplo acesso aos critérios utilizados, conhecimento dos motivos das notas e direito ao contraditório e à ampla defesa. O § 3º acrescenta que as avaliações periódicas são acompanhadas pela comissão do art. 29, que portanto não entra em cena só no final.
 
 :::juris Súmula 21 do STF
-"Funcionário em estágio probatório não pode ser exonerado nem demitido sem inquérito ou sem as formalidades legais de apuração de sua capacidade." Em outras palavras: o servidor em estágio **não tem estabilidade**, mas também **não pode ser mandado embora sem procedimento**. A reprovação precisa seguir o rito legal, com avaliação, motivação e defesa.
+"Funcionário em estágio probatório não pode ser exonerado nem demitido sem inquérito ou sem as formalidades legais de apuração de sua capacidade." O servidor em estágio ainda não é estável, mas o desligamento dele depende de procedimento regular, com avaliação, motivação e defesa.
 :::
 
-## A avaliação especial, feita por comissão
+## Avaliação especial pela comissão
 
-A Constituição exige, como **condição para adquirir a estabilidade**, uma **avaliação especial de desempenho por comissão instituída para essa finalidade** (CF, art. 41, § 4º). A LC nº 840 regulamenta essa avaliação no art. 29.
+A Constituição exige, como condição para a estabilidade, avaliação especial de desempenho feita por comissão instituída para essa finalidade (art. 41, § 4º). No DF, a matéria está no art. 29 da LC nº 840.
 
 :::doc LC nº 840/2011, art. 29 (síntese)
-**Caput:** a avaliação especial é realizada por **comissão** **quatro meses antes** de terminar o estágio probatório.
-**§ 1º:** a comissão é composta por **três servidores estáveis**, do **mesmo cargo** do avaliado ou de cargo de **escolaridade superior** na mesma carreira.
-**§ 2º:** se não for possível aplicar o § 1º, a composição é definida pela autoridade competente (no Executivo, o **Secretário de Estado** a que o servidor está subordinado).
-**§ 3º:** a comissão usa como subsídio as avaliações do art. 28 (com os pedidos de reconsideração, recursos e decisões); **ouve o avaliador e o avaliado, separadamente**; faz as diligências necessárias; e **aprova ou reprova** o servidor **por decisão fundamentada**.
-**§ 4º:** contra a reprovação cabe **pedido de reconsideração** ou **recurso**.
+**Caput:** a avaliação especial é realizada por comissão quatro meses antes de terminar o estágio probatório.
+**§ 1º:** a comissão é composta por três servidores estáveis do mesmo cargo do avaliado ou de cargo de escolaridade superior na mesma carreira.
+**§ 2º:** quando não for possível aplicar o § 1º, a composição é definida pela autoridade competente; no Poder Executivo, o Secretário de Estado a que o servidor está subordinado.
+**§ 3º:** a comissão utiliza como subsídio as avaliações do art. 28, com os pedidos de reconsideração, recursos e decisões; ouve o avaliador e o avaliado separadamente; realiza as diligências necessárias; e aprova ou reprova o servidor por decisão fundamentada.
+**§ 4º:** contra a reprovação cabe pedido de reconsideração ou recurso.
 :::
 
-## O passo a passo da comissão
+O trabalho da comissão segue esta sequência:
 
-1. **Reúne o histórico**: as cinco avaliações semestrais, com eventuais recursos e decisões.
-2. **Ouve o avaliador** (a chefia) e, **separadamente**, **o avaliado**.
-3. **Faz diligências**, se necessário: pede documentos, ouve outras pessoas, verifica fatos.
-4. **Decide**, de forma **fundamentada**: aprova ou reprova.
-5. Se reprovar, o servidor pode apresentar **reconsideração** ou **recurso**.
-6. A autoridade do § 2º julga o recurso **em única e última instância** e **homologa** o resultado (art. 30). Se aprovado, o servidor é **efetivado** no cargo.
+1. reúne as cinco avaliações semestrais, com recursos e decisões;
+2. ouve o avaliador e, em momento separado, o avaliado;
+3. faz as diligências que julgar necessárias;
+4. decide, de forma fundamentada, pela aprovação ou reprovação;
+5. em caso de reprovação, o servidor pode pedir reconsideração ou recorrer;
+6. a autoridade indicada no § 2º julga o recurso em única e última instância e homologa o resultado (art. 30), efetivando o servidor aprovado.
 
-Por que **quatro meses antes**? Porque, se a comissão decidisse no último dia, não haveria tempo para reconsideração, recurso e homologação antes de o servidor completar os três anos.
+A antecedência de quatro meses existe para que reconsideração, recurso e homologação sejam concluídos antes de o servidor completar os três anos.
 
 :::cp me
 Considerando o disposto na LC nº 840/2011 sobre a avaliação do servidor em estágio probatório, assinale a alternativa correta.
@@ -374,135 +352,119 @@ b) Até o trigésimo mês do estágio, a avaliação é semestral, com notas num
 c) A urbanidade e a lealdade estão entre os fatores de avaliação do estágio probatório.
 d) As avaliações periódicas são feitas pela comissão especial, sem participação da chefia imediata.
 e) Ao servidor avaliado não se assegura o contraditório, por se tratar de ato discricionário.
-= B | Art. 28, § 1º, I. A letra A erra a periodicidade e a forma de nota; a C cita fatores que não estão no art. 28; a D erra quem avalia (é a chefia imediata); a E contraria o § 2º, que garante contraditório e ampla defesa.
+= B | Art. 28, § 1º, I. A alternativa A erra a periodicidade e a forma de atribuir nota; a C traz fatores que não constam do art. 28; a D erra quem faz a avaliação periódica; a E contraria o § 2º.
 :::
 
 :::cp ce
 A avaliação especial de desempenho, condição para a aquisição da estabilidade, é realizada por comissão composta por três servidores estáveis, quatro meses antes de terminar o estágio probatório.
-= C | Art. 29, caput e § 1º, da LC nº 840/2011, em harmonia com o art. 41, § 4º, da Constituição.
+= C | Art. 29, caput e § 1º, em harmonia com o art. 41, § 4º, da CF.
 :::
 
 :::cp ce
 Na avaliação especial, a comissão deve ouvir o avaliador e o avaliado em conjunto, em audiência única, para garantir o contraditório.
-= E | O art. 29, § 3º, manda ouvir o avaliador e o avaliado **separadamente**.
+= E | O art. 29, § 3º, determina que avaliador e avaliado sejam ouvidos separadamente.
 :::
 
 :::cp ce
 De acordo com a LC nº 840/2011, são fatores de avaliação do estágio probatório: assiduidade, pontualidade, disciplina, capacidade de iniciativa, produtividade e responsabilidade.
-= C | São exatamente os seis fatores do art. 28.
+= C | São os seis fatores do art. 28.
 :::
 
-# Reprovação e exoneração | LC nº 840/2011, art. 31
+# Reprovação no estágio | LC nº 840/2011, art. 31
 
 :::doc LC nº 840/2011, art. 31
-**Art. 31.** O servidor reprovado no estágio probatório deve ser, conforme o caso, **exonerado** ou **reconduzido** ao cargo de origem.
+**Art. 31.** O servidor reprovado no estágio probatório deve ser, conforme o caso, exonerado ou reconduzido ao cargo de origem.
 :::
 
-"Conforme o caso" significa:
+A expressão "conforme o caso" separa duas situações. O servidor que não tinha cargo efetivo anterior, como acontece com quem está no primeiro cargo público, é exonerado de ofício (art. 51, parágrafo único). Já o servidor que era estável em outro cargo efetivo é reconduzido a esse cargo, assunto da seção 7.
 
-- Se o servidor **não tinha cargo efetivo estável anterior** (é o caso de quem está no primeiro cargo público), ele é **exonerado**. Essa exoneração é **de ofício** (art. 51, parágrafo único), ou seja, feita pela administração, sem pedido do servidor.
-- Se o servidor **já era estável** num cargo efetivo anterior, ele é **reconduzido** a esse cargo (seção 7).
-
-## Exoneração não é demissão
-
-Esta é a distinção mais importante da seção, e uma das mais cobradas da matéria:
+## Exoneração e demissão
 
 | | Exoneração | Demissão |
 |---|---|---|
-| Natureza | **Não é punição** | **É penalidade** disciplinar |
-| Quando ocorre | A pedido do servidor ou de ofício (ex.: reprovação no estágio, cargo em comissão) | Infração disciplinar grave, prevista em lei |
-| Procedimento | Avaliação com contraditório (no caso do estágio) | **Processo administrativo disciplinar**, com ampla defesa |
-| Exemplo | Professor reprovado na avaliação especial | Professor que abandonou o cargo ou cometeu improbidade |
+| Natureza | Não é punição | É penalidade disciplinar |
+| Quando ocorre | A pedido ou de ofício, por exemplo na reprovação no estágio e no cargo em comissão | Infração grave prevista em lei |
+| Procedimento | No estágio, avaliação com contraditório e ampla defesa | Processo administrativo disciplinar com ampla defesa |
+| Exemplo | Professor reprovado na avaliação especial | Professor que abandonou o cargo |
 
-:::pegadinha Exoneração não é demissão
-Reprovação no estágio gera **exoneração**, nunca **demissão**. Se a questão disser que o servidor reprovado no estágio "será demitido", está **errada**.
+:::pegadinha Reprovado e demitido
+A reprovação no estágio leva à exoneração. Item que afirme que o servidor reprovado será demitido está errado, porque demissão é sanção disciplinar.
 :::
 
-## O estágio protege contra a extinção do cargo?
-
 :::juris Súmula 22 do STF
-"O estágio probatório não protege o funcionário contra a extinção do cargo." Se o cargo for extinto, o servidor **ainda em estágio** não tem a garantia da **disponibilidade remunerada** (que é do servidor **estável**, CF, art. 41, § 3º). Ele pode ser exonerado.
+"O estágio probatório não protege o funcionário contra a extinção do cargo." A disponibilidade remunerada, prevista no art. 41, § 3º, da CF para o caso de extinção do cargo, é garantia do servidor estável. Quem ainda está em estágio não tem esse direito.
 :::
 
 :::cp ce
 O servidor reprovado no estágio probatório, que não tenha ocupado anteriormente outro cargo efetivo, deverá ser demitido, após regular processo administrativo disciplinar.
-= E | A consequência da reprovação é a **exoneração** (art. 31 e art. 51, parágrafo único), que não tem natureza de penalidade. Demissão é sanção disciplinar.
+= E | A consequência é a exoneração (art. 31 e art. 51, parágrafo único), que não tem caráter punitivo. Demissão é sanção disciplinar.
 :::
 
 :::cp ce
 Segundo entendimento sumulado do STF, o servidor em estágio probatório pode ser exonerado sem qualquer formalidade, por não ter adquirido estabilidade.
-= E | A **Súmula 21** do STF diz o contrário: o servidor em estágio não pode ser exonerado sem as **formalidades legais de apuração de sua capacidade**.
+= E | A Súmula 21 do STF afirma o contrário: a exoneração depende das formalidades legais de apuração da capacidade do servidor.
 :::
 
-# Estabilidade | CF, arts. 41 e 169, e LC nº 840/2011, arts. 32 e 33
+# Estabilidade | CF, arts. 41 e 169; LC nº 840/2011, arts. 32 e 33
 
 :::doc Constituição Federal, art. 41
-**Art. 41.** São estáveis após **três anos de efetivo exercício** os servidores nomeados para cargo de provimento efetivo em virtude de **concurso público**.
+**Art. 41.** São estáveis após três anos de efetivo exercício os servidores nomeados para cargo de provimento efetivo em virtude de concurso público.
 **§ 1º** O servidor público estável só perderá o cargo:
-**I** – em virtude de **sentença judicial transitada em julgado**;
-**II** – mediante **processo administrativo** em que lhe seja assegurada ampla defesa;
-**III** – mediante procedimento de **avaliação periódica de desempenho**, na forma de lei complementar, assegurada ampla defesa.
-**§ 2º** Invalidada por sentença judicial a demissão do servidor estável, será ele **reintegrado**, e o eventual ocupante da vaga, se estável, reconduzido ao cargo de origem, sem direito a indenização, aproveitado em outro cargo ou posto em disponibilidade com remuneração proporcional ao tempo de serviço.
-**§ 3º** Extinto o cargo ou declarada a sua desnecessidade, o servidor estável ficará em **disponibilidade**, com remuneração proporcional ao tempo de serviço, até seu adequado aproveitamento em outro cargo.
-**§ 4º** Como condição para a aquisição da estabilidade, é obrigatória a **avaliação especial de desempenho** por comissão instituída para essa finalidade.
+**I** – em virtude de sentença judicial transitada em julgado;
+**II** – mediante processo administrativo em que lhe seja assegurada ampla defesa;
+**III** – mediante procedimento de avaliação periódica de desempenho, na forma de lei complementar, assegurada ampla defesa.
+**§ 2º** Invalidada por sentença judicial a demissão do servidor estável, será ele reintegrado, e o eventual ocupante da vaga, se estável, reconduzido ao cargo de origem, sem direito a indenização, aproveitado em outro cargo ou posto em disponibilidade com remuneração proporcional ao tempo de serviço.
+**§ 3º** Extinto o cargo ou declarada a sua desnecessidade, o servidor estável ficará em disponibilidade, com remuneração proporcional ao tempo de serviço, até seu adequado aproveitamento em outro cargo.
+**§ 4º** Como condição para a aquisição da estabilidade, é obrigatória a avaliação especial de desempenho por comissão instituída para essa finalidade.
 :::
 
 :::doc LC nº 840/2011, arts. 32 e 33
-**Art. 32.** O servidor ocupante de cargo de provimento efetivo regularmente **aprovado no estágio probatório** adquire estabilidade no serviço público ao completar **três anos de efetivo exercício**.
-**Art. 33.** O servidor estável só perde o cargo nas hipóteses previstas na **Constituição Federal**.
+**Art. 32.** O servidor ocupante de cargo de provimento efetivo regularmente aprovado no estágio probatório adquire estabilidade no serviço público ao completar três anos de efetivo exercício.
+**Art. 33.** O servidor estável só perde o cargo nas hipóteses previstas na Constituição Federal.
 :::
 
-## Os requisitos da estabilidade
+## Requisitos
 
-Juntando a Constituição e a LC nº 840, a estabilidade exige **requisitos cumulativos**:
+Para adquirir a estabilidade, o servidor precisa ter sido nomeado para cargo efetivo em virtude de concurso público, completar três anos de efetivo exercício e ser aprovado na avaliação especial de desempenho. Os requisitos são cumulativos. Quem completa os três anos, mas é reprovado pela comissão, não se torna estável.
 
-1. **Nomeação para cargo efetivo** em virtude de **concurso público**;
-2. **Três anos de efetivo exercício**;
-3. **Aprovação na avaliação especial de desempenho** feita por comissão.
+## Estabilidade no serviço público
 
-Só o tempo não basta. Um servidor que completa três anos mas é reprovado pela comissão **não** fica estável.
+O art. 32 diz que a estabilidade é adquirida no serviço público, e não em um cargo determinado. É esse detalhe que permite a recondução: o servidor estável que assume outro cargo e não é aprovado no novo estágio, ou desiste dele, continua estável e volta ao cargo anterior.
 
-## Estável "no serviço público", não "no cargo"
+## Hipóteses de perda do cargo
 
-O art. 32 diz que o servidor adquire estabilidade **no serviço público**. A estabilidade acompanha a **pessoa** em sua relação com o serviço público; não fica "presa" a um cargo específico. É por isso que existe a **recondução**: quando um servidor estável muda de cargo e não dá certo no novo, ele continua estável e pode voltar ao cargo anterior.
+Estabilidade não se confunde com vitaliciedade. O servidor estável pode perder o cargo, mas apenas nas hipóteses previstas na Constituição, que são quatro.
 
-## As quatro formas de o estável perder o cargo
-
-A estabilidade **não é vitaliciedade**. O servidor estável pode perder o cargo, mas só nas hipóteses da Constituição (art. 33 da LC). São **quatro**:
-
-| Hipótese | Base | O que é preciso saber |
+| Hipótese | Base | Observações |
 |---|---|---|
-| **1. Sentença judicial transitada em julgado** | CF, art. 41, § 1º, I | Não basta decisão de primeira instância; precisa ser definitiva |
-| **2. Processo administrativo** | CF, art. 41, § 1º, II | Com ampla defesa. Em regra, é o PAD que aplica a **demissão** |
-| **3. Avaliação periódica de desempenho** | CF, art. 41, § 1º, III | Na forma de **lei complementar**, com ampla defesa. Acontece **depois** da estabilidade |
-| **4. Excesso de despesa com pessoal** | CF, art. 169, §§ 3º a 6º | Só depois de cortar comissionados e exonerar não estáveis. Gera **indenização** |
+| Sentença judicial transitada em julgado | CF, art. 41, § 1º, I | Decisão ainda sujeita a recurso não basta |
+| Processo administrativo | CF, art. 41, § 1º, II | Com ampla defesa; é o caminho da demissão |
+| Avaliação periódica de desempenho | CF, art. 41, § 1º, III | Na forma de lei complementar, com ampla defesa; ocorre depois da estabilidade |
+| Excesso de despesa com pessoal | CF, art. 169, §§ 3º a 6º | Só depois do corte em comissionados e da exoneração dos não estáveis; gera indenização |
 
-## A perda por excesso de despesa (art. 169), passo a passo
+## Excesso de despesa com pessoal
 
-Quando o ente público ultrapassa os limites de gasto com pessoal, a Constituição impõe uma **ordem obrigatória** de cortes:
+Quando o ente ultrapassa o limite de gastos com pessoal, a Constituição estabelece uma ordem de medidas. Primeiro, a redução de pelo menos 20% das despesas com cargos em comissão e funções de confiança. Depois, a exoneração dos servidores não estáveis. Somente se essas medidas não forem suficientes é que o servidor estável pode perder o cargo, por ato normativo motivado que indique a atividade funcional, o órgão ou a unidade administrativa atingidos.
 
-1. Reduzir em **pelo menos 20%** as despesas com **cargos em comissão e funções de confiança**;
-2. **Exonerar os servidores não estáveis**;
-3. Só se isso não bastar, o **servidor estável** pode perder o cargo, por **ato normativo motivado** que especifique a atividade, o órgão ou a unidade atingidos.
+O servidor estável desligado nessas condições recebe indenização de um mês de remuneração por ano de serviço. O cargo é considerado extinto, e fica vedada por quatro anos a criação de cargo com atribuições iguais ou assemelhadas.
 
-Nesse caso, o servidor estável recebe **indenização** de **um mês de remuneração por ano de serviço**, e o cargo é considerado **extinto**, ficando **proibida a criação** de cargo com atribuições iguais ou assemelhadas por **quatro anos**.
-
-:::sala Avaliação periódica x avaliação do estágio
-Não confunda. A **avaliação do estágio** (art. 41, § 4º) acontece **antes** da estabilidade e é condição para adquiri-la. A **avaliação periódica de desempenho** (art. 41, § 1º, III) acontece **depois** da estabilidade, ao longo da carreira, e pode levar à perda do cargo de quem já é estável, na forma de lei complementar.
+:::sala Duas avaliações diferentes
+A avaliação especial do art. 41, § 4º, acontece antes da estabilidade e é condição para adquiri-la. A avaliação periódica do art. 41, § 1º, III, acontece depois, ao longo da carreira, e pode levar à perda do cargo de quem já é estável, nos termos de lei complementar.
 :::
 
-## Garantias do estável: reintegração e disponibilidade
+## Reintegração e disponibilidade
 
-- **Reintegração** (art. 41, § 2º): se a **demissão** do servidor estável for **invalidada por sentença judicial**, ele volta ao cargo. Quem estava ocupando a vaga, se estável, é **reconduzido** ao cargo de origem (sem indenização), **aproveitado** em outro cargo ou posto em **disponibilidade**.
-- **Disponibilidade** (art. 41, § 3º): se o cargo for **extinto** ou declarado **desnecessário**, o servidor estável fica em **disponibilidade**, com **remuneração proporcional ao tempo de serviço**, até ser **aproveitado** em outro cargo compatível.
+Se a demissão do servidor estável for invalidada por sentença judicial, ele é reintegrado ao cargo (art. 41, § 2º). Quem ocupava a vaga, se for estável, é reconduzido ao cargo de origem sem indenização, aproveitado em outro cargo ou colocado em disponibilidade.
+
+Se o cargo for extinto ou declarado desnecessário, o servidor estável fica em disponibilidade, com remuneração proporcional ao tempo de serviço, até ser aproveitado em outro cargo (art. 41, § 3º).
 
 :::pegadinha Disponibilidade com remuneração integral
-A remuneração na disponibilidade é **proporcional ao tempo de serviço**, e não integral. E só o servidor **estável** tem direito à disponibilidade (lembre-se da Súmula 22 do STF).
+Na disponibilidade a remuneração é proporcional ao tempo de serviço. E só o servidor estável tem direito a ela, como lembra a Súmula 22 do STF.
 :::
 
 :::cp ce
 O servidor público estável só perderá o cargo em virtude de sentença judicial transitada em julgado ou mediante processo administrativo em que lhe seja assegurada ampla defesa.
-= E | A lista está **incompleta**. Faltam a avaliação periódica de desempenho (CF, art. 41, § 1º, III) e a perda por excesso de despesa com pessoal (CF, art. 169, § 4º). Na Quadrix, o advérbio "só" diante de uma lista incompleta torna o item errado.
+= E | A enumeração está incompleta. Faltam a avaliação periódica de desempenho (art. 41, § 1º, III) e a perda por excesso de despesa com pessoal (art. 169, § 4º). Quando a Quadrix usa "só" diante de uma lista incompleta, o item fica errado.
 :::
 
 :::cp me
@@ -512,150 +474,144 @@ b) adquire a estabilidade, mas fica sujeito a avaliação periódica de desempen
 c) não adquire a estabilidade e deve ser exonerado.
 d) não adquire a estabilidade e deve ser demitido.
 e) é posto em disponibilidade, com remuneração proporcional ao tempo de serviço.
-= C | A estabilidade exige três anos **e** aprovação na avaliação especial (CF, art. 41, § 4º; LC nº 840, art. 32). Reprovado e sem cargo efetivo anterior, Paulo é **exonerado** (art. 31), não demitido (D). Disponibilidade (E) é garantia de quem já é estável.
+= C | A estabilidade exige três anos e aprovação na avaliação especial (CF, art. 41, § 4º; LC nº 840, art. 32). Sem cargo efetivo anterior, Paulo é exonerado (art. 31). A demissão (D) é penalidade, e a disponibilidade (E) é garantia de quem já é estável.
 :::
 
 :::cp ce
 Para cumprir os limites de despesa com pessoal, o ente federativo pode exonerar servidores estáveis antes de reduzir as despesas com cargos em comissão, desde que pague indenização.
-= E | A Constituição impõe uma **ordem**: primeiro, reduzir em pelo menos 20% as despesas com cargos em comissão e funções de confiança; depois, exonerar os não estáveis; só então os estáveis podem perder o cargo (CF, art. 169, §§ 3º e 4º).
+= E | A Constituição impõe uma ordem: redução de pelo menos 20% das despesas com cargos em comissão e funções de confiança, exoneração dos não estáveis e, só então, perda do cargo pelos estáveis (art. 169, §§ 3º e 4º).
 :::
 
 :::cp ce
 Extinto o cargo, o servidor estável ficará em disponibilidade, com remuneração integral, até seu adequado aproveitamento em outro cargo.
-= E | A remuneração na disponibilidade é **proporcional ao tempo de serviço** (CF, art. 41, § 3º).
+= E | A remuneração na disponibilidade é proporcional ao tempo de serviço (art. 41, § 3º).
 :::
 
 # Recondução | LC nº 840/2011, art. 37
 
-Você já viu a recondução aparecer duas vezes nesta aula: na **desistência** do estágio (art. 24) e na **reprovação** de quem já era estável (art. 31). Agora vamos olhar o instituto inteiro.
+A recondução já apareceu em dois pontos desta etapa, na desistência do estágio (art. 24) e na reprovação de quem era estável (art. 31). O art. 37 reúne todas as hipóteses.
 
 :::doc LC nº 840/2011, art. 37 (síntese)
-**Caput:** a recondução é o **retorno do servidor estável** ao cargo anteriormente ocupado e decorre de:
-**I** – **reprovação** em estágio probatório;
-**II** – **desistência** de estágio probatório;
-**III** – **reintegração** do anterior ocupante;
-**IV** – invalidação da posse em cargo público decorrente de **decisão judicial** (incluído pela LC nº 999/2022).
-**§ 1º:** se o cargo de origem estiver **provido**, o servidor será **aproveitado em outro cargo** (art. 39).
-**§ 2º:** o servidor deve entrar em exercício **até o dia seguinte** ao da ciência do ato de recondução.
+**Caput:** a recondução é o retorno do servidor estável ao cargo anteriormente ocupado e decorre de:
+**I** – reprovação em estágio probatório;
+**II** – desistência de estágio probatório;
+**III** – reintegração do anterior ocupante;
+**IV** – invalidação da posse em cargo público decorrente de decisão judicial (incluído pela LC nº 999/2022).
+**§ 1º:** se o cargo de origem estiver provido, o servidor será aproveitado em outro cargo (art. 39).
+**§ 2º:** o servidor deve entrar em exercício até o dia seguinte ao da ciência do ato de recondução.
 :::
 
-## As quatro hipóteses com exemplos
-
-| Hipótese | Exemplo |
+| Hipótese | Situação |
 |---|---|
-| **Reprovação** no estágio | Carlos, professor estável da SEEDF, passou para outro cargo efetivo do DF e foi **reprovado** no estágio do novo cargo. Volta a ser professor. |
-| **Desistência** do estágio | Mesma situação, mas Carlos não se adaptou e **pediu** para voltar antes do fim do estágio (e não respondia a processo disciplinar). |
-| **Reintegração** do anterior ocupante | Carlos ocupou uma vaga que era de outro servidor, demitido. A demissão foi anulada na Justiça e o antigo ocupante foi **reintegrado**. Carlos, estável, volta ao cargo de origem. |
-| **Invalidação judicial da posse** | Uma decisão judicial anula a posse de Carlos no cargo novo. Ele volta ao cargo anterior. |
+| Reprovação no estágio | Professor estável da SEEDF assume outro cargo efetivo do DF, é reprovado no estágio do novo cargo e volta a ser professor |
+| Desistência do estágio | Na mesma situação, o servidor não se adapta e pede para voltar antes do fim do estágio, sem estar respondendo a processo disciplinar |
+| Reintegração do anterior ocupante | O servidor ocupava uma vaga que pertencia a alguém demitido; a demissão é anulada na Justiça, o antigo ocupante é reintegrado e o servidor estável volta ao cargo de origem |
+| Invalidação judicial da posse | Uma decisão judicial anula a posse no cargo novo e o servidor retorna ao cargo anterior |
 
-## As formas de "volta" ao serviço público
+## Recondução, reintegração e aproveitamento
 
-A recondução costuma ser confundida com outras formas de retorno. Veja a diferença:
-
-| Forma | Quem volta | Por quê |
+| Instituto | Quem retorna | Motivo |
 |---|---|---|
-| **Recondução** | Servidor **estável** | Volta ao **cargo anterior** (reprovação, desistência, reintegração de outro, posse anulada) |
-| **Reintegração** | Servidor **estável demitido** | A **demissão foi anulada** (administrativa ou judicialmente) |
-| **Aproveitamento** | Servidor **em disponibilidade** | Retorna em **cargo compatível** com o anterior |
+| Recondução | Servidor estável | Volta ao cargo que ocupava antes (reprovação, desistência, reintegração de outro servidor ou posse anulada) |
+| Reintegração | Servidor estável que havia sido demitido | A demissão foi anulada |
+| Aproveitamento | Servidor em disponibilidade | Retorna em cargo compatível com o anterior |
 
-:::pegadinha Recondução de quem não é estável
-A recondução é **exclusiva do servidor estável**. Um servidor que ainda estava em estágio no primeiro cargo não tem cargo anterior "garantido" para onde voltar. Se a questão falar em recondução de servidor **não estável**, desconfie.
+:::pegadinha Recondução de servidor não estável
+A recondução é exclusiva do servidor estável. Quem estava em estágio no primeiro cargo não tem um cargo anterior para onde voltar.
 :::
 
-:::macete Recondução x reintegração
-**Reintegração** = volta de quem foi **demitido** injustamente (decisão anula a demissão).
-**Recondução** = volta do **estável** ao cargo **anterior**.
-Lembre: "**RE**integra quem foi **expulso**; **RE**conduz quem **mudou** de cargo."
+:::macete Recondução e reintegração
+Reintegrado é quem foi demitido e teve a demissão anulada. Reconduzido é o estável que volta ao cargo que ocupava antes.
 :::
 
 :::cp ce
 A recondução, forma de provimento prevista na LC nº 840/2011, aplica-se ao servidor estável reprovado em estágio probatório relativo a outro cargo, bem como ao que desistir desse estágio.
-= C | Art. 37, I e II. Lembre-se de que a desistência não é permitida a quem responde a processo disciplinar (art. 24, parágrafo único).
+= C | Art. 37, I e II. A desistência, porém, não é permitida a quem responde a processo disciplinar (art. 24, parágrafo único).
 :::
 
 :::cp ce
 Caso o cargo de origem esteja provido, o servidor reconduzido será posto em disponibilidade, sem direito a remuneração, até que surja vaga.
-= E | Se o cargo de origem estiver provido, o servidor será **aproveitado em outro cargo** (art. 37, § 1º). E a disponibilidade, quando ocorre, é com remuneração proporcional ao tempo de serviço, nunca sem remuneração.
+= E | Com o cargo de origem provido, o servidor é aproveitado em outro cargo (art. 37, § 1º). A disponibilidade, quando ocorre, tem remuneração proporcional ao tempo de serviço.
 :::
 
 :::cp ce
 O servidor reconduzido deve entrar em exercício até o dia seguinte ao da ciência do ato de recondução.
-= C | Art. 37, § 2º, da LC nº 840/2011.
+= C | Art. 37, § 2º.
 :::
 
-# Revisão | Mapa mental, resumo, flashcards e erros comuns
+# Revisão | Mapa, quadro de números, flashcards e erros frequentes
 
 :::mapa Estágio probatório e estabilidade
 ## Estágio (arts. 22 a 27)
-- Começa no **exercício**; dura **3 anos**
-- Só **cargo efetivo**; um estágio **por cargo**
-- Desistência: só estável e **sem PAD**
-- Sem licença **não remunerada** (salvo militar e mandato)
-- Suspende: cessão (art. 26, II), art. 162, doença na família
+- Começa no exercício e dura três anos
+- Só para cargo efetivo; um estágio por cargo
+- Desistência só para estável sem processo disciplinar
+- Sem licença não remunerada, salvo serviço militar e mandato eletivo
+- Suspensão: cessão (art. 26, II), art. 162 e doença em pessoa da família
 ## Avaliação (arts. 28 a 30)
-- 6 fatores: **A P D I P R**
-- Semestral até o **30º mês**, notas **0 a 10**, chefia imediata
-- Comissão de **3 estáveis**, **4 meses antes** do fim
-- Ouve avaliador e avaliado **separadamente**; decisão fundamentada
+- Seis fatores, com pontualidade
+- Semestral até o 30º mês, notas de 0 a 10, pela chefia imediata
+- Comissão de três estáveis, quatro meses antes do fim
+- Avaliador e avaliado ouvidos separadamente; decisão fundamentada
 ## Reprovação (art. 31)
-- **Exonerado** (sem cargo anterior) ou **reconduzido** (estável)
-- Exoneração **não é** demissão
+- Exoneração (sem cargo anterior) ou recondução (estável)
+- Exoneração não é penalidade
 - Súmulas 21 e 22 do STF
-## Estabilidade (CF 41; LC 32 e 33)
-- Concurso + **3 anos** + **avaliação especial**
-- Estável **no serviço público**
-- Perde: sentença, PAD, avaliação periódica, excesso de despesa
-- Reintegração, disponibilidade (proporcional), recondução (art. 37)
+## Estabilidade (CF, art. 41; LC, arts. 32 e 33)
+- Concurso, três anos e aprovação na avaliação especial
+- Adquirida no serviço público
+- Perda: sentença, processo administrativo, avaliação periódica, excesso de despesa
+- Reintegração, disponibilidade proporcional, recondução (art. 37)
 :::
 
-:::resumo Os números da aula
-| Número | Significado |
+:::resumo Números da etapa
+| Número | O que indica |
 |---|---|
-| **3 anos** | Duração do estágio e prazo da estabilidade |
-| **6** | Fatores de avaliação na LC nº 840 (a Lei nº 8.112 tem 5) |
-| **0 a 10** | Escala das notas semestrais |
-| **30º mês** | Até quando a avaliação é semestral |
-| **5** | Avaliações periódicas (meses 6, 12, 18, 24 e 30) |
-| **3** | Servidores estáveis na comissão especial |
-| **4 meses** | Antecedência da avaliação especial em relação ao fim do estágio |
-| **4** | Hipóteses de perda do cargo pelo estável |
-| **20%** | Corte mínimo em comissionados antes de atingir não estáveis (art. 169) |
-| **1 mês por ano** | Indenização do estável que perde o cargo por excesso de despesa |
+| 3 anos | Duração do estágio e prazo da estabilidade |
+| 6 | Fatores de avaliação na LC nº 840 (a Lei nº 8.112 tem 5) |
+| 0 a 10 | Escala das notas semestrais |
+| 30º mês | Limite das avaliações semestrais |
+| 5 | Avaliações periódicas (meses 6, 12, 18, 24 e 30) |
+| 3 | Membros estáveis da comissão especial |
+| 4 meses | Antecedência da avaliação especial |
+| 4 | Hipóteses de perda do cargo pelo estável |
+| 20% | Corte mínimo nas despesas com comissionados (art. 169) |
+| 1 mês por ano | Indenização do estável desligado por excesso de despesa |
 :::
 
 :::cards Flashcards da etapa
-Quando começa o estágio probatório na LC nº 840? || Quando o servidor **entra em exercício** (art. 22).
-Quanto dura o estágio? || **Três anos**.
-Quais são os seis fatores de avaliação? || Assiduidade, pontualidade, disciplina, capacidade de iniciativa, produtividade e responsabilidade.
-Quem faz as avaliações semestrais? || A **chefia imediata**, em formulário próprio, com ciente do servidor.
-Quando a comissão faz a avaliação especial? || **Quatro meses antes** do fim do estágio.
-Quem compõe a comissão? || **Três servidores estáveis**, do mesmo cargo ou de cargo de escolaridade superior na carreira.
-Quem não pode desistir do estágio? || Quem responde a **processo disciplinar**.
-O que acontece com o reprovado sem cargo anterior? || É **exonerado** (não demitido).
-Quais afastamentos são permitidos sem remuneração no estágio? || Apenas **serviço militar** e **mandato eletivo**.
-Cargo em comissão no próprio órgão suspende o estágio? || **Não**. Só a cessão para outro órgão (art. 26, II) suspende.
-Quais as 4 formas de o estável perder o cargo? || Sentença transitada em julgado, processo administrativo, avaliação periódica e excesso de despesa.
-Disponibilidade é com remuneração integral? || **Não**: proporcional ao tempo de serviço.
-Recondução serve para quem? || Só para o servidor **estável**.
-O que diz a Súmula 22 do STF? || O estágio **não protege** contra a extinção do cargo.
+Quando começa o estágio probatório na LC nº 840? || Na entrada em exercício (art. 22).
+Quanto tempo dura o estágio? || Três anos.
+Quais são os fatores de avaliação? || Assiduidade, pontualidade, disciplina, capacidade de iniciativa, produtividade e responsabilidade.
+Quem faz as avaliações semestrais? || A chefia imediata, em formulário próprio, com o ciente do servidor.
+Quando ocorre a avaliação especial? || Quatro meses antes do fim do estágio.
+Como é composta a comissão? || Três servidores estáveis do mesmo cargo ou de cargo de escolaridade superior na carreira.
+Quem não pode desistir do estágio? || O servidor que responde a processo disciplinar.
+Qual a consequência da reprovação para quem não tinha cargo anterior? || Exoneração de ofício.
+Quais afastamentos sem remuneração são admitidos no estágio? || Serviço militar e mandato eletivo.
+Função de confiança no próprio órgão suspende o estágio? || Não. A suspensão ocorre na cessão do art. 26, II.
+Em que hipóteses o estável perde o cargo? || Sentença transitada em julgado, processo administrativo, avaliação periódica e excesso de despesa.
+Como é a remuneração na disponibilidade? || Proporcional ao tempo de serviço.
+A quem se aplica a recondução? || Somente ao servidor estável.
+O que diz a Súmula 22 do STF? || O estágio não protege contra a extinção do cargo.
 :::
 
-:::erro Os 6 erros mais comuns nesta matéria
-1. Dizer que o estágio começa na **posse** (começa no **exercício**).
-2. Usar o prazo de **24 meses** da Lei nº 8.112 (no DF são **três anos**).
-3. Esquecer a **pontualidade** ou incluir **lealdade/urbanidade** entre os fatores.
-4. Chamar de **demissão** o desligamento do reprovado (é **exoneração**).
-5. Achar que **qualquer** cargo em comissão suspende o estágio (só a cessão do art. 26, II).
-6. Listar só **duas** hipóteses de perda do cargo pelo estável (são **quatro**).
+:::erro Erros frequentes nesta matéria
+1. Contar o estágio a partir da posse, e não do exercício.
+2. Aplicar ao DF os 24 meses do texto original da Lei nº 8.112.
+3. Esquecer a pontualidade ou incluir lealdade e urbanidade entre os fatores.
+4. Chamar de demissão o desligamento do servidor reprovado.
+5. Entender que qualquer cargo em comissão suspende o estágio.
+6. Listar apenas duas hipóteses de perda do cargo pelo servidor estável.
 :::
 
-:::pense Volte à pergunta do começo
-Lembra da pergunta inicial? O professor que tomou posse ontem **não tem estabilidade**, mas **não pode ser desligado sem procedimento**: só por reprovação regular no estágio (com avaliação, motivação e defesa), por pedido próprio ou por demissão em processo disciplinar. O professor com 15 anos de rede (aprovado no estágio) é **estável**: só perde o cargo nas **quatro hipóteses** da Constituição. Compare com a sua resposta inicial.
+:::pense De volta à pergunta inicial
+O professor que tomou posse ontem ainda não é estável, mas também não pode ser desligado sem procedimento. Ele pode sair a pedido, ser exonerado por reprovação regular no estágio ou ser demitido em processo disciplinar. O professor com quinze anos de rede, aprovado no estágio, é estável e só perde o cargo nas quatro hipóteses previstas na Constituição. Compare com o que você anotou no início.
 :::
 
 # Treino final | Questões no estilo Quadrix
 
-Resolva sem consultar a aula. Marque o tempo: a meta é **1 minuto por item** de certo ou errado e **2 minutos** por questão de múltipla escolha. O gabarito comentado está logo depois.
+Resolva sem consultar o material. Tente gastar no máximo um minuto em cada item de certo ou errado e dois minutos nas questões de múltipla escolha. O gabarito comentado vem em seguida.
 
 :::cp ce
 O servidor nomeado para cargo efetivo do DF que entrar em exercício fica sujeito a estágio probatório, durante o qual sua aptidão, sua capacidade e sua eficiência são avaliadas.
@@ -664,17 +620,17 @@ O servidor nomeado para cargo efetivo do DF que entrar em exercício fica sujeit
 
 :::cp ce
 Durante o estágio probatório, o servidor não pode exercer cargo em comissão, para que a avaliação de desempenho não seja prejudicada.
-= E | O art. 26, I, permite o exercício de **qualquer** cargo em comissão ou função de confiança no órgão de lotação.
+= E | O art. 26, I, permite o exercício de qualquer cargo em comissão ou função de confiança no órgão de lotação.
 :::
 
 :::cp ce
 A licença por motivo de doença em pessoa da família, concedida ao servidor em estágio probatório, suspende a contagem do tempo de estágio.
-= C | Art. 27, II, da LC nº 840/2011.
+= C | Art. 27, II.
 :::
 
 :::cp ce
 Até o trigésimo mês do estágio probatório, as avaliações de desempenho são feitas trimestralmente pela comissão especial.
-= E | São **semestrais** e feitas pela **chefia imediata** (art. 28, § 1º).
+= E | São semestrais e feitas pela chefia imediata (art. 28, § 1º).
 :::
 
 :::cp ce
@@ -684,7 +640,7 @@ Contra a decisão da comissão que reprovar o servidor no estágio probatório, 
 
 :::cp ce
 A estabilidade é adquirida no cargo, razão pela qual o servidor estável que assume outro cargo efetivo perde a estabilidade anteriormente conquistada.
-= E | A estabilidade é adquirida **no serviço público** (art. 32). Por isso o servidor estável pode ser **reconduzido** ao cargo anterior se não for aprovado no novo estágio ou dele desistir.
+= E | A estabilidade é adquirida no serviço público (art. 32). Por isso o servidor estável pode ser reconduzido ao cargo anterior.
 :::
 
 :::cp ce
@@ -694,17 +650,17 @@ O servidor estável pode perder o cargo mediante procedimento de avaliação per
 
 :::cp ce
 Invalidada por sentença judicial a demissão do servidor estável, ele será reconduzido ao cargo, e o eventual ocupante da vaga será exonerado.
-= E | O servidor demitido injustamente é **reintegrado** (não reconduzido). O ocupante da vaga, se estável, é **reconduzido** ao cargo de origem, aproveitado em outro cargo ou posto em disponibilidade (CF, art. 41, § 2º).
+= E | O servidor demitido é reintegrado, e não reconduzido. O ocupante da vaga, se estável, é reconduzido ao cargo de origem, aproveitado em outro cargo ou posto em disponibilidade (CF, art. 41, § 2º).
 :::
 
 :::cp me
-Ana, professora da SEEDF em estágio probatório, deseja se afastar do cargo. Considerando a LC nº 840/2011, assinale a alternativa que apresenta situação **permitida** a Ana.
+Ana, professora da SEEDF em estágio probatório, deseja se afastar do cargo. Considerando a LC nº 840/2011, assinale a alternativa que apresenta situação permitida a Ana.
 a) Licença não remunerada para tratar de interesses particulares por dois anos.
 b) Gozo de licença-servidor.
 c) Afastamento sem remuneração para acompanhar o cônjuge em viagem de estudos.
 d) Afastamento para exercício de mandato eletivo.
 e) Licença não remunerada para cursar mestrado, desde que já tenha cumprido metade do estágio.
-= D | O art. 25 veda licença e afastamento sem remuneração durante o estágio, inclusive a licença-servidor (§ 2º). As exceções são **serviço militar** e **mandato eletivo** (§ 1º). Não há exceção por tempo cumprido (E).
+= D | O art. 25 proíbe licença e afastamento sem remuneração durante o estágio, inclusive a licença-servidor (§ 2º). As exceções são serviço militar e mandato eletivo (§ 1º). Não existe exceção ligada ao tempo já cumprido.
 :::
 
 :::cp me
@@ -714,21 +670,21 @@ b) atua apenas no último mês do estágio, sem acompanhar as avaliações peri�
 c) é composta por três servidores estáveis, do mesmo cargo do avaliado ou de cargo de escolaridade superior na mesma carreira.
 d) decide de forma irrecorrível.
 e) pode ser composta por servidores em estágio probatório, desde que do mesmo cargo do avaliado.
-= C | Art. 29, § 1º. A comissão atua quatro meses antes do fim e acompanha as avaliações (art. 28, § 3º), e da reprovação cabem reconsideração ou recurso (art. 29, § 4º).
+= C | Art. 29, § 1º. A comissão atua quatro meses antes do fim e acompanha as avaliações (art. 28, § 3º); da reprovação cabem reconsideração e recurso (art. 29, § 4º).
 :::
 
 :::cp me
-Sobre o estágio probatório e a estabilidade dos servidores do Distrito Federal, assinale a alternativa **incorreta**.
+Sobre o estágio probatório e a estabilidade dos servidores do Distrito Federal, assinale a alternativa incorreta.
 a) O estágio probatório tem duração de três anos.
 b) A estabilidade é adquirida no serviço público, e não no cargo.
 c) A capacidade de iniciativa é um dos fatores de avaliação do estágio probatório.
 d) Servidor em estágio probatório pode obter licença não remunerada para tratar de interesses particulares, desde que tenha cumprido metade do estágio.
 e) O servidor estável pode perder o cargo mediante procedimento de avaliação periódica de desempenho, assegurada ampla defesa.
-= D | A licença não remunerada é **vedada** durante todo o estágio (art. 25), sem exceção por tempo cumprido. As demais alternativas estão corretas.
+= D | A licença não remunerada é vedada durante todo o estágio (art. 25), sem exceção pelo tempo cumprido. As demais alternativas estão corretas.
 :::
 
-:::pense Questão para escrever (resposta curta)
-Em até 10 linhas, explique a diferença entre **exoneração por reprovação no estágio probatório** e **demissão**, indicando a natureza de cada uma e o procedimento exigido.
+:::pense Questão para escrever
+Em até dez linhas, explique a diferença entre a exoneração por reprovação no estágio probatório e a demissão, indicando a natureza de cada uma e o procedimento exigido.
 
-**Padrão de resposta:** a exoneração por reprovação no estágio (LC nº 840, art. 31) **não tem natureza punitiva**: decorre da constatação, em avaliação regular (fatores do art. 28, avaliação especial por comissão do art. 29, com contraditório e ampla defesa), de que o servidor não demonstrou aptidão para o cargo. A **demissão** é **penalidade disciplinar**, aplicada por infração grave apurada em **processo administrativo disciplinar**, com ampla defesa. Ambas exigem procedimento: o servidor em estágio não pode ser exonerado sem as formalidades legais de apuração de sua capacidade (Súmula 21 do STF).
+Padrão de resposta: a exoneração por reprovação no estágio (LC nº 840, art. 31) não tem natureza punitiva. Ela decorre da constatação, em avaliação regular, de que o servidor não demonstrou aptidão para o cargo, observados os fatores do art. 28, a avaliação especial pela comissão do art. 29 e o direito ao contraditório e à ampla defesa. A demissão é penalidade disciplinar, aplicada por infração grave apurada em processo administrativo disciplinar, também com ampla defesa. Nos dois casos há procedimento: segundo a Súmula 21 do STF, o servidor em estágio não pode ser exonerado sem as formalidades legais de apuração de sua capacidade.
 :::

@@ -205,9 +205,8 @@ def html_aula(meta, secoes, cps):
     sumario = '<section class="pag"><h2 class="tit-pag">Plano de estudo</h2><div class="kick">Sumário da etapa</div><div class="sum">' + ''.join(
         f'<div class="sum-l"><span class="n">{k+1:02d}</span><span><b>{e(s["t"])}</b><small>{e(s["s"])}</small></span></div>' for k, s in enumerate(secoes)
     ) + f'''<div class="sum-l"><span class="n">✓</span><span><b>Gabarito comentado</b><small>Os {len(cps)} checkpoints desta etapa</small></span></div></div>
-<div class="caixa box-atencao"><div class="cx-h"><span class="ic">i</span>Como usar este material</div>
-<p>Este PDF é a <b>etapa {e(meta['etapa'])}</b> do assunto <b>{e(meta['assunto'])}</b> no seu plano: “{e(meta['titulo'])}”. Leia com calma, com lápis na mão. Os quadros coloridos têm funções diferentes: <b>Documento</b> traz o texto da lei, <b>Na sala de aula</b> mostra a regra funcionando na vida real, <b>Pegadinha da banca</b> avisa onde a prova costuma derrubar o candidato e <b>Macete</b> ajuda a memorizar.</p>
-<p>Pare em cada <b>Checkpoint</b> e responda antes de seguir. O gabarito comentado fica no fim. Terminou? Marque a etapa como feita na plataforma TAOS: as revisões de amanhã, de 7, 15 e 30 dias entram sozinhas no seu plano.</p></div></section>'''
+<div class="caixa box-atencao"><div class="cx-h"><span class="ic">i</span>Como estudar esta etapa</div>
+<p>Este material corresponde à etapa {e(meta['etapa'])} do assunto {e(meta['assunto'])} no seu plano de estudos. Leia com lápis na mão e faça as próprias anotações nas margens. Os quadros em cor de areia trazem o texto da lei; os verdes mostram a regra aplicada no dia a dia da escola; os vermelhos apontam onde a banca costuma confundir o candidato.</p><p>Quando chegar a um checkpoint, responda antes de continuar a leitura. O gabarito comentado está no fim. Depois de terminar, marque a etapa como concluída na plataforma TAOS para que as revisões de 1, 7, 15 e 30 dias entrem no seu plano.</p></div></section>'''
     corpo_html = ''.join(
         f'<section class="sec"><div class="sec-h"><span class="sec-n">{k+1:02d}</span><div><h2>{e(s["t"])}</h2><div class="kick">{e(s["s"])}</div></div></div>{"".join(s["html"])}</section>'
         for k, s in enumerate(secoes))
