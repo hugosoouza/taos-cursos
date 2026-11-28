@@ -53,7 +53,7 @@ window.TAOS_CONFIG = {
       carreira: "Civil",
       area: "militar",
       grupo: "Polícia Civil",
-      resumo: "Mentoria para a PCTO, com rotina de estudo e revisões guiadas.",
+      resumo: "Plano de estudos para a PCTO, com rotina de estudo e revisões guiadas.",
     },
     {
       sigla: "PCMG",

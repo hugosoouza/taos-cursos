@@ -9,7 +9,7 @@
   }
   function msgMentoria(sigla, nome) {
     var m = cfg.mentorias.filter(function (x) { return x.sigla === sigla; })[0] || {};
-    return (nome ? "Olá! Meu nome é " + nome + ". " : "Olá! ") + "Quero comprar a mentoria para " + (m.artigo || "a") + " " + sigla + ".";
+    return (nome ? "Olá! Meu nome é " + nome + ". " : "Olá! ") + "Quero comprar o plano de estudos para " + (m.artigo || "a") + " " + sigla + ".";
   }
 
   // Links gerais
@@ -84,7 +84,7 @@
     sel.appendChild(g);
   }
   if (sel) {
-    grupoOpt("Mentorias com turma aberta", cfg.mentorias.map(function (m) { return ["m:" + m.sigla, m.sigla + " · " + m.nome]; }));
+    grupoOpt("Planos de estudos com turma aberta", cfg.mentorias.map(function (m) { return ["m:" + m.sigla, m.sigla + " · " + m.nome]; }));
     grupoOpt("Outras áreas", (cfg.areas || []).map(function (a) { return ["a:" + a.id, a.nome]; }));
   }
   function areaPorId(id) { return (cfg.areas || []).filter(function (a) { return a.id === id; })[0]; }
@@ -115,20 +115,20 @@
     });
   }
 
-  // Cards de mentoria
+  // Cards de plano de estudos
   var grid = $("#mgrid");
   if (grid) {
     grid.innerHTML = cfg.mentorias.map(function (m, idx) {
       var tipo = m.grupo || "";
       return (
-        '<article class="mcard" data-reveal style="--d:' + idx * 0.08 + 's" data-grupo="' + (m.grupo || "") + '" id="mentoria-' + m.sigla.toLowerCase() + '">' +
+        '<article class="mcard" data-reveal style="--d:' + idx * 0.08 + 's" data-grupo="' + (m.grupo || "") + '" id="plano-' + m.sigla.toLowerCase() + '">' +
           '<div class="m-top"><span class="uf" aria-hidden="true">' + m.uf + '</span><span class="m-tag">' + tipo + '</span>' +
           '<h3 class="m-sigla">' + m.sigla + '</h3><p class="m-nome">' + m.nome + "</p></div>" +
           '<div class="m-body"><p>' + m.resumo + "</p>" +
             '<div class="m-chips"><span>Online</span><span>Em turma</span><span>Até a prova</span></div>' +
             '<button class="m-more" aria-expanded="false" aria-controls="inc-' + idx + '">O que está incluso</button>' +
             '<ul class="m-inc" id="inc-' + idx + '">' + cfg.incluso.map(function (t) { return '<li><svg class="ico"><use href="#i-check"/></svg>' + t + "</li>"; }).join("") + "</ul>" +
-            '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" href="' + waLink(msgMentoria(m.sigla)) + '"><svg class="ico"><use href="#i-wa"/></svg>Quero a mentoria ' + m.sigla + "</a>" +
+            '<a class="btn btn-wa btn-block" target="_blank" rel="noopener" href="' + waLink(msgMentoria(m.sigla)) + '"><svg class="ico"><use href="#i-wa"/></svg>Quero o plano ' + m.sigla + "</a>" +
           "</div></article>"
       );
     }).join("");
@@ -154,7 +154,7 @@
     agrid.innerHTML = (cfg.areas || []).map(function (a, idx) {
       var n = cfg.mentorias.filter(function (m) { return m.area === a.id; }).length;
       var acao = n
-        ? '<a class="a-link" href="#mentorias">Ver ' + n + (n === 1 ? " mentoria aberta" : " mentorias abertas") + ' <svg class="ico"><use href="#i-arrow"/></svg></a>'
+        ? '<a class="a-link" href="#planos">Ver ' + n + (n === 1 ? " plano aberto" : " planos abertos") + ' <svg class="ico"><use href="#i-arrow"/></svg></a>'
         : '<a class="a-link" target="_blank" rel="noopener" href="' + waLink(msgArea(a)) + '">Quero saber das turmas <svg class="ico"><use href="#i-arrow"/></svg></a>';
       return '<article class="acard' + (n ? " on" : "") + '" data-reveal style="--d:' + idx * 0.06 + 's">' +
         '<svg class="a-ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">' + (icones[a.id] || icones.outros) + "</svg>" +
@@ -163,7 +163,7 @@
     }).join("");
   }
 
-  // Filtros: um botão para cada grupo de mentorias
+  // Filtros: um botão para cada grupo de planos de estudos
   var fbox = $(".filters");
   if (fbox) {
     var grupos = [];

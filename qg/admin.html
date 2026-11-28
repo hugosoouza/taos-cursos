@@ -74,7 +74,7 @@
   /* ---------- Tela ---------- */
   function montar() {
     view.innerHTML =
-      '<div class="hub-head" style="margin:0"><div><span class="badge-top">Acesso restrito</span><h1>Painel do comandante</h1><p>Cadastre alunos, libere mentorias e envie o login pelo WhatsApp.</p></div></div>' +
+      '<div class="hub-head" style="margin:0"><div><span class="badge-top">Acesso restrito</span><h1>Painel do comandante</h1><p>Cadastre alunos, libere planos de estudos e envie o login pelo WhatsApp.</p></div></div>' +
 
       '<section class="box"><h2>Novo aluno</h2><p>A senha é gerada automaticamente. Depois de criar, envie a mensagem pronta no WhatsApp do aluno.</p>' +
       '<form id="fNovo" novalidate>' +
@@ -84,15 +84,15 @@
           '<div class="fld"><label for="nTel">WhatsApp</label><input id="nTel" type="tel" inputmode="tel" placeholder="(61) 90000-0000"></div>' +
           '<div class="fld"><label for="nSenha">Senha</label><input id="nSenha" autocomplete="off" required></div>' +
         '</div>' +
-        '<div class="fld"><label>Mentorias compradas</label></div><div class="chips" id="nCursos">' + chipsCursos('nc', []) + '</div>' +
+        '<div class="fld"><label>Planos de estudos comprados</label></div><div class="chips" id="nCursos">' + chipsCursos('nc', []) + '</div>' +
         '<div class="actions"><button class="btn" type="submit">Criar acesso</button><button class="btn ghost" type="button" id="gerar">Gerar outra senha</button></div>' +
         '<div id="nMsg"></div>' +
       '</form></section>' +
 
-      '<section class="box"><h2>Alunos e comandantes</h2><p>Toque na sigla para liberar ou bloquear a mentoria. Para dar acesso ao painel a um sócio, cadastre a conta dele e toque em "Comandante" (pede confirmação). A mudança vale na hora.</p>' +
+      '<section class="box"><h2>Alunos e comandantes</h2><p>Toque na sigla para liberar ou bloquear o plano de estudos. Para dar acesso ao painel a um sócio, cadastre a conta dele e toque em "Comandante" (pede confirmação). A mudança vale na hora.</p>' +
         '<div class="search"><input id="busca" type="search" placeholder="Buscar por nome ou e-mail" aria-label="Buscar aluno"><button class="btn ghost sm" id="recarregar" type="button">Atualizar lista</button></div>' +
         '<div class="count" id="contagem"></div>' +
-        '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Aluno</th><th>WhatsApp</th><th>Mentorias</th><th>Ações</th></tr></thead><tbody id="lista"></tbody></table></div>' +
+        '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Aluno</th><th>WhatsApp</th><th>Planos de estudos</th><th>Ações</th></tr></thead><tbody id="lista"></tbody></table></div>' +
         '<div id="lMsg"></div>' +
       '</section>';
 
@@ -112,7 +112,7 @@
     var ids = Array.prototype.map.call(document.querySelectorAll('input[name=nc]:checked'), function (i) { return i.value; });
     var falta = [];
     if (!nome) falta.push('nome'); if (!/^\S+@\S+\.\S+$/.test(email)) falta.push('e-mail válido');
-    if (senha.length < 8) falta.push('senha com 8 ou mais caracteres'); if (!ids.length) falta.push('pelo menos uma mentoria');
+    if (senha.length < 8) falta.push('senha com 8 ou mais caracteres'); if (!ids.length) falta.push('pelo menos um plano de estudos');
     if (falta.length) { out.innerHTML = '<div class="msg" style="margin-top:14px">Falta: ' + falta.join(', ') + '.</div>'; return; }
     if (T.demo) { var t0 = mensagem(nome, email, senha, ids); out.innerHTML = '<div class="msg ok" style="margin-top:14px">Demonstração: nada foi salvo.</div>' + blocoResultado(t0, tel); ligarCopiar(out, t0); return; }
 
@@ -124,7 +124,7 @@
       var r = await tmp.auth.signUp({ email: email, password: senha, options: { data: { nome: nome, telefone: tel } } });
       if (r.error) throw r.error;
       var u = r.data.user;
-      if (!u || (u.identities && u.identities.length === 0)) throw new Error('Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere a mentoria por lá.');
+      if (!u || (u.identities && u.identities.length === 0)) throw new Error('Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere o plano de estudos por lá.');
       var rows = ids.map(function (id) { return { user_id: u.id, curso_id: id, ativo: true }; });
       var m = await T.sb.from('matriculas').upsert(rows);
       if (m.error) throw m.error;
@@ -137,7 +137,7 @@
       carregar();
     } catch (err) {
       console.error(err);
-      var txtErr = /registered|already/i.test(err.message) ? 'Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere a mentoria por lá.' :
+      var txtErr = /registered|already/i.test(err.message) ? 'Esse e-mail já tem cadastro. Procure o aluno na lista abaixo e libere o plano de estudos por lá.' :
         /rate limit|security purposes/i.test(err.message) ? 'O Supabase limitou cadastros seguidos. Espere um minuto e tente de novo.' : err.message;
       out.innerHTML = '<div class="msg" style="margin-top:14px">' + esc(txtErr) + '</div>';
     }
